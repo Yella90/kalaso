@@ -1,5 +1,6 @@
 import type { Dictionary } from '@/lib/i18n';
 import type { Block, Lesson } from '@/lib/lessons/types';
+import { LewisDiagram } from './LewisDiagram';
 import { RichText, TexBlock } from './RichText';
 
 function BlockView({ block, t }: { block: Block; t: Dictionary['lesson'] }) {
@@ -91,14 +92,22 @@ function BlockView({ block, t }: { block: Block; t: Dictionary['lesson'] }) {
           </p>
         </div>
       );
+    case 'lewis':
+      return (
+        <div className="flex flex-wrap items-end justify-around gap-x-6 gap-y-4 rounded-xl border border-line bg-surface px-4 py-4">
+          {block.molecules.map((m) => (
+            <LewisDiagram key={m.name} molecule={m} />
+          ))}
+        </div>
+      );
     case 'table':
       return (
         <div className="overflow-x-auto rounded-xl border border-line bg-surface">
           <table className="w-full text-left text-[0.95rem]">
             <thead className="bg-paper">
               <tr>
-                {block.head.map((h) => (
-                  <th key={h} scope="col" className="px-3 py-2 font-bold">
+                {block.head.map((h, i) => (
+                  <th key={i} scope="col" className="px-3 py-2 font-bold">
                     <RichText text={h} />
                   </th>
                 ))}

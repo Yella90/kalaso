@@ -49,9 +49,9 @@ export const CHIMIE: SubjectProgram[] = [
     chapters: [
       { id: 'atome', title: 'Constitution de l’atome', notions: ['Protons, neutrons, électrons', 'Isotopes', 'Répartition électronique K, L, M'], simulation: 'atome' },
       { id: 'classification', title: 'Classification périodique des éléments', notions: ['Périodes et familles', 'Règles du duet et de l’octet'], simulation: 'tableau-periodique' },
-      { id: 'ions-liaison-ionique', title: 'Les ions et la liaison ionique' },
+      { id: 'ions-liaison-ionique', title: 'Les ions et la liaison ionique', notions: ['Ions polyatomiques', 'Cristal ionique', 'Solutions ioniques'], simulation: 'atome' },
       { id: 'liaison-covalente', title: 'La liaison covalente et les molécules', notions: ['Schéma de Lewis', 'Géométrie des molécules'] },
-      { id: 'mole', title: 'La mole et les quantités de matière', notions: ['Masse molaire', 'n = m / M'] },
+      { id: 'mole', title: 'La mole et les quantités de matière', notions: ['Constante d’Avogadro', 'Masse molaire', 'n = m / M'] },
       { id: 'gaz', title: 'Les gaz : volume molaire', notions: ['Loi d’Avogadro-Ampère'] },
       { id: 'solutions', title: 'Les solutions aqueuses', notions: ['Concentration molaire et massique', 'Dilution'] },
       { id: 'equation-bilan', title: 'L’équation-bilan d’une réaction', notions: ['Équilibrer une équation', 'Réactif limitant'] },

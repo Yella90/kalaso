@@ -10,7 +10,24 @@ export type Block =
   | { kind: 'formula'; tex: string; legend?: string[] }
   | { kind: 'example'; title?: string; text: string; steps?: string[] }
   | { kind: 'trap'; wrong: string; why: string; reflex: string }
-  | { kind: 'table'; head: string[]; rows: string[][] };
+  | { kind: 'table'; head: string[]; rows: string[][] }
+  | { kind: 'lewis'; molecules: LewisMolecule[] };
+
+export interface LewisAtom {
+  symbol: string;
+  /** Position en unités de liaison ; y augmente vers le bas. */
+  x: number;
+  y: number;
+  /** Doublets non liants : direction de chacun en degrés (0 = droite, 90 = haut). */
+  pairs?: number[];
+}
+
+/** Schéma de Lewis : atomes, liaisons (simple, double, triple) et doublets non liants. */
+export interface LewisMolecule {
+  name: string;
+  atoms: LewisAtom[];
+  bonds: [from: number, to: number, order: 1 | 2 | 3][];
+}
 
 export interface LessonSection {
   title: string;

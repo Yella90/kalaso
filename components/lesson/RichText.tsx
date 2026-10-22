@@ -8,6 +8,7 @@ export function renderTex(tex: string, displayMode = false): string {
 }
 
 const TOKEN = /(\$[^$]+\$|\*\*[^*]+\*\*)/g;
+const LONG_FORMULA = 24;
 
 /** Texte avec **gras** et $formules$. */
 export function RichText({ text }: { text: string }) {
@@ -16,7 +17,16 @@ export function RichText({ text }: { text: string }) {
     <>
       {parts.map((part, i) => {
         if (part.startsWith('$') && part.endsWith('$')) {
-          return <span key={i} dangerouslySetInnerHTML={{ __html: renderTex(part.slice(1, -1)) }} />;
+          const tex = part.slice(1, -1);
+          // Une longue équation ne se coupe pas : sur un petit écran, elle défile dans sa propre boîte.
+          const long = tex.length > LONG_FORMULA;
+          return (
+            <span
+              key={i}
+              className={long ? 'inline-block max-w-full overflow-x-auto overflow-y-hidden py-0.5 align-middle' : undefined}
+              dangerouslySetInnerHTML={{ __html: renderTex(tex) }}
+            />
+          );
         }
         if (part.startsWith('**') && part.endsWith('**')) {
           return (
