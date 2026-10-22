@@ -11,6 +11,7 @@ import { AtomBuilder } from '@/components/sim/AtomBuilder';
 import { PeriodicTable } from '@/components/sim/PeriodicTable';
 import { getAllPrograms, getProgram, isClassId, isSubjectId, SUBJECTS, type SimulationId } from '@/lib/curriculum';
 import { format, getDictionary, hasLocale, type Dictionary, type Locale } from '@/lib/i18n';
+import { getAdventuresForChapter } from '@/lib/adventures';
 import { getLesson } from '@/lib/lessons';
 
 const STEPS = ['cours', 'simuler', 'exercer', 'appliquer'] as const;
@@ -48,6 +49,7 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
   const t = getDictionary(lang);
   const chapter = program.chapters[index];
   const lesson = getLesson(classe, matiere, chapitre, lang);
+  const adventures = getAdventuresForChapter(classe, matiere, chapitre);
   const previous = program.chapters[index - 1];
   const next = program.chapters[index + 1];
   const color = `var(${SUBJECTS.find((s) => s.id === matiere)!.colorVar})`;
@@ -79,7 +81,26 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
       </div>
     ),
     exercer: lesson && <LessonExercises lesson={lesson} t={t.lesson} />,
-    appliquer: lesson && lesson.applications.length > 0 && <LessonApplications lesson={lesson} t={t.lesson} />,
+    appliquer: (lesson?.applications.length || adventures.length > 0) && (
+      <div className="flex flex-col gap-8">
+        {lesson && lesson.applications.length > 0 && <LessonApplications lesson={lesson} t={t.lesson} />}
+        {adventures.length > 0 && (
+          <div>
+            <h3 className="text-2xl">{t.lesson.adventures}</h3>
+            <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+              {adventures.map((a) => (
+                <li key={a.id}>
+                  <Link href={`/${lang}/aventures/${a.id}`} className="block h-full rounded-xl border border-line bg-surface p-4 hover:border-ink">
+                    <span className="font-serif text-lg font-bold">{a.title}</span>
+                    <span className="mt-1 block text-sm text-muted">{a.pitch}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    ),
   };
 
   return (

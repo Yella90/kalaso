@@ -15,6 +15,9 @@ export function SiteHeader({ lang, t }: { lang: Locale; t: Dictionary }) {
           <Link href={`/${lang}#classes`} className="rounded px-3 py-2 text-on-ink-muted hover:text-on-ink">
             {t.nav.classes}
           </Link>
+          <Link href={`/${lang}/aventures`} className="rounded px-3 py-2 text-on-ink-muted hover:text-on-ink">
+            {t.nav.adventures}
+          </Link>
           <Link href={`/${lang}/atome`} className="rounded px-3 py-2 text-on-ink-muted hover:text-on-ink">
             {t.nav.atom}
           </Link>
@@ -28,6 +31,9 @@ export function SiteHeader({ lang, t }: { lang: Locale; t: Dictionary }) {
       <nav aria-label={t.nav.main} className="flex gap-1 overflow-x-auto px-2 pb-2 text-sm md:hidden">
         <Link href={`/${lang}#classes`} className="shrink-0 rounded px-3 py-2 text-on-ink-muted">
           {t.nav.classes}
+        </Link>
+        <Link href={`/${lang}/aventures`} className="shrink-0 rounded px-3 py-2 text-on-ink-muted">
+          {t.nav.adventures}
         </Link>
         <Link href={`/${lang}/atome`} className="shrink-0 rounded px-3 py-2 text-on-ink-muted">
           {t.nav.atom}

@@ -1,0 +1,95 @@
+import type { Adventure } from '../types';
+
+export const adventure: Adventure = {
+  id: 'pompe-solaire',
+  title: 'La pompe solaire du jardin',
+  subject: 'physique',
+  classes: ['8e', '9e'],
+  pitch: 'Les femmes du village arrosent leur jardin à la main. Installe une pompe qui marche au soleil.',
+  intro:
+    'Dans un village de la région de Ségou, l’association des femmes cultive un grand jardin de légumes. Chaque jour, elles tirent l’eau du puits à la corde, seau après seau. Avec l’argent des récoltes, elles ont acheté une pompe électrique et des panneaux solaires. Il faut maintenant les installer correctement.',
+  missions: [
+    {
+      id: 'montage',
+      title: 'Brancher l’interrupteur',
+      story: 'Aminata veut pouvoir allumer et éteindre la pompe avec un interrupteur. Elle hésite sur l’endroit où le placer dans le circuit.',
+      notions: [{ classId: '8e', subject: 'physique', chapterId: 'circuit-simple' }],
+      challenge: {
+        kind: 'choice',
+        question: 'Comment faut-il placer l’interrupteur pour qu’il commande la pompe ?',
+        choices: ['en dérivation aux bornes de la pompe', 'en série avec la pompe', 'n’importe où, cela ne change rien', 'à côté du circuit, sans le brancher'],
+        answer: 1,
+      },
+      hints: ['Un interrupteur ouvert doit couper le passage du courant dans la pompe.'],
+      solution: [
+        'En série : quand l’interrupteur est ouvert, le circuit est coupé et la pompe s’arrête.',
+        'En dérivation, fermer l’interrupteur ferait un court-circuit : la pompe s’arrêterait, mais les fils chaufferaient dangereusement.',
+      ],
+      debrief: 'L’interrupteur est installé en série, à l’abri de la pluie dans un petit boîtier.',
+    },
+    {
+      id: 'puissance-panneau',
+      title: 'La puissance d’un panneau',
+      story: 'En plein soleil, Aminata mesure la tension et l’intensité fournies par un panneau.',
+      data: ['Tension : $U = 18$ V', 'Intensité : $I = 5$ A'],
+      notions: [
+        { classId: '8e', subject: 'physique', chapterId: 'tension' },
+        { classId: '9e', subject: 'physique', chapterId: 'puissance-energie' },
+      ],
+      challenge: { kind: 'numeric', question: 'Quelle puissance électrique fournit un panneau ?', answer: 90, unit: 'W', tolerance: 0.01 },
+      hints: ['$P = U \\times I$'],
+      solution: ['$P = 18 \\times 5 = 90$ W.'],
+      debrief: 'Chaque panneau fournit 90 W en plein soleil. Le matin et le soir, ce sera moins.',
+    },
+    {
+      id: 'nombre-panneaux',
+      title: 'Combien de panneaux ?',
+      story: 'La plaque de la pompe indique qu’elle consomme 240 W.',
+      data: ['Puissance de la pompe : 240 W', 'Puissance d’un panneau : 90 W'],
+      notions: [{ classId: '9e', subject: 'physique', chapterId: 'puissance-energie' }],
+      challenge: { kind: 'numeric', question: 'Combien de panneaux faut-il au minimum ?', answer: 3, unit: 'panneaux', tolerance: 0.001 },
+      hints: ['Divise la puissance de la pompe par celle d’un panneau, puis arrondis au nombre entier supérieur.'],
+      solution: ['$\\dfrac{240}{90} \\approx 2{,}67$. Deux panneaux ne suffisent pas : il en faut **3**.'],
+      debrief: 'Avec 3 panneaux, soit 270 W, la pompe démarre même quand un petit nuage passe.',
+    },
+    {
+      id: 'cable',
+      title: 'Le long câble',
+      story:
+        'Les panneaux sont sur un toit, à 40 m du puits. Le câble a une résistance de 0,5 Ω. La pompe fonctionne sous 24 V et consomme 240 W : le courant vaut 10 A. Quand le courant le traverse, une partie de la tension est perdue dans le câble.',
+      data: ['Résistance du câble : $R = 0{,}5\\ \\Omega$', 'Intensité du courant : $I = 10$ A'],
+      notions: [{ classId: '9e', subject: 'physique', chapterId: 'loi-ohm' }],
+      challenge: { kind: 'numeric', question: 'Quelle tension est perdue dans le câble ?', answer: 5, unit: 'V', tolerance: 0.01 },
+      hints: ['Loi d’Ohm : $U = R \\times I$.'],
+      solution: ['$U = 0{,}5 \\times 10 = 5$ V.', 'C’est beaucoup : avec un câble plus gros, la résistance et la perte seraient plus faibles.'],
+      debrief: 'Les femmes choisissent un câble plus épais pour ne pas gaspiller l’énergie du soleil.',
+    },
+    {
+      id: 'energie',
+      title: 'L’énergie de la journée',
+      story: 'La pompe fonctionne 4 heures par jour, aux heures les plus ensoleillées.',
+      data: ['Puissance de la pompe : 240 W', 'Durée : 4 h par jour'],
+      notions: [{ classId: '9e', subject: 'physique', chapterId: 'puissance-energie' }],
+      challenge: { kind: 'numeric', question: 'Quelle énergie la pompe consomme-t-elle par jour, en kilowattheures ?', answer: 0.96, unit: 'kWh', tolerance: 0.02 },
+      hints: ['$E = P \\times t$, avec $P$ en kW et $t$ en heures.'],
+      solution: ['$E = 0{,}240 \\times 4 = 0{,}96$ kWh par jour.'],
+      debrief: 'Cette énergie est gratuite : elle vient du soleil. Avec un groupe électrogène, il faudrait acheter du carburant chaque jour.',
+    },
+    {
+      id: 'arrosage',
+      title: 'Assez d’eau pour le jardin ?',
+      story: 'La pompe a un débit de 1,5 m³ par heure. Le jardin mesure 1 000 m² et chaque mètre carré a besoin de 5 litres d’eau par jour.',
+      data: ['Débit : 1,5 m³/h pendant 4 h', '1 m³ = 1 000 L', 'Besoin : 5 L par m² pour 1 000 m²'],
+      notions: [{ classId: '7e', subject: 'physique', chapterId: 'mesure-longueurs' }],
+      challenge: { kind: 'numeric', question: 'Quel volume d’eau la pompe remonte-t-elle chaque jour, en litres ?', answer: 6000, unit: 'L', tolerance: 0.01 },
+      hints: ['Volume = débit × durée, puis convertis les m³ en litres.'],
+      solution: [
+        '$1{,}5 \\times 4 = 6$ m³, soit 6 000 L.',
+        'Le jardin a besoin de $5 \\times 1\\,000 = 5\\,000$ L : la pompe suffit, avec 1 000 L de réserve.',
+      ],
+      debrief: 'La réserve sert à remplir un bassin pour les jours nuageux.',
+    },
+  ],
+  outro:
+    'Fini les seaux ! Le jardin est arrosé chaque jour par le soleil. Les femmes ont même agrandi leurs planches de légumes. Circuit, tension, intensité, puissance, loi d’Ohm et énergie : tout ce que tu as appris en 8e et en 9e a servi.',
+};

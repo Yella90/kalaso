@@ -126,7 +126,12 @@ export default async function HomePage({ params }: PageProps<'/[lang]'>) {
               </li>
             ))}
           </ol>
-          <p className="mt-6 text-sm text-on-ink-muted">{t.home.adventureSoon}</p>
+          <Link
+            href={`/${lang}/aventures`}
+            className="mt-6 inline-block rounded-full bg-focus px-5 py-3 font-bold text-ink hover:brightness-105"
+          >
+            {t.home.adventureCta}
+          </Link>
         </div>
       </section>
     </>
