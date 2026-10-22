@@ -32,11 +32,17 @@ export function AdventureRunner({
   adventureId,
   missions,
   outro,
+  freeCount,
+  lockedPanel,
   t,
 }: {
   adventureId: string;
   missions: RenderedMission[];
   outro: ReactNode;
+  /** Nombre de missions ouvertes sans accès annuel (toutes si l'élève est activé). */
+  freeCount: number;
+  /** Encart affiché à la place des missions réservées. */
+  lockedPanel: ReactNode;
   t: Dictionary['adventure'];
 }) {
   const progress = useProgress();
@@ -61,6 +67,10 @@ export function AdventureRunner({
       <ol className="mt-2 flex flex-col gap-4">
         {missions.map((mission, i) => {
           const isDone = done.includes(mission.id);
+          if (!isDone && i >= freeCount) {
+            // Missions réservées : l'encart n'apparaît qu'une fois, à la première d'entre elles.
+            return i === Math.max(freeCount, firstOpen) ? <li key={mission.id}>{lockedPanel}</li> : null;
+          }
           const locked = !isDone && i !== firstOpen;
           return (
             <li key={mission.id} className={`rounded-2xl border bg-surface ${i === firstOpen ? 'border-[var(--subject)] border-2' : 'border-line'}`}>

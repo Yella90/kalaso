@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kalanso
 
-## Getting Started
+Plateforme de sciences pour les élèves maliens, de la 7e année au Bac : Maths, Physique, Chimie, Biologie.
+Chaque chapitre suit le parcours **Cours → Simuler → S'exercer → Appliquer**, et des **aventures** font
+utiliser les notions dans un vrai projet. Interface en français et en bamanankan (brouillon à relire).
 
-First, run the development server:
+## Lancer en local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Puis ouvrir http://localhost:3000/fr. Sans configuration, les comptes utilisent une base **en mémoire**
+(tout est perdu au redémarrage). Pour devenir administrateur en local, mettre son numéro dans
+`ADMIN_PHONES` (voir `.env.example`) avant de créer le compte.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Mettre en ligne avec les comptes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Créer un projet Supabase, puis exécuter `supabase/migrations/0001_comptes_activation.sql`
+   (SQL Editor, ou `supabase db push`). Les tables sont protégées par RLS sans politique :
+   seul le serveur, avec la clé `service_role`, y accède.
+2. Chez l'hébergeur (Vercel par exemple), définir `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` et `ADMIN_PHONES`.
+3. Créer son compte avec un numéro listé dans `ADMIN_PHONES`, puis générer des codes sur `/fr/admin/codes`.
 
-## Learn More
+Sans ces variables en production, les comptes sont désactivés et **tout le contenu reste ouvert**.
 
-To learn more about Next.js, take a look at the following resources:
+## Ce qui est réservé aux comptes activés
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Ouvert à tous : cours, simulations, deux premières missions de chaque aventure.
+- Accès annuel : exercices corrigés, quiz, « Appliquer », suite des aventures.
+- Les enseignants et administrateurs ont accès à tout sans code.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Organisation
 
-## Deploy on Vercel
+| Dossier | Contenu |
+|---|---|
+| `lib/curriculum/` | Programme de la 7e à la 12e, par matière (statut officiel ou anticipé) |
+| `lib/lessons/content/` | Leçons rédigées (cours, exercices, quiz, vie réelle) |
+| `lib/adventures/content/` | Aventures et leurs missions |
+| `lib/i18n/` | Textes de l'interface : `fr.ts` (référence) et `bm.ts` (bamanankan) |
+| `lib/server/` | Comptes, sessions, codes d'activation (serveur uniquement) |
+| `docs/bambara-relecture.md` | Vocabulaire bambara à faire valider |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ajouter une leçon : un fichier dans `lib/lessons/content/` et une ligne dans `lib/lessons/index.ts`.
+Ajouter une aventure : un fichier dans `lib/adventures/content/` et une ligne dans `lib/adventures/index.ts`.

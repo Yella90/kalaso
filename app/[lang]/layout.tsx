@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { getDictionary, hasLocale, HTML_LANG, LOCALES } from '@/lib/i18n';
+import { ProgressSync } from '@/lib/progress/sync';
 import 'katex/dist/katex.min.css';
 import '../globals.css';
 
@@ -53,6 +54,7 @@ export default async function RootLayout({ children, params }: LayoutProps<'/[la
           {children}
         </main>
         <SiteFooter t={t} />
+        <ProgressSync />
       </body>
     </html>
   );

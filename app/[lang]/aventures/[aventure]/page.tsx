@@ -6,6 +6,11 @@ import { RichText } from '@/components/lesson/RichText';
 import { getAdventure, getAdventures } from '@/lib/adventures';
 import { getChapter, SUBJECTS } from '@/lib/curriculum';
 import { format, getDictionary, hasLocale } from '@/lib/i18n';
+import { getViewer, hasFullAccess } from '@/lib/server/auth';
+import { LockedPanel } from '@/components/account/LockedPanel';
+
+/** Missions ouvertes à tous dans chaque aventure. */
+const FREE_MISSIONS = 2;
 
 export function generateStaticParams() {
   return getAdventures().map((a) => ({ aventure: a.id }));
@@ -25,6 +30,8 @@ export default async function AdventurePage({ params }: PageProps<'/[lang]/avent
   if (!hasLocale(lang) || !adventure) notFound();
   const t = getDictionary(lang);
   const color = `var(${SUBJECTS.find((s) => s.id === adventure.subject)!.colorVar})`;
+  const viewer = await getViewer();
+  const freeCount = hasFullAccess(viewer) ? adventure.missions.length : FREE_MISSIONS;
 
   // Les textes et formules sont rendus ici, côté serveur ; le composant client gère les défis.
   const missions: RenderedMission[] = adventure.missions.map((m) => ({
@@ -65,7 +72,22 @@ export default async function AdventurePage({ params }: PageProps<'/[lang]/avent
         <RichText text={adventure.intro} />
       </p>
       <div className="mt-8">
-        <AdventureRunner adventureId={adventure.id} missions={missions} outro={<RichText text={adventure.outro} />} t={t.adventure} />
+        <AdventureRunner
+          adventureId={adventure.id}
+          missions={missions}
+          outro={<RichText text={adventure.outro} />}
+          freeCount={freeCount}
+          lockedPanel={
+            <LockedPanel
+              lang={lang}
+              viewer={viewer}
+              returnTo={`/${lang}/aventures/${adventure.id}`}
+              text={t.account.locked.adventure}
+              t={t.account.locked}
+            />
+          }
+          t={t.adventure}
+        />
       </div>
     </div>
   );

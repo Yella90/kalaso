@@ -13,6 +13,9 @@ import { getAllPrograms, getProgram, isClassId, isSubjectId, SUBJECTS, type Simu
 import { format, getDictionary, hasLocale, type Dictionary, type Locale } from '@/lib/i18n';
 import { getAdventuresForChapter } from '@/lib/adventures';
 import { getLesson } from '@/lib/lessons';
+import { getViewer, hasFullAccess } from '@/lib/server/auth';
+import { LockedPanel } from '@/components/account/LockedPanel';
+import { ChapterVisit } from '@/components/lesson/ChapterVisit';
 
 const STEPS = ['cours', 'simuler', 'exercer', 'appliquer'] as const;
 type Step = (typeof STEPS)[number];
@@ -50,6 +53,9 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
   const chapter = program.chapters[index];
   const lesson = getLesson(classe, matiere, chapitre, lang);
   const adventures = getAdventuresForChapter(classe, matiere, chapitre);
+  const viewer = await getViewer();
+  const fullAccess = hasFullAccess(viewer);
+  const chapterKey = `${classe}/${matiere}/${chapitre}`;
   const previous = program.chapters[index - 1];
   const next = program.chapters[index + 1];
   const color = `var(${SUBJECTS.find((s) => s.id === matiere)!.colorVar})`;
@@ -80,7 +86,7 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
         <Simulation id={chapter.simulation} lang={lang} t={t} />
       </div>
     ),
-    exercer: lesson && <LessonExercises lesson={lesson} t={t.lesson} />,
+    exercer: lesson && <LessonExercises lesson={lesson} quizKey={chapterKey} t={t.lesson} />,
     appliquer: (lesson?.applications.length || adventures.length > 0) && (
       <div className="flex flex-col gap-8">
         {lesson && lesson.applications.length > 0 && <LessonApplications lesson={lesson} t={t.lesson} />}
@@ -103,8 +109,18 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
     ),
   };
 
+  // Les étapes « S'exercer » et « Appliquer » font partie de l'accès annuel.
+  const locked = (
+    <LockedPanel lang={lang} viewer={viewer} returnTo={`/${lang}/${chapterKey}`} text={t.account.locked.text} t={t.account.locked} />
+  );
+  if (!fullAccess) {
+    if (content.exercer) content.exercer = locked;
+    if (content.appliquer) content.appliquer = locked;
+  }
+
   return (
     <div className="mx-auto max-w-4xl px-4 pt-6 sm:px-6" style={{ ['--subject' as string]: color }}>
+      <ChapterVisit chapterKey={chapterKey} />
       <Breadcrumb label={t.nav.breadcrumb}
         items={[
           { href: `/${lang}`, label: t.nav.home },

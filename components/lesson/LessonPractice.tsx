@@ -53,7 +53,7 @@ function ExerciseCard({ exercise, index, t }: { exercise: Exercise; index: numbe
   );
 }
 
-export function LessonExercises({ lesson, t }: { lesson: Lesson; t: Dictionary['lesson'] }) {
+export function LessonExercises({ lesson, quizKey, t }: { lesson: Lesson; quizKey: string; t: Dictionary['lesson'] }) {
   return (
     <div className="flex flex-col gap-10">
       <div>
@@ -70,6 +70,7 @@ export function LessonExercises({ lesson, t }: { lesson: Lesson; t: Dictionary['
         {/* Les formules sont rendues ici, côté serveur ; le quiz ne gère que l'interaction. */}
         <QuizRunner
           t={t}
+          quizKey={quizKey}
           questions={lesson.quiz.map((q) => ({
             question: <RichText text={q.question} />,
             choices: q.choices.map((c) => <RichText key={c} text={c} />),

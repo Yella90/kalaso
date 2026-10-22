@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { format, type Dictionary } from '@/lib/i18n';
+import { recordQuiz } from '@/lib/progress/store';
 
 export interface RenderedQuestion {
   question: ReactNode;
@@ -11,10 +12,15 @@ export interface RenderedQuestion {
 }
 
 /** Quiz à correction immédiate : une réponse par question, puis l'explication. */
-export function QuizRunner({ questions, t }: { questions: RenderedQuestion[]; t: Dictionary['lesson'] }) {
+export function QuizRunner({ questions, quizKey, t }: { questions: RenderedQuestion[]; quizKey: string; t: Dictionary['lesson'] }) {
   const [picked, setPicked] = useState<(number | null)[]>(() => questions.map(() => null));
   const answered = picked.filter((p) => p !== null).length;
   const score = picked.filter((p, i) => p === questions[i].answer).length;
+
+  // Quiz terminé : on garde le meilleur score dans la progression.
+  useEffect(() => {
+    if (answered === questions.length) recordQuiz(quizKey, score, questions.length);
+  }, [answered, score, quizKey, questions.length]);
 
   return (
     <div className="mt-4 flex flex-col gap-4">
