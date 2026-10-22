@@ -22,6 +22,14 @@
   --on-ink-muted: #a9b2cf;
   --focus: #f2b705;
 
+  /* Pièges et erreurs */
+  --alert: #c2410c;
+  --alert-ink: #9a3412;
+  --alert-soft: #fff4ec;
+  /* Réponse juste */
+  --good: #15803d;
+  --good-soft: #ecfdf3;
+
   /* Familles du tableau périodique */
   --el-metal-alcalin: #f6c8a8;
   --el-alcalino-terreux: #f7dea0;
@@ -49,6 +57,11 @@
   --color-on-ink: var(--on-ink);
   --color-on-ink-muted: var(--on-ink-muted);
   --color-focus: var(--focus);
+  --color-alert: var(--alert);
+  --color-alert-ink: var(--alert-ink);
+  --color-alert-soft: var(--alert-soft);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
 
   --font-serif: var(--font-gentium), "Gentium Plus", Georgia, serif;
   --font-sans: var(--font-andika), "Andika", "Noto Sans", system-ui, sans-serif;
@@ -94,6 +107,12 @@ p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* KaTeX place une copie MathML invisible en position absolue : on l'attache à sa formule
+   pour qu'elle ne sorte pas des tableaux défilants et n'élargisse pas la page sur mobile. */
+.katex {
+  position: relative;
 }
 
 /* Orbite des électrons dans le schéma de l'atome */

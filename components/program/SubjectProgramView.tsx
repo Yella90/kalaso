@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { groupChapters, SUBJECTS, type SubjectProgram } from '@/lib/curriculum';
 import { format, type Dictionary, type Locale } from '@/lib/i18n';
+import { hasLesson } from '@/lib/lessons';
 
 export function trimesterLabel(t: Dictionary, n: number) {
   return n === 1 ? t.program.trimester1 : format(t.program.trimester, { n });
@@ -72,6 +73,9 @@ export function SubjectProgramView({ lang, t, program, showHeading = true, showS
                     <span className="flex shrink-0 flex-col items-end gap-1 text-xs text-muted">
                       {chapter.series && <span>{format(t.program.seriesOnly, { series: chapter.series.join(', ') })}</span>}
                       {chapter.hours && <span>{format(t.program.hours, { n: chapter.hours })}</span>}
+                      {hasLesson(program.classId, program.subject, chapter.id) && (
+                        <span className="rounded-full bg-ink px-2 py-0.5 font-bold text-on-ink">{t.steps.cours.name}</span>
+                      )}
                       {chapter.simulation && (
                         <span className="rounded-full bg-focus px-2 py-0.5 font-bold text-ink">{t.steps.simuler.name}</span>
                       )}

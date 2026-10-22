@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { getDictionary, hasLocale, HTML_LANG, LOCALES } from '@/lib/i18n';
+import 'katex/dist/katex.min.css';
 import '../globals.css';
 
 const gentium = Gentium_Book_Plus({
