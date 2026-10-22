@@ -6,6 +6,12 @@ import { lesson as chimie10Covalente } from './content/10e-chimie-covalente';
 import { lesson as chimie10Ions } from './content/10e-chimie-ions';
 import { lesson as chimie10Mole } from './content/10e-chimie-mole';
 import { lesson as chimie9Atome } from './content/9e-chimie-atome';
+import { lesson as chimie10AtomeBm } from './content-bm/10e-chimie-atome';
+import { lesson as chimie10ClassificationBm } from './content-bm/10e-chimie-classification';
+import { lesson as chimie10CovalenteBm } from './content-bm/10e-chimie-covalente';
+import { lesson as chimie10IonsBm } from './content-bm/10e-chimie-ions';
+import { lesson as chimie10MoleBm } from './content-bm/10e-chimie-mole';
+import { lesson as chimie9AtomeBm } from './content-bm/9e-chimie-atome';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -21,7 +27,15 @@ const LESSONS_FR: Record<string, Lesson> = {
   '10e/chimie/mole': chimie10Mole,
 };
 
-const LESSONS_BM: Record<string, Lesson> = {};
+// Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).
+const LESSONS_BM: Record<string, Lesson> = {
+  '9e/chimie/atome': chimie9AtomeBm,
+  '10e/chimie/atome': chimie10AtomeBm,
+  '10e/chimie/classification': chimie10ClassificationBm,
+  '10e/chimie/ions-liaison-ionique': chimie10IonsBm,
+  '10e/chimie/liaison-covalente': chimie10CovalenteBm,
+  '10e/chimie/mole': chimie10MoleBm,
+};
 
 export function getLesson(classId: ClassId, subject: SubjectId, chapterId: string, locale: Locale): Lesson | undefined {
   const key = `${classId}/${subject}/${chapterId}`;

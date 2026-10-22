@@ -1,18 +1,18 @@
 import type { LewisMolecule, Lesson } from '../types';
 
-const H2: LewisMolecule = {
+export const H2: LewisMolecule = {
   name: 'dihydrogène H₂',
   atoms: [{ symbol: 'H', x: 0, y: 0 }, { symbol: 'H', x: 1, y: 0 }],
   bonds: [[0, 1, 1]],
 };
 
-const HCL: LewisMolecule = {
+export const HCL: LewisMolecule = {
   name: 'chlorure d’hydrogène HCl',
   atoms: [{ symbol: 'H', x: 0, y: 0 }, { symbol: 'Cl', x: 1.1, y: 0, pairs: [90, 0, 270] }],
   bonds: [[0, 1, 1]],
 };
 
-const H2O: LewisMolecule = {
+export const H2O: LewisMolecule = {
   name: 'eau H₂O',
   atoms: [
     { symbol: 'O', x: 0, y: 0, pairs: [55, 125] },
@@ -22,7 +22,7 @@ const H2O: LewisMolecule = {
   bonds: [[0, 1, 1], [0, 2, 1]],
 };
 
-const NH3: LewisMolecule = {
+export const NH3: LewisMolecule = {
   name: 'ammoniac NH₃',
   atoms: [
     { symbol: 'N', x: 0, y: 0, pairs: [90] },
@@ -33,7 +33,7 @@ const NH3: LewisMolecule = {
   bonds: [[0, 1, 1], [0, 2, 1], [0, 3, 1]],
 };
 
-const CH4: LewisMolecule = {
+export const CH4: LewisMolecule = {
   name: 'méthane CH₄',
   atoms: [
     { symbol: 'C', x: 0, y: 0 },
@@ -45,19 +45,19 @@ const CH4: LewisMolecule = {
   bonds: [[0, 1, 1], [0, 2, 1], [0, 3, 1], [0, 4, 1]],
 };
 
-const O2: LewisMolecule = {
+export const O2: LewisMolecule = {
   name: 'dioxygène O₂',
   atoms: [{ symbol: 'O', x: 0, y: 0, pairs: [135, 225] }, { symbol: 'O', x: 1.1, y: 0, pairs: [45, 315] }],
   bonds: [[0, 1, 2]],
 };
 
-const N2: LewisMolecule = {
+export const N2: LewisMolecule = {
   name: 'diazote N₂',
   atoms: [{ symbol: 'N', x: 0, y: 0, pairs: [180] }, { symbol: 'N', x: 1.1, y: 0, pairs: [0] }],
   bonds: [[0, 1, 3]],
 };
 
-const CO2: LewisMolecule = {
+export const CO2: LewisMolecule = {
   name: 'dioxyde de carbone CO₂',
   atoms: [
     { symbol: 'O', x: -1.15, y: 0, pairs: [135, 225] },
@@ -67,7 +67,7 @@ const CO2: LewisMolecule = {
   bonds: [[0, 1, 2], [1, 2, 2]],
 };
 
-const ETHANOL: LewisMolecule = {
+export const ETHANOL: LewisMolecule = {
   name: 'éthanol CH₃–CH₂–OH',
   atoms: [
     { symbol: 'C', x: 0, y: 0 },
@@ -83,7 +83,7 @@ const ETHANOL: LewisMolecule = {
   bonds: [[0, 1, 1], [1, 2, 1], [0, 3, 1], [0, 4, 1], [0, 5, 1], [1, 6, 1], [1, 7, 1], [2, 8, 1]],
 };
 
-const METHOXYMETHANE: LewisMolecule = {
+export const METHOXYMETHANE: LewisMolecule = {
   name: 'méthoxyméthane CH₃–O–CH₃',
   atoms: [
     { symbol: 'C', x: 0, y: 0 },

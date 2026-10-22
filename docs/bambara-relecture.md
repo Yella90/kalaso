@@ -81,3 +81,28 @@ Les textes non traduits de ces écrans (messages d'erreur, consignes longues) s'
 | Racine / sommet (d'une fonction) | rasin / kuncɛ | |
 | Croissante / décroissante | bɛ yɛlɛ / bɛ jigin | « monter » / « descendre » |
 | Erreurs des comptes, administration | (voir `bm.ts`, blocs `errors`, `locked`, `admin`) | Phrases complètes à relire |
+
+## Contenu traduit : titres, aventures, leçons (brouillon)
+
+Le contenu est maintenant traduit, en plus de l'interface :
+- titres, notions et domaines des 245 chapitres : `lib/curriculum/content-bm.ts` ;
+- textes des 5 aventures : `lib/adventures/content-bm.ts` (les nombres et les réponses viennent du français) ;
+- les 6 leçons de chimie 9e-10e : `lib/lessons/content-bm/` (les formules et schémas viennent du français).
+
+Choix à valider en priorité, car ils reviennent partout :
+
+| Français | Brouillon | Question |
+|---|---|---|
+| Atome, noyau, électron, proton, neutron, nucléon | atɔmu, kisɛ, ɛlɛkitɔrɔn, prɔtɔn, nɛtrɔn, nikleyɔn | Emprunts + *kisɛ* (vérifié) |
+| Couche électronique / électrons de valence | kuci / valansi ɛlɛkitɔrɔnw | |
+| Liaison (chimique) / doublet liant, non liant | siri / dubile sirilen, siribali | |
+| Ion, cation, anion | iyɔn, kasiyɔn, aniyɔn | |
+| Masse / masse molaire / quantité de matière | girinya / mɔli girinya / fɛn hakɛ | |
+| Solution aqueuse / dissolution / dilution | ji ɲagaminen / yeli / dilisiyɔn | |
+| Électriquement neutre | kuran bɛnnen | |
+| Cuivre | sanu wulen | Vrai mot pour « cuivre », ou un autre ? |
+| Noms des composés (chlorure de sodium…) | gardés **en français** dans les exercices de nomenclature | La règle enseignée (« l'anion d'abord ») est celle du français |
+| Plusieurs noms d'éléments et de molécules | emprunts adaptés (kilɔri, ɔkisizɛni, amonyaki…) | Orthographe à harmoniser |
+
+Les termes techniques des titres gardent souvent le mot français entre parenthèses
+(« Atɔmu jateden (numéro atomique) ») : à garder, ou à retirer une fois le vocabulaire fixé ?
