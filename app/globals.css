@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
+/*
+  Kalanso — jetons de design
+  Encre indigo (le « gala » des teinturières) sur un papier froid ;
+  une couleur par matière, prise dans les teintes de la terre et des plantes du Sahel.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #1a2340;
+  --ink-soft: #2c3760;
+  --paper: #f3f5f9;
+  --surface: #ffffff;
+  --line: #d7dce6;
+  --muted: #586179;
+
+  --maths: #3a4fd6;
+  --physique: #b45309;
+  --chimie: #0f766e;
+  --biologie: #4d7c0f;
+
+  --on-ink: #eef1fa;
+  --on-ink-muted: #a9b2cf;
+  --focus: #f2b705;
+
+  /* Familles du tableau périodique */
+  --el-metal-alcalin: #f6c8a8;
+  --el-alcalino-terreux: #f7dea0;
+  --el-transition: #c9d4f0;
+  --el-metal-pauvre: #c7e2d4;
+  --el-metalloide: #d9e7b0;
+  --el-non-metal: #b8e3e0;
+  --el-halogene: #e7c6e8;
+  --el-gaz-noble: #d6cdf4;
+  --el-lanthanide: #f2d0d6;
+  --el-actinide: #f0c2b4;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-maths: var(--maths);
+  --color-physique: var(--physique);
+  --color-chimie: var(--chimie);
+  --color-biologie: var(--biologie);
+  --color-on-ink: var(--on-ink);
+  --color-on-ink-muted: var(--on-ink-muted);
+  --color-focus: var(--focus);
+
+  --font-serif: var(--font-gentium), "Gentium Plus", Georgia, serif;
+  --font-sans: var(--font-andika), "Andika", "Noto Sans", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Orbite des électrons dans le schéma de l'atome */
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbit {
+  transform-box: view-box;
+  transform-origin: center;
+  animation: orbit linear infinite;
 }
