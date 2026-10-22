@@ -73,3 +73,11 @@ Les textes non traduits de ces écrans (messages d'erreur, consignes longues) s'
 | Circuit électrique | kuran sira | « chemin du courant » |
 | Lancer (un projectile) | fili | « jeter » |
 | Terre, Lune | Dugukolo, Kalo | |
+| Courant électrique (intensité) / tension / résistance | ɛntansite / tansiyɔn / rezisitansi | Emprunts : ou « kuran fanga » pour l'intensité ? |
+| Générateur | kuranbɔlan | « ce qui fait sortir le courant » |
+| En série / en dérivation | ɲɔgɔn nɔfɛ / ɲɔgɔn kɛrɛfɛ | « l'un derrière l'autre » / « l'un à côté de l'autre » |
+| Portée / flèche d'un tir | a sera yɔrɔ min na / sanfɛya belebele | Formulations longues : un terme plus court ? |
+| Angle | angili | Emprunt |
+| Racine / sommet (d'une fonction) | rasin / kuncɛ | |
+| Croissante / décroissante | bɛ yɛlɛ / bɛ jigin | « monter » / « descendre » |
+| Erreurs des comptes, administration | (voir `bm.ts`, blocs `errors`, `locked`, `admin`) | Phrases complètes à relire |
