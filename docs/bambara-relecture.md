@@ -53,3 +53,23 @@ Points à vérifier aussi :
 - l'usage de « i » (tu) pour s'adresser à l'élève ;
 - le pluriel après un nombre (« 12 sapitiri » ou « 12 sapitiriw ») ;
 - les tons : le dictionnaire les note (*kìsɛ*, *wàlànda*), l'interface ne les écrit pas, comme l'orthographe scolaire courante.
+
+## Nouveaux écrans (comptes, aventures, hors ligne, simulations) : à valider
+
+Ces mots ont été ajoutés après la vérification dans le dictionnaire. Ils n'ont **pas** été vérifiés.
+Les textes non traduits de ces écrans (messages d'erreur, consignes longues) s'affichent en français.
+
+| Français | Brouillon | Question |
+|---|---|---|
+| Compte | jatebɔsɛbɛn | Littéralement « papier de compte » : naturel ? |
+| Mot de passe | gundosɛbɛn | « écrit secret » : compréhensible ? |
+| Se connecter / se déconnecter | don / bɔ | Assez clair seuls, ou « don a kɔnɔ » ? |
+| Mon espace | n yɛrɛ ka yɔrɔ | |
+| Activer, code d'activation | dayɛlɛ, dayɛlɛli kode | « ouvrir » |
+| Mission (d'une aventure) | baara | « travail » ; « Baara 3nan » pour « Mission 3 » |
+| Pas de connexion internet | ɛntɛrinɛti tɛ yen | |
+| Télécharger (garder sur le téléphone) | labɔ / mara | |
+| Simulation | simulasiyɔn | Emprunt |
+| Circuit électrique | kuran sira | « chemin du courant » |
+| Lancer (un projectile) | fili | « jeter » |
+| Terre, Lune | Dugukolo, Kalo | |
