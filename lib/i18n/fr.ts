@@ -213,6 +213,17 @@ export const fr = {
       activate: 'Activer mon accès',
     },
   },
+  offline: {
+    title: 'Pas de connexion',
+    text: 'Cette page n’a pas encore été enregistrée sur ton téléphone. Les pages que tu as déjà ouvertes restent disponibles sans connexion.',
+    home: 'Retour à l’accueil',
+    saveTitle: 'Garder cette matière sur ton téléphone',
+    save: 'Télécharger les {n} chapitres',
+    saving: 'Téléchargement : {n} sur {total}…',
+    saved: 'Les {n} chapitres sont disponibles sans connexion.',
+    failed: 'Le téléchargement s’est arrêté : vérifie ta connexion.',
+    retry: 'Réessayer',
+  },
   admin: {
     title: 'Codes d’activation',
     intro: 'Chaque code active un compte élève jusqu’à la date choisie. Imprime-les ou envoie-les par SMS après le paiement.',

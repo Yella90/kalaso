@@ -5,6 +5,7 @@ import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { getDictionary, hasLocale, HTML_LANG, LOCALES } from '@/lib/i18n';
 import { ProgressSync } from '@/lib/progress/sync';
+import { ServiceWorker } from '@/components/pwa/ServiceWorker';
 import 'katex/dist/katex.min.css';
 import '../globals.css';
 
@@ -55,6 +56,7 @@ export default async function RootLayout({ children, params }: LayoutProps<'/[la
         </main>
         <SiteFooter t={t} />
         <ProgressSync />
+        <ServiceWorker />
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { StatusBadge, SubjectProgramView } from '@/components/program/SubjectProgramView';
 import { getAllPrograms, getProgram, isClassId, isSubjectId, SUBJECTS } from '@/lib/curriculum';
 import { format, getDictionary, hasLocale } from '@/lib/i18n';
+import { OfflineSaver } from '@/components/pwa/OfflineSaver';
 
 export function generateStaticParams() {
   return getAllPrograms().map((p) => ({ classe: p.classId, matiere: p.subject }));
@@ -42,6 +43,7 @@ export default async function SubjectPage({ params }: PageProps<'/[lang]/[classe
         <StatusBadge status={program.status} t={t} />
         <span>{format(t.program.chapters, { n: program.chapters.length })}</span>
       </p>
+      <OfflineSaver urls={program.chapters.map((c) => `/${lang}/${classe}/${matiere}/${c.id}`)} t={t.offline} />
       <div className="mt-6">
         <SubjectProgramView lang={lang} t={t} program={program} showHeading={false} showSource />
       </div>

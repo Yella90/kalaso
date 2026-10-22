@@ -184,6 +184,17 @@ export const bm: DeepPartial<Dictionary> = {
     quizzesDone: 'Kɔrɔbɔli minnu banna',
     chaptersVisited: 'Sapitiri minnu dayɛlɛla',
   },
+  offline: {
+    title: 'Ɛntɛrinɛti tɛ yen',
+    text: 'Nin ɲɛ in ma mara i ka telefɔni kɔnɔ fɔlɔ. I ye ɲɛ minnu dayɛlɛ ka kɔrɔ, olu bɛ se ka kalan ɛntɛrinɛti kɔ.',
+    home: 'Segin so',
+    saveTitle: 'Nin kalanko in mara i ka telefɔni kɔnɔ',
+    save: 'Sapitiri {n} labɔ',
+    saving: 'A bɛ labɔ : {n} {total} kɔnɔ…',
+    saved: 'Sapitiri {n} bɛ se ka kalan ɛntɛrinɛti kɔ.',
+    failed: 'Labɔli jɔra : i ka ɛntɛrinɛti lajɛ.',
+    retry: 'A kɛ kokura',
+  },
   atom: {
     title: 'Atɔmu dɔ dilan',
     intro:
