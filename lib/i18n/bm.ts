@@ -24,7 +24,7 @@ export const bm: DeepPartial<Dictionary> = {
     breadcrumb: 'I bɛ yɔrɔ min',
   },
   languages: { fr: 'Faransikan', bm: 'Bamanankan' },
-  bmNotice: 'Nin ye bamanankan bayɛlɛmali fɔlɔ ye, a ka kan ka lajɛ. Kalanw yɛrɛ bɛ faransikan na fɔlɔ.',
+  bmNotice: 'Nin ye bamanankan bayɛlɛmali fɔlɔ ye : karamɔgɔ dɔ ka kan k’a lajɛ. Ni kuma dɔ ma bayɛlɛma fɔlɔ, a bɛ faransikan na.',
   home: {
     heroTitle: 'Fɛn bɛɛ bɛ daminɛ ni atɔmu ye.',
     heroText:
