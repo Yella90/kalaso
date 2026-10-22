@@ -15,6 +15,7 @@ export const bm: DeepPartial<Dictionary> = {
     classes: 'Kilasiw',
     periodicTable: 'Ɛlɛmanw tabulo',
     atom: 'Atɔmu dɔ dilan',
+    simulations: 'Simulasiyɔnw',
     adventures: 'Taamaw',
     account: 'N yɛrɛ ka yɔrɔ',
     language: 'Kan',
@@ -183,6 +184,13 @@ export const bm: DeepPartial<Dictionary> = {
     missionsDone: 'Baara minnu ɲɛna',
     quizzesDone: 'Kɔrɔbɔli minnu banna',
     chaptersVisited: 'Sapitiri minnu dayɛlɛla',
+  },
+  sims: {
+    listTitle: 'Simulasiyɔnw',
+    usedIn: 'A bɛ baara kɛ',
+    circuit: { title: 'Kuran sira', voltage: 'Kuran fanga (tansiyɔn)', mode: 'Sirilancogo' },
+    projectile: { title: 'Fɛn filili', fire: 'A fili', planets: { terre: 'Dugukolo', lune: 'Kalo', mars: 'Marisi' } },
+    fonction: { title: 'Fonksiyɔnw lajɛ', none: 'si tɛ' },
   },
   offline: {
     title: 'Ɛntɛrinɛti tɛ yen',

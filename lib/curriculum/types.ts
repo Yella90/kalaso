@@ -15,7 +15,7 @@ export type CycleId = 'fondamental' | 'lycee';
 export type ProgramStatus = 'officiel' | 'anticipe';
 
 /** Simulation interactive déjà disponible pour un chapitre. */
-export type SimulationId = 'atome' | 'tableau-periodique';
+export type SimulationId = 'atome' | 'tableau-periodique' | 'circuit' | 'projectile' | 'fonction';
 
 export interface Chapter {
   /** Identifiant unique dans sa classe et sa matière (utilisé dans l'URL). */

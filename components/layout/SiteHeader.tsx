@@ -18,11 +18,8 @@ export function SiteHeader({ lang, t }: { lang: Locale; t: Dictionary }) {
           <Link href={`/${lang}/aventures`} className="rounded px-3 py-2 text-on-ink-muted hover:text-on-ink">
             {t.nav.adventures}
           </Link>
-          <Link href={`/${lang}/atome`} className="rounded px-3 py-2 text-on-ink-muted hover:text-on-ink">
-            {t.nav.atom}
-          </Link>
-          <Link href={`/${lang}/tableau-periodique`} className="rounded px-3 py-2 text-on-ink-muted hover:text-on-ink">
-            {t.nav.periodicTable}
+          <Link href={`/${lang}/simulations`} className="rounded px-3 py-2 text-on-ink-muted hover:text-on-ink">
+            {t.nav.simulations}
           </Link>
           <Link href={`/${lang}/compte`} className="rounded px-3 py-2 font-bold text-on-ink hover:text-focus">
             {t.nav.account}
@@ -38,11 +35,8 @@ export function SiteHeader({ lang, t }: { lang: Locale; t: Dictionary }) {
         <Link href={`/${lang}/aventures`} className="shrink-0 rounded px-3 py-2 text-on-ink-muted">
           {t.nav.adventures}
         </Link>
-        <Link href={`/${lang}/atome`} className="shrink-0 rounded px-3 py-2 text-on-ink-muted">
-          {t.nav.atom}
-        </Link>
-        <Link href={`/${lang}/tableau-periodique`} className="shrink-0 rounded px-3 py-2 text-on-ink-muted">
-          {t.nav.periodicTable}
+        <Link href={`/${lang}/simulations`} className="shrink-0 rounded px-3 py-2 text-on-ink-muted">
+          {t.nav.simulations}
         </Link>
         <Link href={`/${lang}/compte`} className="shrink-0 rounded px-3 py-2 font-bold text-on-ink">
           {t.nav.account}

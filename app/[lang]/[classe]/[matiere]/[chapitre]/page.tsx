@@ -1,16 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Suspense, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { LessonCourse } from '@/components/lesson/LessonCourse';
 import { LessonApplications, LessonExercises } from '@/components/lesson/LessonPractice';
 import { RichText } from '@/components/lesson/RichText';
 import { trimesterLabel } from '@/components/program/SubjectProgramView';
-import { AtomBuilder } from '@/components/sim/AtomBuilder';
-import { PeriodicTable } from '@/components/sim/PeriodicTable';
-import { getAllPrograms, getProgram, isClassId, isSubjectId, SUBJECTS, type SimulationId } from '@/lib/curriculum';
-import { format, getDictionary, hasLocale, type Dictionary, type Locale } from '@/lib/i18n';
+import { SimulationView } from '@/components/sim/SimulationView';
+import { getAllPrograms, getProgram, isClassId, isSubjectId, SUBJECTS } from '@/lib/curriculum';
+import { format, getDictionary, hasLocale } from '@/lib/i18n';
 import { getAdventuresForChapter } from '@/lib/adventures';
 import { getLesson } from '@/lib/lessons';
 import { getViewer, hasFullAccess } from '@/lib/server/auth';
@@ -19,15 +18,6 @@ import { ChapterVisit } from '@/components/lesson/ChapterVisit';
 
 const STEPS = ['cours', 'simuler', 'exercer', 'appliquer'] as const;
 type Step = (typeof STEPS)[number];
-
-function Simulation({ id, lang, t }: { id: SimulationId; lang: Locale; t: Dictionary }) {
-  // Les simulations lisent ?z= dans l'URL : elles sont rendues côté client.
-  return (
-    <Suspense>
-      {id === 'atome' ? <AtomBuilder lang={lang} t={t.atom} /> : <PeriodicTable lang={lang} t={t.table} />}
-    </Suspense>
-  );
-}
 
 export function generateStaticParams() {
   return getAllPrograms().flatMap((p) => p.chapters.map((c) => ({ classe: p.classId, matiere: p.subject, chapitre: c.id })));
@@ -83,7 +73,7 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
             </ul>
           </div>
         )}
-        <Simulation id={chapter.simulation} lang={lang} t={t} />
+        <SimulationView id={chapter.simulation} lang={lang} t={t} />
       </div>
     ),
     exercer: lesson && <LessonExercises lesson={lesson} quizKey={chapterKey} t={t.lesson} />,
