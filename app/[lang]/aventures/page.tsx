@@ -23,7 +23,7 @@ export default async function AdventuresPage({ params }: PageProps<'/[lang]/aven
       <p className="mt-3 max-w-prose text-muted">{t.adventure.listIntro}</p>
 
       <ul className="mt-8 grid gap-5 sm:grid-cols-2">
-        {getAdventures().map((a) => {
+        {getAdventures(lang).map((a) => {
           const color = `var(${SUBJECTS.find((s) => s.id === a.subject)!.colorVar})`;
           return (
             <li key={a.id}>

@@ -19,15 +19,16 @@ export function generateStaticParams() {
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: PageProps<'/[lang]/aventures/[aventure]'>): Promise<Metadata> {
-  const { aventure } = await params;
-  const adventure = getAdventure(aventure);
+  const { lang, aventure } = await params;
+  const adventure = getAdventure(aventure, hasLocale(lang) ? lang : 'fr');
   return adventure ? { title: adventure.title } : {};
 }
 
 export default async function AdventurePage({ params }: PageProps<'/[lang]/aventures/[aventure]'>) {
   const { lang, aventure } = await params;
-  const adventure = getAdventure(aventure);
-  if (!hasLocale(lang) || !adventure) notFound();
+  if (!hasLocale(lang)) notFound();
+  const adventure = getAdventure(aventure, lang);
+  if (!adventure) notFound();
   const t = getDictionary(lang);
   const color = `var(${SUBJECTS.find((s) => s.id === adventure.subject)!.colorVar})`;
   const viewer = await getViewer();

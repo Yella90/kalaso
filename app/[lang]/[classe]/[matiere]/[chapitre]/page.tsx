@@ -42,7 +42,7 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
   const t = getDictionary(lang);
   const chapter = program.chapters[index];
   const lesson = getLesson(classe, matiere, chapitre, lang);
-  const adventures = getAdventuresForChapter(classe, matiere, chapitre);
+  const adventures = getAdventuresForChapter(classe, matiere, chapitre, lang);
   const viewer = await getViewer();
   const fullAccess = hasFullAccess(viewer);
   const chapterKey = `${classe}/${matiere}/${chapitre}`;
