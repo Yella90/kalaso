@@ -9,7 +9,7 @@ export default async function HomePage({ params }: PageProps<'/[lang]'>) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const t = getDictionary(lang);
-  const programs = getAllPrograms();
+  const programs = getAllPrograms(lang);
 
   const chaptersInClass = (classId: string) =>
     programs.filter((p) => p.classId === classId).reduce((sum, p) => sum + p.chapters.length, 0);

@@ -40,7 +40,7 @@ export default async function AdventurePage({ params }: PageProps<'/[lang]/avent
     story: <RichText text={m.story} />,
     data: (m.data ?? []).map((d) => <RichText key={d} text={d} />),
     notions: m.notions.flatMap((ref) => {
-      const chapter = getChapter(ref.classId, ref.subject, ref.chapterId);
+      const chapter = getChapter(ref.classId, ref.subject, ref.chapterId, lang);
       return chapter
         ? [{ href: `/${lang}/${ref.classId}/${ref.subject}/${ref.chapterId}`, label: `${chapter.title} (${t.classShort[ref.classId]})` }]
         : [];

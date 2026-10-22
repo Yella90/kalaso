@@ -1,4 +1,5 @@
 import { getAllPrograms, type SimulationId, type SubjectId } from '@/lib/curriculum';
+import type { Locale } from '@/lib/i18n';
 
 export interface SimulationInfo {
   id: SimulationId;
@@ -16,8 +17,8 @@ export const SIMULATIONS: SimulationInfo[] = [
 ];
 
 /** Chapitres qui utilisent une simulation. */
-export function chaptersUsing(id: SimulationId) {
-  return getAllPrograms().flatMap((p) =>
+export function chaptersUsing(id: SimulationId, locale: Locale = 'fr') {
+  return getAllPrograms(locale).flatMap((p) =>
     p.chapters.filter((c) => c.simulation === id).map((c) => ({ classId: p.classId, subject: p.subject, chapter: c })),
   );
 }

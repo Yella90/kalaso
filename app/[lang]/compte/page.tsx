@@ -23,7 +23,7 @@ export default async function AccountPage({ params }: PageProps<'/[lang]/compte'
   const dateFormat = lang === 'bm' ? 'fr-ML' : 'fr-FR';
 
   const chapterTitles = Object.fromEntries(
-    getAllPrograms().flatMap((p) => p.chapters.map((c) => [`${p.classId}/${p.subject}/${c.id}`, c.title])),
+    getAllPrograms(lang).flatMap((p) => p.chapters.map((c) => [`${p.classId}/${p.subject}/${c.id}`, c.title])),
   );
 
   return (

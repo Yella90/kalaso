@@ -23,7 +23,7 @@ export default async function ClassPage({ params }: PageProps<'/[lang]/[classe]'
   if (!hasLocale(lang) || !isClassId(classe)) notFound();
   const t = getDictionary(lang);
   const info = getClass(classe);
-  const programs = SUBJECTS.map((s) => getProgram(classe, s.id)).filter((p) => p !== undefined);
+  const programs = SUBJECTS.map((s) => getProgram(classe, s.id, lang)).filter((p) => p !== undefined);
 
   return (
     <div className="mx-auto max-w-4xl px-4 pt-6 sm:px-6">

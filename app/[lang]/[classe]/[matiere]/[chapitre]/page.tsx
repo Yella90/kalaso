@@ -28,14 +28,14 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: PageProps<'/[lang]/[classe]/[matiere]/[chapitre]'>): Promise<Metadata> {
   const { lang, classe, matiere, chapitre } = await params;
   if (!hasLocale(lang) || !isClassId(classe) || !isSubjectId(matiere)) return {};
-  const chapter = getProgram(classe, matiere)?.chapters.find((c) => c.id === chapitre);
+  const chapter = getProgram(classe, matiere, lang)?.chapters.find((c) => c.id === chapitre);
   return chapter ? { title: chapter.title } : {};
 }
 
 export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe]/[matiere]/[chapitre]'>) {
   const { lang, classe, matiere, chapitre } = await params;
   if (!hasLocale(lang) || !isClassId(classe) || !isSubjectId(matiere)) notFound();
-  const program = getProgram(classe, matiere);
+  const program = getProgram(classe, matiere, lang);
   const index = program?.chapters.findIndex((c) => c.id === chapitre) ?? -1;
   if (!program || index < 0) notFound();
 

@@ -31,7 +31,7 @@ export default async function SimulationsPage({ params }: PageProps<'/[lang]/sim
         {SIMULATIONS.map((sim) => {
           const { title, intro } = simText(t, sim.id);
           const color = `var(${SUBJECTS.find((s) => s.id === sim.subject)!.colorVar})`;
-          const used = chaptersUsing(sim.id);
+          const used = chaptersUsing(sim.id, lang);
           return (
             <li key={sim.id} className="rounded-2xl border border-line bg-surface p-5" style={{ boxShadow: `inset 4px 0 0 ${color}` }}>
               <Link href={`/${lang}/${sim.path}`} className="font-serif text-2xl font-bold hover:underline">

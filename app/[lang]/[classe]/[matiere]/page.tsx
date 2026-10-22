@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps<'/[lang]/[classe]/[
 export default async function SubjectPage({ params }: PageProps<'/[lang]/[classe]/[matiere]'>) {
   const { lang, classe, matiere } = await params;
   if (!hasLocale(lang) || !isClassId(classe) || !isSubjectId(matiere)) notFound();
-  const program = getProgram(classe, matiere);
+  const program = getProgram(classe, matiere, lang);
   if (!program) notFound();
   const t = getDictionary(lang);
   const color = `var(${SUBJECTS.find((s) => s.id === matiere)!.colorVar})`;
