@@ -17,10 +17,13 @@ Puis ouvrir http://localhost:3000/fr. Sans configuration, les comptes utilisent 
 
 ## Mettre en ligne avec les comptes
 
-1. Créer un projet Supabase, puis exécuter `supabase/migrations/0001_comptes_activation.sql`
-   (SQL Editor, ou `supabase db push`). Les tables sont protégées par RLS sans politique :
-   seul le serveur, avec la clé `service_role`, y accède.
+1. Base de données : les tables `kalanso_*` sont déjà créées dans le projet Supabase **liveshop**
+   (`https://duilcacabsfokrxuvmjm.supabase.co`), partagé avec l'application liveshop. Le préfixe évite
+   tout mélange. Pour une autre base, exécuter `supabase/migrations/0001_kalanso_comptes_activation.sql`.
+   Les tables sont protégées par RLS sans politique, et les rôles `anon` et `authenticated` n'y ont
+   aucun droit : seul le serveur, avec la clé `service_role`, y accède.
 2. Chez l'hébergeur (Vercel par exemple), définir `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` et `ADMIN_PHONES`.
+   La base est à Francfort (eu-central-1) : régler la région des fonctions du site au plus près (Vercel : `fra1`).
 3. Créer son compte avec un numéro listé dans `ADMIN_PHONES`, puis générer des codes sur `/fr/admin/codes`.
 
 Sans ces variables en production, les comptes sont désactivés et **tout le contenu reste ouvert**.

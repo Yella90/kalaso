@@ -6,6 +6,15 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
 export type Role = 'student' | 'teacher' | 'admin';
 
+/** Tables préfixées : la base peut être partagée avec une autre application (voir supabase/migrations). */
+const T = {
+  users: 'kalanso_users',
+  sessions: 'kalanso_sessions',
+  activation_codes: 'kalanso_activation_codes',
+  activations: 'kalanso_activations',
+  progress: 'kalanso_progress',
+} as const;
+
 export interface UserRow {
   id: string;
   phone: string;
@@ -59,41 +68,41 @@ class SupabaseStore implements Store {
   }
 
   findUserByPhone(phone: string) {
-    return this.one<UserRow>(this.db.from('users').select('*').eq('phone', phone).maybeSingle());
+    return this.one<UserRow>(this.db.from(T.users).select('*').eq('phone', phone).maybeSingle());
   }
 
   findUserById(id: string) {
-    return this.one<UserRow>(this.db.from('users').select('*').eq('id', id).maybeSingle());
+    return this.one<UserRow>(this.db.from(T.users).select('*').eq('id', id).maybeSingle());
   }
 
   async createUser(user: Omit<UserRow, 'id' | 'created_at'>) {
-    return (await this.one<UserRow>(this.db.from('users').insert(user).select('*').single()))!;
+    return (await this.one<UserRow>(this.db.from(T.users).insert(user).select('*').single()))!;
   }
 
   async createSession(tokenHash: string, userId: string, expiresAt: Date) {
-    await this.one(this.db.from('sessions').insert({ token_hash: tokenHash, user_id: userId, expires_at: expiresAt.toISOString() }));
+    await this.one(this.db.from(T.sessions).insert({ token_hash: tokenHash, user_id: userId, expires_at: expiresAt.toISOString() }));
   }
 
   findSession(tokenHash: string) {
     return this.one<{ user_id: string; expires_at: string }>(
-      this.db.from('sessions').select('user_id, expires_at').eq('token_hash', tokenHash).maybeSingle(),
+      this.db.from(T.sessions).select('user_id, expires_at').eq('token_hash', tokenHash).maybeSingle(),
     );
   }
 
   async deleteSession(tokenHash: string) {
-    await this.one(this.db.from('sessions').delete().eq('token_hash', tokenHash));
+    await this.one(this.db.from(T.sessions).delete().eq('token_hash', tokenHash));
   }
 
   async createCodes(codes: Omit<CodeRow, 'uses' | 'created_at'>[], createdBy: string) {
-    await this.one(this.db.from('activation_codes').insert(codes.map((c) => ({ ...c, created_by: createdBy }))));
+    await this.one(this.db.from(T.activation_codes).insert(codes.map((c) => ({ ...c, created_by: createdBy }))));
   }
 
   async listCodes(limit: number) {
-    return (await this.one<CodeRow[]>(this.db.from('activation_codes').select('*').order('created_at', { ascending: false }).limit(limit))) ?? [];
+    return (await this.one<CodeRow[]>(this.db.from(T.activation_codes).select('*').order('created_at', { ascending: false }).limit(limit))) ?? [];
   }
 
   async redeemCode(userId: string, code: string) {
-    const { data, error } = await this.db.rpc('redeem_activation_code', { p_user_id: userId, p_code: code });
+    const { data, error } = await this.db.rpc('kalanso_redeem_activation_code', { p_user_id: userId, p_code: code });
     if (error) {
       const known: RedeemError[] = ['code_inconnu', 'code_expire', 'code_deja_utilise_par_vous', 'code_epuise'];
       const match = known.find((k) => error.message.includes(k));
@@ -107,18 +116,18 @@ class SupabaseStore implements Store {
   async listActivations(userId: string) {
     return (
       (await this.one<ActivationRow[]>(
-        this.db.from('activations').select('code, activated_at, expires_at').eq('user_id', userId).order('expires_at', { ascending: false }),
+        this.db.from(T.activations).select('code, activated_at, expires_at').eq('user_id', userId).order('expires_at', { ascending: false }),
       )) ?? []
     );
   }
 
   async getProgress(userId: string) {
-    const row = await this.one<{ data: unknown }>(this.db.from('progress').select('data').eq('user_id', userId).maybeSingle());
+    const row = await this.one<{ data: unknown }>(this.db.from(T.progress).select('data').eq('user_id', userId).maybeSingle());
     return row?.data ?? null;
   }
 
   async saveProgress(userId: string, data: unknown) {
-    await this.one(this.db.from('progress').upsert({ user_id: userId, data, updated_at: new Date().toISOString() }));
+    await this.one(this.db.from(T.progress).upsert({ user_id: userId, data, updated_at: new Date().toISOString() }));
   }
 }
 
