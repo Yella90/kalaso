@@ -8,7 +8,7 @@ type DeepPartial<T> = T extends readonly unknown[] ? T : T extends object ? { [K
 export const bm: DeepPartial<Dictionary> = {
   meta: {
     title: 'Kalanso — Mali porogaramu ka siyansiw, i bɛ se ka minnu lamaga',
-    description: 'Kalanw, simulasiyɔnw, ɛgzɛrisiw ani taamaw jatebɔ, fizik, simi ani biyolozi la, kabini 7nan san fo Bak.',
+    description: 'Kalanw, simulasiyɔnw, walandaw ani taamaw jatebɔ, fizik, simi ani biyolozi la, kabini 7nan san fo Bak.',
   },
   nav: {
     home: 'So',
@@ -25,7 +25,7 @@ export const bm: DeepPartial<Dictionary> = {
   home: {
     heroTitle: 'Fɛn bɛɛ bɛ daminɛ ni atɔmu ye.',
     heroText:
-      'Prɔtɔnw fara a kan, i ka a filɛ ɛlɛman bɛ yɛlɛma cogo min na. Kalanso la, i bɛ kalan kelen-kelen bɛɛ lamaga ni i bolo ye, sani i k’a degi k’a dɔn kun na.',
+      'Prɔtɔnw fara a kan, i ka a filɛ ɛlɛman bɛ yɛlɛma cogo min na. Kalanso la, i bɛ kalan kelen-kelen bɛɛ lamaga ni i bolo ye, sani i k’a dege k’a dɔn kun na.',
     heroCta: 'Atɔmu dɔ dilan',
     heroSecondary: 'Ɛlɛmanw tabulo filɛ',
     heroHint: '+ digi ka prɔtɔn dɔ fara a kan',
@@ -75,7 +75,7 @@ export const bm: DeepPartial<Dictionary> = {
   steps: {
     cours: { name: 'Kalan', text: 'Min ka kan ka to i hakili la, ani filiw minnu ka kan ka tanga u ma.' },
     simuler: { name: 'Lajɛ', text: 'Kalan in lamaga, i ka a filɛ min bɛ yɛlɛma.' },
-    exercer: { name: 'Degi', text: 'Ɛgzɛrisiw ni u jaabiw, kabini a nɔgɔmanw fo ka se ɛkizamɛn hakɛ ma.' },
+    exercer: { name: 'Dege', text: 'Walandaw ni u jaabiw, kabini a nɔgɔmanw fo ka se ɛkizamɛn hakɛ ma.' },
     appliquer: { name: 'Waleya', text: 'Kalan in waleya ɲɛnamaya yɛrɛ yɛrɛ cogoya dɔ la.' },
   },
   program: {
@@ -112,8 +112,8 @@ export const bm: DeepPartial<Dictionary> = {
     trapReflex: 'Kɛcogo ɲuman',
     essentials: 'Kunnafoni kunbabaw',
     simulationTasks: 'Simulasiyɔn kɔnɔ, i ka a lajɛ ka',
-    exercises: 'Ɛgzɛrisiw ni u jaabiw',
-    exercise: 'Ɛgzɛrisi {n}',
+    exercises: 'Walandaw ni u jaabiw',
+    exercise: 'Walanda {n}',
     level: { 1: 'Baara nɔgɔman', 2: 'Miiriya baara', 3: 'Ɛkizamɛn hakɛ' },
     hint: 'Dɛmɛ',
     solution: 'Jaabi filɛ',
