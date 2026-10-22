@@ -17,7 +17,7 @@ export default async function PeriodicTablePage({ params }: PageProps<'/[lang]/t
 
   return (
     <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
-      <Breadcrumb items={[{ href: `/${lang}`, label: t.nav.home }]} />
+      <Breadcrumb label={t.nav.breadcrumb} items={[{ href: `/${lang}`, label: t.nav.home }]} />
       <h1 className="mt-3 text-4xl sm:text-5xl">{t.table.title}</h1>
       <p className="mt-3 max-w-prose text-muted">{t.table.intro}</p>
       <div className="mt-8">

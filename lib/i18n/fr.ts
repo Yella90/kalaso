@@ -14,6 +14,8 @@ export const fr = {
     atom: 'Construire un atome',
     language: 'Langue',
     skip: 'Aller au contenu',
+    main: 'Navigation principale',
+    breadcrumb: 'Fil d’Ariane',
   },
   languages: { fr: 'Français', bm: 'Bamanankan' },
   bmNotice: 'La traduction en bamanankan est en cours. Les textes pas encore traduits restent en français.',

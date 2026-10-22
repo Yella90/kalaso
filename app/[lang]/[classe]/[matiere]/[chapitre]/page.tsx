@@ -84,7 +84,7 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
 
   return (
     <div className="mx-auto max-w-4xl px-4 pt-6 sm:px-6" style={{ ['--subject' as string]: color }}>
-      <Breadcrumb
+      <Breadcrumb label={t.nav.breadcrumb}
         items={[
           { href: `/${lang}`, label: t.nav.home },
           { href: `/${lang}/${classe}`, label: t.classes[classe] },

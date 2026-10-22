@@ -11,7 +11,7 @@ export function SiteHeader({ lang, t }: { lang: Locale; t: Dictionary }) {
           <Logo className="h-8 w-8" />
           <span className="font-serif text-2xl font-bold tracking-tight">Kalanso</span>
         </Link>
-        <nav aria-label="Principale" className="ml-auto hidden items-center gap-1 text-[0.95rem] md:flex">
+        <nav aria-label={t.nav.main} className="ml-auto hidden items-center gap-1 text-[0.95rem] md:flex">
           <Link href={`/${lang}#classes`} className="rounded px-3 py-2 text-on-ink-muted hover:text-on-ink">
             {t.nav.classes}
           </Link>
@@ -25,7 +25,7 @@ export function SiteHeader({ lang, t }: { lang: Locale; t: Dictionary }) {
         <LanguageSwitch lang={lang} labels={t.languages} label={t.nav.language} />
       </div>
       {/* Sur mobile, la navigation passe sous le logo pour rester lisible et facile à toucher. */}
-      <nav aria-label="Principale (mobile)" className="flex gap-1 overflow-x-auto px-2 pb-2 text-sm md:hidden">
+      <nav aria-label={t.nav.main} className="flex gap-1 overflow-x-auto px-2 pb-2 text-sm md:hidden">
         <Link href={`/${lang}#classes`} className="shrink-0 rounded px-3 py-2 text-on-ink-muted">
           {t.nav.classes}
         </Link>

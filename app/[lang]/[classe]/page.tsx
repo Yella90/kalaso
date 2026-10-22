@@ -27,7 +27,7 @@ export default async function ClassPage({ params }: PageProps<'/[lang]/[classe]'
 
   return (
     <div className="mx-auto max-w-4xl px-4 pt-6 sm:px-6">
-      <Breadcrumb items={[{ href: `/${lang}`, label: t.nav.home }, { href: `/${lang}#classes`, label: t.nav.classes }]} />
+      <Breadcrumb label={t.nav.breadcrumb} items={[{ href: `/${lang}`, label: t.nav.home }, { href: `/${lang}#classes`, label: t.nav.classes }]} />
       <h1 className="mt-3 text-4xl sm:text-5xl">{t.classes[classe]}</h1>
       <p className="mt-2 text-muted">
         {t.cycles[info.cycle]}

@@ -17,7 +17,7 @@ export default async function AtomPage({ params }: PageProps<'/[lang]/atome'>) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
-      <Breadcrumb items={[{ href: `/${lang}`, label: t.nav.home }]} />
+      <Breadcrumb label={t.nav.breadcrumb} items={[{ href: `/${lang}`, label: t.nav.home }]} />
       <h1 className="mt-3 text-4xl sm:text-5xl">{t.atom.title}</h1>
       <p className="mt-3 max-w-prose text-muted">{t.atom.intro}</p>
       <div className="mt-8">
