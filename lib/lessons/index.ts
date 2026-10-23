@@ -61,6 +61,18 @@ import { lesson as biologie12SoiNonSoi } from './content/12e-biologie-soi-non-so
 import { lesson as biologie12StructureCellule } from './content/12e-biologie-structure-cellule';
 import { lesson as biologie12SupportGenetique } from './content/12e-biologie-support-genetique';
 import { lesson as biologie12TransmissionGenetique } from './content/12e-biologie-transmission-genetique';
+import { lesson as physique11BilanEnergetique } from './content/11e-physique-bilan-energetique';
+import { lesson as physique11ChampElectrique } from './content/11e-physique-champ-electrique';
+import { lesson as physique11ChampMagnetique } from './content/11e-physique-champ-magnetique';
+import { lesson as physique11Condensateurs } from './content/11e-physique-condensateurs';
+import { lesson as physique11Coulomb } from './content/11e-physique-coulomb';
+import { lesson as physique11EnergieCinetique } from './content/11e-physique-energie-cinetique';
+import { lesson as physique11EnergieMecanique } from './content/11e-physique-energie-mecanique';
+import { lesson as physique11InstrumentsOptiques } from './content/11e-physique-instruments-optiques';
+import { lesson as physique11Laplace } from './content/11e-physique-laplace';
+import { lesson as physique11MiroirsLentilles } from './content/11e-physique-miroirs-lentilles';
+import { lesson as physique11Potentiel } from './content/11e-physique-potentiel';
+import { lesson as physique11Travail } from './content/11e-physique-travail';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -126,6 +138,18 @@ const LESSONS_FR: Record<string, Lesson> = {
   '12e/biologie/structure-cellule': biologie12StructureCellule,
   '12e/biologie/support-genetique': biologie12SupportGenetique,
   '12e/biologie/transmission-genetique': biologie12TransmissionGenetique,
+  '11e/physique/bilan-energetique': physique11BilanEnergetique,
+  '11e/physique/champ-electrique': physique11ChampElectrique,
+  '11e/physique/champ-magnetique': physique11ChampMagnetique,
+  '11e/physique/condensateurs': physique11Condensateurs,
+  '11e/physique/coulomb': physique11Coulomb,
+  '11e/physique/energie-cinetique': physique11EnergieCinetique,
+  '11e/physique/energie-mecanique': physique11EnergieMecanique,
+  '11e/physique/instruments-optiques': physique11InstrumentsOptiques,
+  '11e/physique/laplace': physique11Laplace,
+  '11e/physique/miroirs-lentilles': physique11MiroirsLentilles,
+  '11e/physique/potentiel': physique11Potentiel,
+  '11e/physique/travail': physique11Travail,
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).
