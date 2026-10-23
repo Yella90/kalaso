@@ -22,6 +22,7 @@ export const DOMAINS_BM: Record<string, string> = {
   'Cinétique chimique': 'Simi ka teliya (cinétique)',
   'Équilibres chimiques': 'Simi bɛnkansɔrɔw (équilibres)',
   'Acides et bases en solution aqueuse': 'Asidiw ni bazw ji kɔnɔ',
+  Électronique: 'Ɛlɛkitɔroniki (électronique)',
   Biologie: 'Biyolozi',
   Géologie: 'Dugukolo dɔnniya (géologie)',
   Physiologie: 'Farikolo baarakɛcogo (physiologie)',

@@ -23,6 +23,14 @@ import { lesson as chimie10CovalenteBm } from './content-bm/10e-chimie-covalente
 import { lesson as chimie10IonsBm } from './content-bm/10e-chimie-ions';
 import { lesson as chimie10MoleBm } from './content-bm/10e-chimie-mole';
 import { lesson as chimie9AtomeBm } from './content-bm/9e-chimie-atome';
+import { lesson as biologie10CelluleBm } from './content-bm/10e-biologie-cellule';
+import { lesson as biologie10EchangesCellulairesBm } from './content-bm/10e-biologie-echanges-cellulaires';
+import { lesson as biologie10EcosystemeBm } from './content-bm/10e-biologie-ecosysteme';
+import { lesson as biologie10PhotosyntheseBm } from './content-bm/10e-biologie-photosynthese';
+import { lesson as biologie10RespirationFermentationBm } from './content-bm/10e-biologie-respiration-fermentation';
+import { lesson as biologie10RochesMinerauxBm } from './content-bm/10e-biologie-roches-mineraux';
+import { lesson as biologie10StructureGlobeBm } from './content-bm/10e-biologie-structure-globe';
+import { lesson as biologie10TissusOrganesBm } from './content-bm/10e-biologie-tissus-organes';
 import { CECP_LESSONS } from './content-cecp';
 import { lesson as maths12AlgebreLineaire } from './content/12e-maths-algebre-lineaire';
 import { lesson as maths12ApplicationsAffines } from './content/12e-maths-applications-affines';
@@ -277,18 +285,54 @@ const LESSONS_FR: Record<string, Lesson> = {
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).
-const LESSONS_BM: Record<string, Lesson> = {
+/**
+ * Traduction d’une leçon : mêmes clés que la leçon française, mais seulement le texte.
+ * Les tableaux se superposent élément par élément ; ce qui manque (nombres, réponses,
+ * schémas) est repris de la version française.
+ */
+export type LessonText<T = Lesson> = T extends string
+  ? string
+  : T extends number | boolean
+    ? T
+    : T extends readonly (infer U)[]
+      ? LessonText<U>[]
+      : T extends object
+        ? { [K in keyof T]?: LessonText<T[K]> }
+        : T;
+
+function overlay<T>(base: T, text: unknown): T {
+  if (text === undefined || text === null) return base;
+  if (Array.isArray(base)) return base.map((item, i) => overlay(item, Array.isArray(text) ? text[i] : undefined)) as T;
+  if (typeof base === 'object' && base !== null && typeof text === 'object') {
+    const out: Record<string, unknown> = { ...(base as Record<string, unknown>) };
+    for (const [k, v] of Object.entries(text as Record<string, unknown>)) out[k] = overlay((base as Record<string, unknown>)[k], v);
+    return out as T;
+  }
+  return text as T;
+}
+
+const LESSONS_BM: Record<string, LessonText> = {
   '9e/chimie/atome': chimie9AtomeBm,
   '10e/chimie/atome': chimie10AtomeBm,
   '10e/chimie/classification': chimie10ClassificationBm,
   '10e/chimie/ions-liaison-ionique': chimie10IonsBm,
   '10e/chimie/liaison-covalente': chimie10CovalenteBm,
   '10e/chimie/mole': chimie10MoleBm,
+  '10e/biologie/cellule': biologie10CelluleBm,
+  '10e/biologie/echanges-cellulaires': biologie10EchangesCellulairesBm,
+  '10e/biologie/ecosysteme': biologie10EcosystemeBm,
+  '10e/biologie/photosynthese': biologie10PhotosyntheseBm,
+  '10e/biologie/respiration-fermentation': biologie10RespirationFermentationBm,
+  '10e/biologie/roches-mineraux': biologie10RochesMinerauxBm,
+  '10e/biologie/structure-globe': biologie10StructureGlobeBm,
+  '10e/biologie/tissus-organes': biologie10TissusOrganesBm,
 };
 
 export function getLesson(classId: ClassId, subject: SubjectId, chapterId: string, locale: Locale): Lesson | undefined {
   const key = `${classId}/${subject}/${chapterId}`;
-  return (locale === 'bm' ? LESSONS_BM[key] : undefined) ?? LESSONS_FR[key];
+  const fr = LESSONS_FR[key];
+  const bm = locale === 'bm' ? LESSONS_BM[key] : undefined;
+  return fr && bm ? overlay(fr, bm) : fr;
 }
 
 export function hasLesson(classId: ClassId, subject: SubjectId, chapterId: string): boolean {
