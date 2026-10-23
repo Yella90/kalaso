@@ -52,3 +52,11 @@ npx --yes tsx@4.19.2 scripts/check-tex.ts
 L'import corrige les accents manquants des premiers chapitres (`scripts/cecp-orthographe.ts`).
 Une modification faite à la main dans `lib/lessons/content-cecp/` est perdue à la réimportation :
 corriger plutôt la source dans cecp, ou retirer le chapitre de la liste de l'import.
+
+## Simulations de cecp
+
+Le dossier `cecp/` contient les 30 simulations de 12e du site cecp, copiées avec leurs moteurs
+de calcul (`cecp/lib/physics`, `cecp/lib/chemistry`). `cecp/labs.ts` dit quel chapitre a une
+simulation ; `cecp/CecpLab.tsx` les monte dans l'étape « Simuler ». Les simulations en 3D
+(three.js) ne se téléchargent que si l'élève appuie sur « Lancer la simulation 3D ».
+Leurs textes restent en français.

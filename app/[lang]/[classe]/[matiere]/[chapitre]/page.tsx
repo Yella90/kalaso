@@ -15,6 +15,8 @@ import { getLesson } from '@/lib/lessons';
 import { getViewer, hasFullAccess } from '@/lib/server/auth';
 import { LockedPanel } from '@/components/account/LockedPanel';
 import { ChapterVisit } from '@/components/lesson/ChapterVisit';
+import { CecpLab } from '@/cecp/CecpLab';
+import { CECP_LABS } from '@/cecp/labs';
 
 const STEPS = ['cours', 'simuler', 'exercer', 'appliquer'] as const;
 type Step = (typeof STEPS)[number];
@@ -46,6 +48,7 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
   const viewer = await getViewer();
   const fullAccess = hasFullAccess(viewer);
   const chapterKey = `${classe}/${matiere}/${chapitre}`;
+  const cecpLab = CECP_LABS[chapterKey];
   const previous = program.chapters[index - 1];
   const next = program.chapters[index + 1];
   const color = `var(${SUBJECTS.find((s) => s.id === matiere)!.colorVar})`;
@@ -59,7 +62,7 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
   // Ce que chaque étape contient pour ce chapitre ; `undefined` = encore en préparation.
   const content: Record<Step, ReactNode | undefined> = {
     cours: lesson && <LessonCourse lesson={lesson} t={t.lesson} />,
-    simuler: chapter.simulation && (
+    simuler: (chapter.simulation || cecpLab) && (
       <div className="flex flex-col gap-5">
         {lesson?.simulationTasks && (
           <div>
@@ -73,7 +76,8 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
             </ul>
           </div>
         )}
-        <SimulationView id={chapter.simulation} lang={lang} t={t} />
+        {chapter.simulation && <SimulationView id={chapter.simulation} lang={lang} t={t} />}
+        {cecpLab && <CecpLab chapterKey={chapterKey} three={cecpLab.three} t={t.lesson} />}
       </div>
     ),
     exercer: lesson && <LessonExercises lesson={lesson} quizKey={chapterKey} t={t.lesson} />,

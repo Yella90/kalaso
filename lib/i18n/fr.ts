@@ -142,6 +142,8 @@ export const fr = {
     play: 'Animer',
     pause: 'Pause',
     replay: 'Revoir',
+    lab3dNote: 'Cette simulation est en 3D : elle télécharge environ 1 Mo et demande un téléphone assez récent.',
+    lab3dStart: 'Lancer la simulation 3D',
   },
   adventure: {
     listTitle: 'Les aventures',

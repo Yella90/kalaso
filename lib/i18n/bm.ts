@@ -145,6 +145,8 @@ export const bm: DeepPartial<Dictionary> = {
     play: 'A lamaga',
     pause: 'A jɔ',
     replay: 'A filɛ kokura',
+    lab3dNote: 'Nin simulasiyɔn in ye 3D ye : a bɛ Mo 1 ɲɔgɔn labɔ, a mago bɛ telefɔni kura dɔ la.',
+    lab3dStart: 'Simulasiyɔn 3D daminɛ',
   },
   adventure: {
     listTitle: 'Taamaw',
