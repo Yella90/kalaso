@@ -113,6 +113,18 @@ import { lesson as biologie10RespirationFermentation } from './content/10e-biolo
 import { lesson as biologie10RochesMineraux } from './content/10e-biologie-roches-mineraux';
 import { lesson as biologie10StructureGlobe } from './content/10e-biologie-structure-globe';
 import { lesson as biologie10TissusOrganes } from './content/10e-biologie-tissus-organes';
+import { lesson as physique10CourantContinu } from './content/10e-physique-courant-continu';
+import { lesson as physique10DipolesActifs } from './content/10e-physique-dipoles-actifs';
+import { lesson as physique10DipolesPassifs } from './content/10e-physique-dipoles-passifs';
+import { lesson as physique10EnergieElectrique } from './content/10e-physique-energie-electrique';
+import { lesson as physique10Equilibre } from './content/10e-physique-equilibre';
+import { lesson as physique10Forces } from './content/10e-physique-forces';
+import { lesson as physique10Gravitation } from './content/10e-physique-gravitation';
+import { lesson as physique10Inertie } from './content/10e-physique-inertie';
+import { lesson as physique10Lentilles } from './content/10e-physique-lentilles';
+import { lesson as physique10Moment } from './content/10e-physique-moment';
+import { lesson as physique10Mouvement } from './content/10e-physique-mouvement';
+import { lesson as physique10ReflexionRefraction } from './content/10e-physique-reflexion-refraction';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -230,6 +242,18 @@ const LESSONS_FR: Record<string, Lesson> = {
   '10e/biologie/roches-mineraux': biologie10RochesMineraux,
   '10e/biologie/structure-globe': biologie10StructureGlobe,
   '10e/biologie/tissus-organes': biologie10TissusOrganes,
+  '10e/physique/courant-continu': physique10CourantContinu,
+  '10e/physique/dipoles-actifs': physique10DipolesActifs,
+  '10e/physique/dipoles-passifs': physique10DipolesPassifs,
+  '10e/physique/energie-electrique': physique10EnergieElectrique,
+  '10e/physique/equilibre': physique10Equilibre,
+  '10e/physique/forces': physique10Forces,
+  '10e/physique/gravitation': physique10Gravitation,
+  '10e/physique/inertie': physique10Inertie,
+  '10e/physique/lentilles': physique10Lentilles,
+  '10e/physique/moment': physique10Moment,
+  '10e/physique/mouvement': physique10Mouvement,
+  '10e/physique/reflexion-refraction': physique10ReflexionRefraction,
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).
