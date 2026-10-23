@@ -1,6 +1,6 @@
 import type { PredictChallenge } from '@/components/sim/PredictChallenges';
 
-// Défis « prédis, puis vérifie » des simulations de 12e (physique), rédigés pour Kalanso.
+// Défis « prédis, puis vérifie » des simulations de 12e (physique et chimie), rédigés pour Kalanso.
 // Chaque défi dit quel réglage faire dans la simulation du chapitre pour vérifier la prédiction.
 
 type C = PredictChallenge;
@@ -602,6 +602,121 @@ export const CECP_CHALLENGES: Record<string, C[]> = {
       answer: 1,
       how: 'relance plusieurs fois la simulation : ce ne sont jamais les mêmes noyaux qui se désintègrent.',
       why: 'La désintégration est aléatoire pour chaque noyau ; seule la loi N₀·e^(−λt) décrit un grand nombre de noyaux.',
+    },
+  ],
+  '12e/chimie/stereochimie': [
+    {
+      q: 'Une molécule possède un seul carbone asymétrique. Elle est…',
+      choices: ['chirale', 'achirale', 'plane'],
+      answer: 0,
+      how: 'onglet « Chiralité » : choisis une molécule à un carbone asymétrique et fais tourner son image dans le miroir.',
+      why: 'Avec un seul carbone asymétrique, la molécule n’est pas superposable à son image dans un miroir : elle est chirale et existe sous deux énantiomères.',
+    },
+    {
+      q: 'Pour passer du (Z)-but-2-ène au (E)-but-2-ène, il faut…',
+      choices: ['une simple rotation autour de la double liaison', 'casser la double liaison C=C', 'changer la formule brute'],
+      answer: 1,
+      how: 'onglet « Isomérie Z/E » : essaie de faire tourner la double liaison C=C.',
+      why: 'La rotation autour d’une double liaison est bloquée : Z et E sont deux molécules différentes, de même formule brute.',
+    },
+    {
+      q: 'Pour le butane, la conformation la plus stable (énergie la plus basse) est…',
+      choices: ['éclipsée (φ = 0°)', 'décalée anti (φ = 180°)', 'décalée gauche (φ = 60°)'],
+      answer: 1,
+      how: 'onglet « Conformations », molécule butane : fais varier l’angle dièdre φ et regarde la courbe d’énergie.',
+      why: 'À 180°, les deux groupes CH₃ sont le plus loin possible l’un de l’autre : la gêne est minimale.',
+    },
+  ],
+  '12e/chimie/alcools': [
+    {
+      q: 'Oxydation ménagée d’un alcool primaire avec le dichromate en défaut. Le produit est…',
+      choices: ['un aldéhyde', 'une cétone', 'un acide carboxylique'],
+      answer: 0,
+      how: 'choisis l’éthanol, oxydant « en défaut », fais réagir puis fais les tests (DNPH, Schiff, Tollens).',
+      why: 'Avec peu d’oxydant, l’alcool primaire s’arrête à l’aldéhyde : DNPH positive et test de Schiff positif.',
+    },
+    {
+      q: 'Même alcool primaire, mais le dichromate est en excès. Le produit est…',
+      choices: ['un aldéhyde', 'un acide carboxylique', 'rien du tout'],
+      answer: 1,
+      how: 'garde l’éthanol, passe l’oxydant « en excès », fais réagir puis regarde le BBT.',
+      why: 'L’aldéhyde est à son tour oxydé en acide carboxylique : la DNPH devient négative et le BBT vire au jaune.',
+    },
+    {
+      q: 'Que donne l’oxydation ménagée d’un alcool tertiaire ?',
+      choices: ['une cétone', 'un acide carboxylique', 'aucune réaction'],
+      answer: 2,
+      how: 'choisis le 2-méthylpropan-2-ol et fais réagir.',
+      why: 'Le carbone fonctionnel d’un alcool tertiaire ne porte pas d’atome d’hydrogène : l’oxydation ménagée est impossible et l’orange du dichromate persiste.',
+    },
+  ],
+  '12e/chimie/amines': [
+    {
+      q: 'On dose une base faible par un acide fort. Le pH à l’équivalence est…',
+      choices: ['égal à 7', 'inférieur à 7', 'supérieur à 7'],
+      answer: 1,
+      how: 'verse le titrant jusqu’au volume équivalent et lis le pH à l’équivalence.',
+      why: 'À l’équivalence, la solution contient l’acide conjugué de l’amine (ion ammonium), qui est un acide faible.',
+    },
+    {
+      q: 'À la demi-équivalence (V = VE/2), le pH est égal…',
+      choices: ['à 7', 'au pKa du couple', 'à 14 − pKa'],
+      answer: 1,
+      how: 'place-toi à la moitié du volume équivalent et compare le pH au pKa affiché.',
+      why: 'À la demi-équivalence, [base] = [acide conjugué], donc pH = pKa : c’est la méthode pour mesurer le pKa.',
+    },
+    {
+      q: 'Quel indicateur convient pour ce dosage ?',
+      choices: ['la phénolphtaléine (8,2 – 10)', 'le rouge de méthyle (4,2 – 6,2)', 'n’importe lequel'],
+      answer: 1,
+      how: 'essaie les indicateurs et regarde la ligne « Indicateur adapté ? ».',
+      why: 'La zone de virage doit contenir le pH à l’équivalence, ici acide (autour de 5 à 6).',
+    },
+  ],
+  '12e/chimie/acides-carboxyliques': [
+    {
+      q: 'Acide éthanoïque et éthanol, 1 mol de chacun. Le rendement de l’estérification à l’équilibre est d’environ…',
+      choices: ['100 %', '67 %', '33 %'],
+      answer: 1,
+      how: 'mode estérification, 1 mol d’acide et 1 mol d’éthanol (alcool primaire) : laisse le temps passer.',
+      why: 'L’estérification est lente et limitée : avec K ≈ 4 et un mélange équimolaire, l’équilibre est atteint à environ 2/3.',
+    },
+    {
+      q: 'Comment augmenter ce rendement ?',
+      choices: ['chauffer plus fort', 'mettre un excès d’alcool ou éliminer l’eau', 'ajouter un catalyseur'],
+      answer: 1,
+      how: 'mets 3 mol d’alcool, puis essaie d’éliminer l’eau, et compare les rendements.',
+      why: 'Chauffer et catalyser rendent la réaction plus rapide sans changer l’équilibre. Un excès de réactif ou l’élimination d’un produit déplacent l’équilibre.',
+    },
+    {
+      q: 'On dose un acide faible par une base forte. Le pH à l’équivalence est…',
+      choices: ['inférieur à 7', 'égal à 7', 'supérieur à 7'],
+      answer: 2,
+      how: 'dans le dosage, verse la soude jusqu’à l’équivalence et lis le pH.',
+      why: 'À l’équivalence, la solution contient l’ion carboxylate, une base faible : on choisit la phénolphtaléine.',
+    },
+  ],
+  '12e/chimie/acides-amines': [
+    {
+      q: 'Combien de liaisons peptidiques compte un tripeptide ?',
+      choices: ['3', '2', '1'],
+      answer: 1,
+      how: 'assemble trois acides α-aminés et regarde le nombre de liaisons peptidiques.',
+      why: 'Chaque liaison relie deux acides aminés voisins : n acides aminés forment n − 1 liaisons.',
+    },
+    {
+      q: 'Quand on ajoute un acide aminé à la chaîne, la masse molaire augmente de…',
+      choices: ['la masse de l’acide aminé', 'la masse de l’acide aminé moins 18 g/mol', 'la masse de l’acide aminé plus 18 g/mol'],
+      answer: 1,
+      how: 'note la masse molaire, ajoute un acide aminé et compare à sa masse molaire seule.',
+      why: 'Chaque liaison peptidique se forme en éliminant une molécule d’eau (18 g/mol).',
+    },
+    {
+      q: 'Gly-Ala et Ala-Gly sont-ils le même dipeptide ?',
+      choices: ['oui', 'non'],
+      answer: 1,
+      how: 'construis Gly-Ala, puis Ala-Gly, et compare les extrémités N-terminale et C-terminale.',
+      why: 'L’ordre compte : l’acide aminé qui garde son groupe NH₂ libre n’est pas le même. Ce sont deux isomères.',
     },
   ],
 };
