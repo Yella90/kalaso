@@ -13,6 +13,7 @@ export const lesson: Lesson = {
     {
       title: 'La fleur',
       blocks: [
+        { kind: 'figure', id: 'fleur', caption: "Coupe d’une fleur." },
         {
           kind: 'table',
           head: ['Organe', 'Rôle'],

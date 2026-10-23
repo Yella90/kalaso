@@ -13,6 +13,7 @@ export const lesson: Lesson = {
     {
       title: 'La structure du globe',
       blocks: [
+        { kind: 'figure', id: 'globe', caption: "Les enveloppes de la Terre." },
         {
           kind: 'table',
           head: ['Enveloppe', 'Profondeur', 'Caractéristique'],

@@ -32,6 +32,7 @@ export const lesson: Lesson = {
     {
       title: 'Le mécanisme de la contraction',
       blocks: [
+        { kind: 'figure', id: 'sarcomere', caption: "Le glissement des filaments raccourcit le sarcomère." },
         {
           kind: 'rule',
           text: 'Pendant la contraction, les filaments d’actine **glissent** entre les filaments de myosine vers le centre du sarcomère : les stries Z se rapprochent, les bandes I et la zone H raccourcissent, la bande A garde sa longueur.',

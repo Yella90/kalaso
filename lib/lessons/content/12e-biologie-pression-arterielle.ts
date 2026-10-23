@@ -13,6 +13,7 @@ export const lesson: Lesson = {
     {
       title: 'Le cœur, une pompe automatique',
       blocks: [
+        { kind: 'figure', id: 'coeur', caption: "La double circulation." },
         {
           kind: 'text',
           text: 'Un cœur isolé, sorti du corps et alimenté, continue de battre : il est **automatique**. Le rythme est donné par le **nœud sinusal**, un groupe de cellules de l’oreillette droite qui émet spontanément des impulsions électriques, transmises à tout le cœur par le tissu nodal.',

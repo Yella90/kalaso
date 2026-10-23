@@ -27,6 +27,7 @@ export const lesson: Lesson = {
     {
       title: 'La réponse adaptative : lymphocytes B et anticorps',
       blocks: [
+        { kind: 'figure', id: 'anticorps', caption: "Un anticorps fixe deux antigènes identiques." },
         {
           kind: 'text',
           text: 'Chaque lymphocyte B porte des récepteurs qui reconnaissent un seul antigène. Le lymphocyte qui reconnaît l’antigène est **sélectionné**, se multiplie (**amplification clonale**) et se transforme en **plasmocytes**, qui sécrètent des anticorps, et en lymphocytes B **mémoire**.',
@@ -70,6 +71,10 @@ export const lesson: Lesson = {
     'Lymphocytes B → plasmocytes → anticorps (deux sites) → complexes immuns.',
     'Lymphocytes T8 → T cytotoxiques qui détruisent les cellules infectées ; T4 → interleukines qui activent B et T8.',
     'Mémoire : réponse secondaire plus rapide et plus forte.',
+  ],
+  simulationTasks: [
+    "compare la hauteur et la date des pics des réponses primaire et secondaire ;",
+    "déplace le second contact : la réponse secondaire change-t-elle ?",
   ],
   exercises: [
     {

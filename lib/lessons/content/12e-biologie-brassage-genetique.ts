@@ -89,6 +89,11 @@ export const lesson: Lesson = {
     'Monohybridisme : F2 3/4–1/4 (dominance) ou 1/4–1/2–1/4 (codominance) ; test-cross 1/2–1/2.',
     'Dihybridisme : F2 9/3/3/1 et test-cross 4 × 1/4 si gènes indépendants ; parentaux majoritaires si liés.',
   ],
+  simulationTasks: [
+    "croise deux hybrides Aa et retrouve les proportions 3/4 – 1/4 ;",
+    "passe en dihybridisme avec deux parents AaBb : retrouve 9/16, 3/16, 3/16, 1/16 ;",
+    "simule 160 descendants et compare l’observé à l’attendu.",
+  ],
   exercises: [
     {
       id: 'brass-mono',

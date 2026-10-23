@@ -30,6 +30,7 @@ export const lesson: Lesson = {
     {
       title: 'La structure de l’ADN',
       blocks: [
+        { kind: 'figure', id: 'adn', caption: "La molécule d’ADN : deux brins reliés par des bases complémentaires." },
         {
           kind: 'definition',
           term: 'Nucléotide',
@@ -59,6 +60,7 @@ export const lesson: Lesson = {
     {
       title: 'Chromosomes et gènes',
       blocks: [
+        { kind: 'figure', id: 'chromosome', caption: "Un chromosome après la réplication : deux chromatides identiques." },
         {
           kind: 'text',
           text: 'Dans le noyau, l’ADN est associé à des protéines : c’est la **chromatine**. Au moment de la division, elle se condense en **chromosomes** visibles au microscope. Après la réplication, un chromosome est formé de deux **chromatides** identiques reliées par le centromère.',

@@ -90,6 +90,9 @@ export const lesson: Lesson = {
     'Chaque naissance est indépendante des précédentes.',
     'Non-disjonction en méiose → trisomie 21 (47 chromosomes) ; électrophorèse de l’hémoglobine : AA, AS ou SS.',
   ],
+  simulationTasks: [
+    "croise deux parents hétérozygotes (Aa × Aa) : quelle proportion d’enfants est aa ?",
+  ],
   exercises: [
     {
       id: 'gh-drepano',

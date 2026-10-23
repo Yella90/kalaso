@@ -13,6 +13,7 @@ export const lesson: Lesson = {
     {
       title: 'La mitose',
       blocks: [
+        { kind: 'figure', id: 'chromosome', caption: "Avant la division, chaque chromosome a deux chromatides." },
         {
           kind: 'text',
           text: 'Avant de se diviser, la cellule copie son ADN : chaque chromosome est alors formé de deux **chromatides** identiques. La mitose répartit ensuite exactement une chromatide de chaque chromosome dans chaque cellule fille.',
@@ -70,6 +71,9 @@ export const lesson: Lesson = {
     'Mitose : prophase, métaphase, anaphase, télophase ; 2 cellules identiques à $2n$.',
     'Méiose : 2 divisions ; 4 cellules à $n$, toutes différentes.',
     'Mitose : croissance et réparation ; méiose : gamètes.',
+  ],
+  simulationTasks: [
+    "compare le nombre de cellules et de chromosomes à la fin d’une mitose et d’une méiose.",
   ],
   exercises: [
     {

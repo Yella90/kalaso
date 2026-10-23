@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: PageProps<'/[lang]/simulation
 function simText(t: Dictionary, id: string): { title: string; intro: string } {
   if (id === 'atome') return { title: t.atom.title, intro: t.atom.intro };
   if (id === 'tableau-periodique') return { title: t.table.title, intro: t.table.intro };
-  return t.sims[id as 'circuit' | 'projectile' | 'fonction'];
+  return t.sims[id as Exclude<keyof Dictionary['sims'], 'listTitle' | 'listIntro' | 'usedIn'>];
 }
 
 export default async function SimulationsPage({ params }: PageProps<'/[lang]/simulations'>) {

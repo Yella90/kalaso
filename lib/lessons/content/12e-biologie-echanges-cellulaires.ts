@@ -74,6 +74,10 @@ export const lesson: Lesson = {
     'Hypotonique : hémolyse ou turgescence ; hypertonique : crénelure ou plasmolyse ; 9 g/L de NaCl : isotonique.',
     'Transport actif : contre le gradient, avec ATP (pompe Na⁺/K⁺) ; endocytose et exocytose pour les grosses particules.',
   ],
+  simulationTasks: [
+    "place le globule rouge dans de l’eau pure, puis dans une eau très salée : nomme ce que tu observes ;",
+    "trouve la concentration de sel pour laquelle la cellule ne change pas.",
+  ],
   exercises: [
     {
       id: 'ech-isotonique',

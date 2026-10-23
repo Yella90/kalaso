@@ -37,6 +37,8 @@ export const lesson: Lesson = {
     {
       title: 'Les organites et leurs fonctions',
       blocks: [
+        { kind: 'figure', id: 'cellule-animale', caption: "Cellule animale (ultrastructure simplifiée)." },
+        { kind: 'figure', id: 'cellule-vegetale', caption: "Cellule végétale : paroi, grande vacuole et chloroplastes en plus." },
         {
           kind: 'table',
           head: ['Organite', 'Structure', 'Fonction'],

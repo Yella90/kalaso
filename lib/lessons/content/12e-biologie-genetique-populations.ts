@@ -83,6 +83,10 @@ export const lesson: Lesson = {
     'Facteurs d’évolution : mutation, sélection, dérive, migration.',
     'Paludisme : l’avantage des AS maintient l’allèle S.',
   ],
+  simulationTasks: [
+    "règle q = 0,1 et lis la fréquence des AS ;",
+    "active la sélection due au paludisme et fais passer des générations : vers quelle valeur q tend-elle ?",
+  ],
   exercises: [
     {
       id: 'pop-frequences',

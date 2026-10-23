@@ -26,6 +26,7 @@ export const lesson: Lesson = {
     {
       title: 'Chez la femme : un fonctionnement cyclique',
       blocks: [
+        { kind: 'figure', id: 'cycle-ovarien', caption: "Hormones et muqueuse utérine au cours d’un cycle de 28 jours." },
         {
           kind: 'table',
           head: ['Phase (cycle de 28 jours)', 'Ovaire', 'Hormones', 'Utérus'],

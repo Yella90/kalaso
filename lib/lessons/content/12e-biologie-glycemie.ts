@@ -31,6 +31,7 @@ export const lesson: Lesson = {
     {
       title: 'Les hormones du pancréas',
       blocks: [
+        { kind: 'figure', id: 'regulation-glycemie', caption: "La régulation de la glycémie." },
         {
           kind: 'text',
           text: 'Le pancréas contient de petits amas de cellules, les **îlots de Langerhans**, qui détectent la glycémie et sécrètent deux hormones aux effets opposés.',
@@ -81,6 +82,11 @@ export const lesson: Lesson = {
     'Foie : stocke (glycogène) et libère le glucose ; muscles et tissu adipeux stockent.',
     'Insuline (cellules β) fait baisser la glycémie ; glucagon (cellules α) la fait monter ; rétrocontrôle négatif.',
     'Type 1 : auto-immun, insuline à vie ; type 2 : insulinorésistance, hygiène de vie.',
+  ],
+  simulationTasks: [
+    "observe la glycémie d’une personne en bonne santé après chaque repas ;",
+    "compare avec le diabète de type 1, puis ajoute les injections d’insuline ;",
+    "ajoute l’effort physique : que devient la glycémie ?",
   ],
   exercises: [
     {

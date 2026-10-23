@@ -80,6 +80,10 @@ export const lesson: Lesson = {
     'Deux cellules filles identiques à la cellule mère ($2n$).',
     'Réplication semi-conservative, fondée sur la complémentarité des bases.',
   ],
+  simulationTasks: [
+    "suis une mitose phase par phase et compte les chromosomes et les chromatides à chaque étape ;",
+    "vérifie que les deux cellules filles ont les mêmes chromosomes que la cellule mère.",
+  ],
   exercises: [
     {
       id: 'mitose-adn',

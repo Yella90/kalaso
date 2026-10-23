@@ -14,6 +14,15 @@ export const SIMULATIONS: SimulationInfo[] = [
   { id: 'circuit', subject: 'physique', path: 'simulations/circuit' },
   { id: 'projectile', subject: 'physique', path: 'simulations/projectile' },
   { id: 'fonction', subject: 'maths', path: 'simulations/fonction' },
+  { id: 'osmose', subject: 'biologie', path: 'simulations/osmose' },
+  { id: 'mitose', subject: 'biologie', path: 'simulations/mitose' },
+  { id: 'croisement', subject: 'biologie', path: 'simulations/croisement' },
+  { id: 'hardy-weinberg', subject: 'biologie', path: 'simulations/hardy-weinberg' },
+  { id: 'potentiel-action', subject: 'biologie', path: 'simulations/potentiel-action' },
+  { id: 'glycemie', subject: 'biologie', path: 'simulations/glycemie' },
+  { id: 'immunite', subject: 'biologie', path: 'simulations/immunite' },
+  { id: 'traduction', subject: 'biologie', path: 'simulations/traduction' },
+  { id: 'photosynthese', subject: 'biologie', path: 'simulations/photosynthese' },
 ];
 
 /** Chapitres qui utilisent une simulation. */

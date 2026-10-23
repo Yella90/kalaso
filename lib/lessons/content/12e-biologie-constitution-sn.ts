@@ -29,6 +29,7 @@ export const lesson: Lesson = {
     {
       title: 'Le neurone et le nerf',
       blocks: [
+        { kind: 'figure', id: 'neurone', caption: "Un neurone moteur." },
         {
           kind: 'definition',
           term: 'Neurone',
@@ -51,6 +52,7 @@ export const lesson: Lesson = {
     {
       title: 'L’arc réflexe',
       blocks: [
+        { kind: 'figure', id: 'arc-reflexe', caption: "L’arc réflexe : de la peau au muscle, en passant par la moelle épinière." },
         {
           kind: 'definition',
           term: 'Réflexe',

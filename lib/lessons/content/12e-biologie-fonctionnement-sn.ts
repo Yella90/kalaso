@@ -49,6 +49,7 @@ export const lesson: Lesson = {
     {
       title: 'La synapse',
       blocks: [
+        { kind: 'figure', id: 'synapse', caption: "Une synapse chimique." },
         {
           kind: 'list',
           items: [
@@ -76,6 +77,10 @@ export const lesson: Lesson = {
     'Tout ou rien ; intensité codée en fréquence de potentiels d’action.',
     '$v = d / \\Delta t$ ; conduction saltatoire rapide sur les fibres myélinisées.',
     'Synapse : neurotransmetteur, récepteurs, PPSE/PPSI, sommation et intégration.',
+  ],
+  simulationTasks: [
+    "trouve l’intensité minimale qui déclenche des potentiels d’action (le seuil) ;",
+    "augmente l’intensité : l’amplitude change-t-elle ? et la fréquence ?",
   ],
   exercises: [
     {

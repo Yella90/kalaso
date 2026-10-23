@@ -13,7 +13,25 @@ export type Block =
   | { kind: 'example'; title?: string; text: string; steps?: string[] }
   | { kind: 'trap'; wrong: string; why: string; reflex: string }
   | { kind: 'table'; head: string[]; rows: string[][] }
-  | { kind: 'lewis'; molecules: LewisMolecule[] };
+  | { kind: 'lewis'; molecules: LewisMolecule[] }
+  /** Schéma dessiné pour Kalanso (voir components/figures). */
+  | { kind: 'figure'; id: FigureId; caption?: string };
+
+export type FigureId =
+  | 'cellule-animale'
+  | 'cellule-vegetale'
+  | 'adn'
+  | 'chromosome'
+  | 'neurone'
+  | 'synapse'
+  | 'arc-reflexe'
+  | 'sarcomere'
+  | 'coeur'
+  | 'anticorps'
+  | 'fleur'
+  | 'globe'
+  | 'cycle-ovarien'
+  | 'regulation-glycemie';
 
 export interface LewisAtom {
   symbol: string;

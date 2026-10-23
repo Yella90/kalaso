@@ -2,6 +2,15 @@ import { Suspense } from 'react';
 import type { SimulationId } from '@/lib/curriculum';
 import type { Dictionary, Locale } from '@/lib/i18n';
 import { AtomBuilder } from './AtomBuilder';
+import { OsmoseSim } from './bio/OsmoseSim';
+import { MitoseSim } from './bio/MitoseSim';
+import { CroisementSim } from './bio/CroisementSim';
+import { HardyWeinbergSim } from './bio/HardyWeinbergSim';
+import { PotentielActionSim } from './bio/PotentielActionSim';
+import { GlycemieSim } from './bio/GlycemieSim';
+import { ImmuniteSim } from './bio/ImmuniteSim';
+import { TraductionSim } from './bio/TraductionSim';
+import { PhotosyntheseSim } from './bio/PhotosyntheseSim';
 import { CircuitSim } from './CircuitSim';
 import { FunctionSim } from './FunctionSim';
 import { PeriodicTable } from './PeriodicTable';
@@ -29,5 +38,23 @@ export function SimulationView({ id, lang, t }: { id: SimulationId; lang: Locale
       return <ProjectileSim t={t.sims.projectile} />;
     case 'fonction':
       return <FunctionSim t={t.sims.fonction} />;
+    case 'osmose':
+      return <OsmoseSim t={t.sims['osmose']} />;
+    case 'mitose':
+      return <MitoseSim t={t.sims['mitose']} />;
+    case 'croisement':
+      return <CroisementSim t={t.sims['croisement']} />;
+    case 'hardy-weinberg':
+      return <HardyWeinbergSim t={t.sims['hardy-weinberg']} />;
+    case 'potentiel-action':
+      return <PotentielActionSim t={t.sims['potentiel-action']} />;
+    case 'glycemie':
+      return <GlycemieSim t={t.sims['glycemie']} />;
+    case 'immunite':
+      return <ImmuniteSim t={t.sims['immunite']} />;
+    case 'traduction':
+      return <TraductionSim t={t.sims['traduction']} />;
+    case 'photosynthese':
+      return <PhotosyntheseSim t={t.sims['photosynthese']} />;
   }
 }

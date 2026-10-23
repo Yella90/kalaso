@@ -1,5 +1,6 @@
 import type { Dictionary } from '@/lib/i18n';
 import type { Block, Lesson } from '@/lib/lessons/types';
+import { Figure } from '@/components/figures/Figure';
 import { LewisDiagram } from './LewisDiagram';
 import { RichText, TexBlock } from './RichText';
 
@@ -126,6 +127,17 @@ function BlockView({ block, t }: { block: Block; t: Dictionary['lesson'] }) {
             ))}
           </div>
         </div>
+      );
+    case 'figure':
+      return (
+        <figure className="rounded-xl border border-line bg-surface px-3 py-4">
+          <Figure id={block.id} />
+          {block.caption && (
+            <figcaption className="mt-2 text-center text-sm text-muted">
+              <RichText text={block.caption} />
+            </figcaption>
+          )}
+        </figure>
       );
     case 'lewis':
       return (

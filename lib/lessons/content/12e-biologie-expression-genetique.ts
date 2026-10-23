@@ -105,6 +105,11 @@ export const lesson: Lesson = {
     'Code génétique : 64 codons, 20 acides aminés, redondant et universel.',
     'Mutation → allèle → protéine modifiée → phénotype (drépanocytose : Glu → Val).',
   ],
+  simulationTasks: [
+    "lis l’ARN messager et la protéine du gène de la β-globine ;",
+    "remplace la base n° 20 (A) par T : quel acide aminé change ?",
+    "trouve une mutation silencieuse, puis une mutation qui fait apparaître un codon stop.",
+  ],
   exercises: [
     {
       id: 'expr-traduction',

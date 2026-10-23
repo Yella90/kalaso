@@ -32,6 +32,7 @@ export const lesson: Lesson = {
     {
       title: 'La double circulation',
       blocks: [
+        { kind: 'figure', id: 'coeur', caption: "Circulation pulmonaire (cœur droit) et générale (cœur gauche)." },
         {
           kind: 'list',
           items: [

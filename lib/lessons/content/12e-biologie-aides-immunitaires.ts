@@ -83,6 +83,10 @@ export const lesson: Lesson = {
     'Vaccination = immunité active et préventive ; sérothérapie = immunité passive et curative.',
     'Immunité collective : vacciner au moins $1 - \\frac{1}{R_0}$ de la population.',
   ],
+  simulationTasks: [
+    "choisis « un vaccin » comme premier contact et observe la réponse au microbe ;",
+    "ajoute une injection de sérum : combien de temps protège-t-elle ?",
+  ],
   exercises: [
     {
       id: 'aides-collective',

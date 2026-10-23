@@ -30,7 +30,7 @@ et peut être repris tel quel.
 | 12e Chimie restante (glucose, polymères, cinétique, équilibres, acides-bases) | 9 | Rédigés (FR) |
 | Compléments Top Chrono : cinématique du point, montages dérivateur et intégrateur | 2 | Rédigés (FR) ; exercices du TD 01 de cecp pour la cinématique |
 | Complément Top Chrono : solutions tampons | — | Rédigé dans « Les réactions acido-basiques » |
-| 12e Biologie | 21 | Rédigés (FR) |
+| 12e Biologie | 21 | Rédigés (FR), avec 9 simulations et 14 schémas |
 | 12e Maths | 16 | Rédigés (FR) |
 | 11e (4 matières) | 41 | Rédigés (FR) |
 | 10e (reste) | 30 | À rédiger |
@@ -61,3 +61,17 @@ de calcul (`cecp/lib/physics`, `cecp/lib/chemistry`). `cecp/labs.ts` dit quel ch
 simulation ; `cecp/CecpLab.tsx` les monte dans l'étape « Simuler ». Les simulations en 3D
 (three.js) ne se téléchargent que si l'élève appuie sur « Lancer la simulation 3D ».
 Leurs textes restent en français.
+
+## Biologie : simulations et schémas
+
+Les 9 simulations de biologie sont dans `components/sim/bio/` : osmose, mitose et méiose,
+croisements (échiquier), génétique des populations (Hardy-Weinberg, drépanocytose et paludisme),
+potentiel d'action, glycémie (diabète de type 1 et 2), réponse immunitaire, du gène à la protéine
+(mutations), photosynthèse (facteur limitant). Elles sont reliées aux chapitres dans
+`lib/curriculum/biologie.ts` (champ `simulation`).
+
+Les schémas sont des SVG dessinés pour Kalanso (`components/figures/`), insérés dans un cours par un
+bloc `{ kind: 'figure', id }`. Les photos et figures du Livre de Biologie de D. Nango ne sont pas
+reprises : elles appartiennent à l'auteur, à l'éditeur ou à leurs propres sources. Pour un nouveau
+schéma, ajouter un composant dans `components/figures/`, son identifiant dans `FigureId`
+(`lib/lessons/types.ts`) et dans `components/figures/Figure.tsx`.
