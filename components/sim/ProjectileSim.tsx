@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import type { Dictionary } from '@/lib/i18n';
+import { format, type Dictionary } from '@/lib/i18n';
 import { fmt, Readout, Slider } from './Slider';
 import { usePrefersReducedMotion } from './usePrefersReducedMotion';
 
 const PLANETS = { terre: 9.8, lune: 1.6, mars: 3.7 } as const;
 type Planet = keyof typeof PLANETS;
+type T = Dictionary['sims']['projectile'];
 
 interface Launch {
   v0: number;
@@ -24,41 +25,78 @@ function solve({ v0, angle, h0, g }: Launch) {
   return {
     vx,
     vy,
+    g,
     time,
     range: vx * time,
     maxHeight: h0 + (vy * vy) / (2 * g),
     point: (t: number) => ({ x: vx * t, y: h0 + vy * t - (g * t * t) / 2 }),
   };
 }
+type Result = ReturnType<typeof solve>;
 
-const W = 400;
-const H = 240;
-const PAD = 30;
+const W = 640;
+const H = 340;
+const PAD = 36;
+const RING = 1.2; // rayon de la cible (m)
 
-/** Tir d'un projectile dans le champ de pesanteur, avec les traces des tirs précédents. */
-export function ProjectileSim({ t }: { t: Dictionary['sims']['projectile'] }) {
+/** Plus petite distance entre la trajectoire descendante et le centre de la cible. */
+function miss(r: Result, tx: number, ty: number) {
+  let best = Infinity;
+  let signed = 0;
+  for (let k = 0; k <= 400; k++) {
+    const t = (r.time * k) / 400;
+    const p = r.point(t);
+    const d = Math.hypot(p.x - tx, p.y - ty);
+    if (d < best) {
+      best = d;
+      signed = p.x - tx;
+    }
+  }
+  // Au niveau de la cible : la balle passe-t-elle avant (trop court) ou après (trop long) ?
+  const tAt = r.vx > 0 ? tx / r.vx : 0;
+  const yAt = r.point(Math.min(tAt, r.time)).y;
+  const short = tAt > r.time || yAt < ty - RING;
+  return { hit: best <= RING, short, gap: Math.abs(signed) };
+}
+
+function newTarget(seed: number) {
+  const r = (n: number) => {
+    const x = Math.sin(seed * 12.9898 + n * 78.233) * 43758.5453;
+    return x - Math.floor(x);
+  };
+  return { x: Math.round(12 + r(1) * 30), y: Math.round(r(2) * 8) };
+}
+
+export function ProjectileSim({ t }: { t: T }) {
   const [v0, setV0] = useState(20);
   const [angle, setAngle] = useState(45);
   const [h0, setH0] = useState(0);
   const [planet, setPlanet] = useState<Planet>('terre');
   const [history, setHistory] = useState<Launch[]>([]);
   const [progress, setProgress] = useState(1);
+  const [vectors, setVectors] = useState(true);
+  const [chrono, setChrono] = useState(false);
+  const [game, setGame] = useState(false);
+  const [seed, setSeed] = useState(1);
+  const [score, setScore] = useState({ hits: 0, tries: 0 });
+  const [verdict, setVerdict] = useState<{ hit: boolean; short: boolean; gap: number } | null>(null);
   const reducedMotion = usePrefersReducedMotion();
   const frame = useRef<number>(0);
 
   const launch: Launch = { v0, angle, h0, g: PLANETS[planet] };
   const result = solve(launch);
+  const target = newTarget(seed);
 
-  // Échelle commune : la plus grande trajectoire affichée tient dans le cadre.
+  // Échelle commune : les trajectoires (et la cible) tiennent dans le cadre.
   const all = [...history, launch].map(solve);
-  const xMax = Math.max(10, ...all.map((r) => r.range)) * 1.08;
-  const yMax = Math.max(5, ...all.map((r) => r.maxHeight)) * 1.15;
+  const xMax = Math.max(20, game ? target.x + 6 : 0, ...all.map((r) => r.range)) * 1.06;
+  const yMax = Math.max(8, game ? target.y + 4 : 0, h0 + 3, ...all.map((r) => r.maxHeight)) * 1.12;
   const scale = Math.min((W - 2 * PAD) / xMax, (H - 2 * PAD) / yMax);
   const sx = (x: number) => PAD + x * scale;
   const sy = (y: number) => H - PAD - y * scale;
 
-  const path = (r: ReturnType<typeof solve>, until = 1) => {
-    const steps = 60;
+  const path = (r: Result, until = 1) => {
+    const steps = 80;
     return Array.from({ length: steps + 1 }, (_, k) => {
       const p = r.point((r.time * k * until) / steps);
       return `${k ? 'L' : 'M'}${sx(p.x).toFixed(1)} ${sy(p.y).toFixed(1)}`;
@@ -67,15 +105,27 @@ export function ProjectileSim({ t }: { t: Dictionary['sims']['projectile'] }) {
 
   function fire() {
     setHistory((h) => [...h.slice(-2), launch]);
-    if (reducedMotion) return setProgress(1);
+    setVerdict(null);
+    const done = () => {
+      if (!game) return;
+      const m = miss(result, target.x, target.y);
+      setVerdict(m);
+      setScore((s) => ({ hits: s.hits + (m.hit ? 1 : 0), tries: s.tries + 1 }));
+    };
+    if (reducedMotion) {
+      setProgress(1);
+      done();
+      return;
+    }
     cancelAnimationFrame(frame.current);
     const start = performance.now();
-    // L'animation dure le temps de vol réel, ralenti ou accéléré pour rester entre 1 et 3 secondes.
-    const duration = Math.min(3000, Math.max(1000, result.time * 400));
+    // Durée réelle du vol, ramenée entre 1,2 et 4 secondes pour rester lisible.
+    const duration = Math.min(4000, Math.max(1200, result.time * 500));
     const step = (now: number) => {
       const k = Math.min(1, (now - start) / duration);
       setProgress(k);
       if (k < 1) frame.current = requestAnimationFrame(step);
+      else done();
     };
     setProgress(0);
     frame.current = requestAnimationFrame(step);
@@ -83,40 +133,142 @@ export function ProjectileSim({ t }: { t: Dictionary['sims']['projectile'] }) {
 
   useEffect(() => () => cancelAnimationFrame(frame.current), []);
 
-  const ball = result.point(result.time * progress);
+  const tNow = result.time * progress;
+  const ball = result.point(tNow);
+  const vyNow = result.vy - result.g * tNow;
+  const vscale = 3.6; // px par m/s
+  const bx = sx(ball.x);
+  const by = sy(ball.y);
+  const sky = planet === 'terre' ? ['#7dd3fc', '#e0f2fe'] : planet === 'mars' ? ['#7c2d12', '#fdba74'] : ['#020617', '#334155'];
+  const ground = planet === 'terre' ? '#a16207' : planet === 'mars' ? '#9a3412' : '#64748b';
 
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
-      <div className="rounded-2xl bg-ink p-3">
-        <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={t.title}>
-          <line x1={PAD} y1={sy(0)} x2={W - 8} y2={sy(0)} stroke="#a9b2cf" strokeWidth="1.5" />
-          <line x1={PAD} y1={sy(0)} x2={PAD} y2={8} stroke="#a9b2cf" strokeWidth="1.5" />
-          <text x={W - 8} y={sy(0) + 18} textAnchor="end" fill="#a9b2cf" fontSize="12">x (m)</text>
-          <text x={PAD + 6} y={16} fill="#a9b2cf" fontSize="12">y (m)</text>
-          {history.slice(0, -1).map((h, k) => (
-            <path key={k} d={path(solve(h))} fill="none" stroke="#a9b2cf" strokeOpacity="0.45" strokeWidth="2" strokeDasharray="4 4" />
-          ))}
-          <path d={path(result, progress)} fill="none" stroke="var(--focus)" strokeWidth="2.5" />
-          {/* Flèche : hauteur maximale */}
-          <line
-            x1={sx(result.vx * (result.vy / launch.g))}
-            y1={sy(0)}
-            x2={sx(result.vx * (result.vy / launch.g))}
-            y2={sy(result.maxHeight)}
-            stroke="#e8793a"
-            strokeDasharray="3 3"
-          />
-          <circle cx={sx(ball.x)} cy={sy(ball.y)} r="6" fill="#e8793a" stroke="#eef1fa" strokeWidth="1.5" />
-          {/* Vecteur vitesse initiale */}
-          <line
-            x1={sx(0)}
-            y1={sy(h0)}
-            x2={sx(0) + Math.cos((angle * Math.PI) / 180) * 40}
-            y2={sy(h0) - Math.sin((angle * Math.PI) / 180) * 40}
-            stroke="#eef1fa"
-            strokeWidth="2"
-          />
-        </svg>
+      <div className="flex flex-col gap-3">
+        <div className="overflow-hidden rounded-2xl border border-line">
+          <svg viewBox={`0 0 ${W} ${H}`} className="h-auto w-full" role="img" aria-label={t.title}>
+            <defs>
+              <linearGradient id="proj-sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={sky[0]} />
+                <stop offset="100%" stopColor={sky[1]} />
+              </linearGradient>
+              <marker id="fl-v" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#fff" /></marker>
+              <marker id="fl-x" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#ef4444" /></marker>
+              <marker id="fl-y" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#22c55e" /></marker>
+            </defs>
+            <rect width={W} height={H} fill="url(#proj-sky)" />
+            <rect x="0" y={sy(0)} width={W} height={H - sy(0)} fill={ground} />
+            {/* Graduations. */}
+            {Array.from({ length: 6 }, (_, k) => {
+              const step = Math.max(5, Math.ceil(xMax / 6 / 5) * 5);
+              const x = k * step;
+              return x <= xMax ? (
+                <g key={k}>
+                  <line x1={sx(x)} x2={sx(x)} y1={sy(0)} y2={sy(0) + 6} stroke="#fff" />
+                  <text x={sx(x)} y={sy(0) + 20} textAnchor="middle" fontSize="11" fill="#fff">{x} m</text>
+                </g>
+              ) : null;
+            })}
+            {/* Le lanceur, sur son estrade. */}
+            {h0 > 0 && <rect x={sx(0) - 14} y={sy(h0)} width="28" height={sy(0) - sy(h0)} fill="#78716c" />}
+            <g transform={`translate(${sx(0) - 10} ${sy(h0)})`}>
+              <path d="M-4 0 L -2 -16 M4 0 L 2 -16" stroke="#1e293b" strokeWidth="4" strokeLinecap="round" />
+              <path d="M0 -16 V -32" stroke="#2563eb" strokeWidth="8" strokeLinecap="round" />
+              <path d="M0 -28 L 12 -36" stroke="#7c4a2d" strokeWidth="3.5" strokeLinecap="round" />
+              <circle cx="0" cy="-40" r="6" fill="#7c4a2d" />
+            </g>
+            {/* La cible du jeu. */}
+            {game && (
+              <g>
+                <line x1={sx(target.x)} x2={sx(target.x)} y1={sy(target.y) + RING * scale} y2={sy(0)} stroke="#475569" strokeWidth="4" />
+                <circle cx={sx(target.x)} cy={sy(target.y)} r={RING * scale} fill="#fff" stroke="#dc2626" strokeWidth="4" />
+                <circle cx={sx(target.x)} cy={sy(target.y)} r={RING * scale * 0.45} fill="#dc2626" />
+              </g>
+            )}
+            {history.slice(0, -1).map((h, k) => (
+              <path key={k} d={path(solve(h))} fill="none" stroke="#fff" strokeOpacity="0.55" strokeWidth="2" strokeDasharray="4 5" />
+            ))}
+            <path d={path(result, progress)} fill="none" stroke="#f59e0b" strokeWidth="3" />
+            {/* Chronophotographie : positions à intervalles de temps égaux. */}
+            {chrono &&
+              Array.from({ length: 13 }, (_, k) => {
+                const tk = (result.time * k) / 12;
+                if (tk > tNow + 1e-9) return null;
+                const p = result.point(tk);
+                return <circle key={k} cx={sx(p.x)} cy={sy(p.y)} r="4" fill="#fff" stroke="#f59e0b" strokeWidth="2" />;
+              })}
+            {/* Flèche de la hauteur maximale. */}
+            {progress >= 1 && (
+              <line x1={sx(result.vx * (result.vy / result.g))} y1={sy(0)} x2={sx(result.vx * (result.vy / result.g))} y2={sy(result.maxHeight)} stroke="#fff" strokeDasharray="3 4" />
+            )}
+            {/* Vecteurs vitesse : vₓ reste constante, v_y diminue puis change de sens. */}
+            {vectors && progress < 1 && (
+              <g strokeWidth="3">
+                <line x1={bx} y1={by} x2={bx + result.vx * vscale} y2={by} stroke="#ef4444" markerEnd="url(#fl-x)" />
+                <line x1={bx} y1={by} x2={bx} y2={by - vyNow * vscale} stroke="#22c55e" markerEnd="url(#fl-y)" />
+                <line x1={bx} y1={by} x2={bx + result.vx * vscale} y2={by - vyNow * vscale} stroke="#fff" markerEnd="url(#fl-v)" />
+              </g>
+            )}
+            <circle cx={bx} cy={by} r="8" fill="#f97316" stroke="#fff" strokeWidth="2" />
+            {vectors && (
+              <g fontSize="12" fontWeight="700">
+                <text x={W - 150} y="22" fill="#ef4444">→ vₓ = {fmt(result.vx, 1)} m/s</text>
+                <text x={W - 150} y="40" fill="#16a34a">↑ v_y = {fmt(vyNow, 1)} m/s</text>
+              </g>
+            )}
+            {verdict && (
+              <g>
+                <rect x={W / 2 - 130} y="14" width="260" height="32" rx="10" fill={verdict.hit ? '#166534' : '#7f1d1d'} opacity="0.92" />
+                <text x={W / 2} y="35" textAnchor="middle" fontSize="15" fontWeight="700" fill="#fff">
+                  {verdict.hit ? t.hit : verdict.short ? t.tooShort : t.tooLong}
+                </text>
+              </g>
+            )}
+          </svg>
+        </div>
+        <div className="flex flex-wrap gap-x-4 gap-y-2">
+          <label className="flex items-center gap-1.5 text-sm">
+            <input type="checkbox" checked={vectors} onChange={(e) => setVectors(e.target.checked)} className="h-4 w-4" />
+            {t.vectors}
+          </label>
+          <label className="flex items-center gap-1.5 text-sm">
+            <input type="checkbox" checked={chrono} onChange={(e) => setChrono(e.target.checked)} className="h-4 w-4" />
+            {t.chrono}
+          </label>
+        </div>
+        <section className="rounded-2xl bg-ink p-4 text-on-ink">
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="font-bold">{t.game}</p>
+            <button
+              type="button"
+              onClick={() => {
+                setGame((g) => !g);
+                setVerdict(null);
+                setHistory([]);
+              }}
+              className="rounded-full bg-amber-300 px-4 py-1.5 text-sm font-bold text-slate-950"
+            >
+              {game ? t.gameStop : t.gameStart}
+            </button>
+            {game && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSeed((s) => s + 1);
+                    setVerdict(null);
+                    setHistory([]);
+                  }}
+                  className="text-sm underline"
+                >
+                  {t.newTarget}
+                </button>
+                <span className="ml-auto text-sm">{format(t.score, { hits: score.hits, tries: score.tries })}</span>
+              </>
+            )}
+          </div>
+          {game && <p className="mt-2 text-sm text-on-ink-muted">{format(t.targetAt, { x: target.x, y: target.y })}</p>}
+        </section>
       </div>
 
       <div className="flex flex-col gap-4">
