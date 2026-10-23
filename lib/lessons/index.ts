@@ -43,6 +43,16 @@ import { lesson as physique10LentillesBm } from './content-bm/10e-physique-lenti
 import { lesson as physique10MomentBm } from './content-bm/10e-physique-moment';
 import { lesson as physique10MouvementBm } from './content-bm/10e-physique-mouvement';
 import { lesson as physique10ReflexionRefractionBm } from './content-bm/10e-physique-reflexion-refraction';
+import { lesson as maths10CalculsRBm } from './content-bm/10e-maths-calculs-r';
+import { lesson as maths10EquationsInequationsBm } from './content-bm/10e-maths-equations-inequations';
+import { lesson as maths10FonctionsBm } from './content-bm/10e-maths-fonctions';
+import { lesson as maths10GeometrieEspaceBm } from './content-bm/10e-maths-geometrie-espace';
+import { lesson as maths10GeometriePlaneBm } from './content-bm/10e-maths-geometrie-plane';
+import { lesson as maths10PolynomesBm } from './content-bm/10e-maths-polynomes';
+import { lesson as maths10StatistiqueBm } from './content-bm/10e-maths-statistique';
+import { lesson as maths10TransformationsBm } from './content-bm/10e-maths-transformations';
+import { lesson as maths10TrigonometrieBm } from './content-bm/10e-maths-trigonometrie';
+import { lesson as maths10VecteursBm } from './content-bm/10e-maths-vecteurs';
 import { CECP_LESSONS } from './content-cecp';
 import { lesson as maths12AlgebreLineaire } from './content/12e-maths-algebre-lineaire';
 import { lesson as maths12ApplicationsAffines } from './content/12e-maths-applications-affines';
@@ -350,6 +360,16 @@ const LESSONS_BM: Record<string, LessonText> = {
   '10e/physique/moment': physique10MomentBm,
   '10e/physique/mouvement': physique10MouvementBm,
   '10e/physique/reflexion-refraction': physique10ReflexionRefractionBm,
+  '10e/maths/calculs-r': maths10CalculsRBm,
+  '10e/maths/equations-inequations': maths10EquationsInequationsBm,
+  '10e/maths/fonctions': maths10FonctionsBm,
+  '10e/maths/geometrie-espace': maths10GeometrieEspaceBm,
+  '10e/maths/geometrie-plane': maths10GeometriePlaneBm,
+  '10e/maths/polynomes': maths10PolynomesBm,
+  '10e/maths/statistique': maths10StatistiqueBm,
+  '10e/maths/transformations': maths10TransformationsBm,
+  '10e/maths/trigonometrie': maths10TrigonometrieBm,
+  '10e/maths/vecteurs': maths10VecteursBm,
 };
 
 export function getLesson(classId: ClassId, subject: SubjectId, chapterId: string, locale: Locale): Lesson | undefined {

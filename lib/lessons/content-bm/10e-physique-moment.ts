@@ -3,33 +3,33 @@ import type { LessonText } from '../index';
 // Bamanankan — brouillon à faire relire.
 export const lesson: LessonText = {
   hook: 'Walasa ka kabakurun belebele dɔ kɔrɔta, masɔn bɛ nɛgɛ juru dɔ don a kɔrɔ ka a laban digi : den fitinin bɛ se ka fɛn kɔrɔta o cogo la, mɔgɔkɔrɔba tun tɛna se min kɔrɔta ni a bolo gansan ye. A gundo tɛ fanga ye, **yɔrɔjan** min na a bɛ kɛ, o de don.',
-  objectives: ['ka fanga dɔ ka mɔmɛn kɔrɔ fɔ ɲɔgɔn munumunuyɔrɔ ma ;', 'ka levye bolo jate ;', 'ka mɔmɛnw teyoremu kɛ fɛn gɛlɛn bɛnnen dɔ la ;', 'ka levyew ni balansiw baarakɛcogo ɲɛfɔ.'],
+  objectives: ['ka fanga dɔ ka mɔmani kɔrɔ fɔ ɲɔgɔn munumunuyɔrɔ ma ;', 'ka levye bolo jate ;', 'ka mɔmaniw teyoremu kɛ fɛn gɛlɛn bɛnnen dɔ la ;', 'ka levyew ni balansiw baarakɛcogo ɲɛfɔ.'],
   sections: [
     {
-      title: 'Fanga ka mɔmɛn',
+      title: 'Fanga ka mɔmani',
       blocks: [
-        { legend: ['$F$ N la ; $d$ : levye bolo, munumunuyɔrɔ ni fanga sira cɛ, m la ; mɔmɛn N·m la'] },
-        { text: 'Mɔmɛn bɛ fanga ka munumununi nɔ sumanikɛ. An b’a jate pozitifu munumununi fan dɔ la, negatifu fan dɔ wɛrɛ la. Fanga min sira bɛ tɛmɛ munumunuyɔrɔ fɛ, o mɔmɛn ye 0 ye.' },
+        { legend: ['$F$ N la ; $d$ : levye bolo, munumunuyɔrɔ ni fanga sira cɛ, m la ; mɔmani N·m la'] },
+        { text: 'Mɔmɛn bɛ fanga ka munumununi nɔ sumanikɛ. An b’a jate pozitifu munumununi fan dɔ la, negatifu fan dɔ wɛrɛ la. Fanga min sira bɛ tɛmɛ munumunuyɔrɔ fɛ, o mɔmani ye 0 ye.' },
         { title: 'da', text: 'An bɛ da digi ni N 20 ye, tɛgɛrɛ jɔlen, a nɛgɛ siriyɔrɔw la mɛtɛrɛ 0,8.', steps: ['$\\mathcal M = 20 \\times 0{,}8 = 16$ N·m. Ni i b’a digi a siriyɔrɔ gɛrɛfɛ, fanga caman de ka kan nɔ kelen kama.'] },
       ],
     },
     {
       title: 'Mɔmɛnw teyoremu',
       blocks: [
-        { text: 'Fɛn gɛlɛn min bɛ se ka munumunu munumunuyɔrɔ sabatilen dɔ lamini, o bɛnnen don ni fangaw ka **mɔmɛnw faralen** ye 0 ye o munumunuyɔrɔ ma : $\\sum \\mathcal M_\\Delta = 0$.' },
+        { text: 'Fɛn gɛlɛn min bɛ se ka munumunu munumunuyɔrɔ sabatilen dɔ lamini, o bɛnnen don ni fangaw ka **mɔmaniw faralen** ye 0 ye o munumunuyɔrɔ ma : $\\sum \\mathcal M_\\Delta = 0$.' },
         { title: 'masɔn ka levye', text: 'Kabakurun bɛ N 600 kɛ m 0,2 la sigiyɔrɔ ma ; masɔn bɛ a digi m 1,2 la sigiyɔrɔ ma.', steps: ['$600 \\times 0{,}2 = F \\times 1{,}2$', '$F = \\dfrac{120}{1{,}2} = 100$ N : siɲɛ wɔɔrɔ ka dɔgɔ ni kabakurun girinya ye.'] },
         { text: 'Don o don levyew : wotoro, pɛnsi, misi, tasumanin datugulan bɔlan, balansi womani, bolo kɔrɔla.' },
       ],
     },
   ],
-  essentials: ['Mɔmɛn = fanga × levye bolo (N·m), a taamasiyɛn bɛ bɔ munumununi fan na.', 'Levye bolo ye munumunuyɔrɔ ni fanga sira cɛ ye.', 'Fɛn gɛlɛn min bɛ munumunu munumunuyɔrɔ dɔ lamini, o bɛnni : Σ mɔmɛnw = 0.'],
+  essentials: ['Mɔmɛn = fanga × levye bolo (N·m), a taamasiyɛn bɛ bɔ munumununi fan na.', 'Levye bolo ye munumunuyɔrɔ ni fanga sira cɛ ye.', 'Fɛn gɛlɛn min bɛ munumunu munumunuyɔrɔ dɔ lamini, o bɛnni : Σ mɔmaniw = 0.'],
   exercises: [
     {
       title: 'Ekuru dɔ yɛlɛ',
       statement: 'Mekanisiyɛn bɛ N 50 kɛ tɛgɛrɛ jɔlen kile cm 30 laban na.',
       parts: [
-        { label: 'Fanga mɔmɛn, N·m la.', steps: ['$50 \\times 0{,}30 = 15$ N·m.'] },
-        { label: 'Fanga min ka kan ni kile cm 60 ye mɔmɛn kelen kama, N la.', steps: ['$\\dfrac{15}{0{,}60} = 25$ N.'] },
+        { label: 'Fanga mɔmani, N·m la.', steps: ['$50 \\times 0{,}30 = 15$ N·m.'] },
+        { label: 'Fanga min ka kan ni kile cm 60 ye mɔmani kelen kama, N la.', steps: ['$\\dfrac{15}{0{,}60} = 25$ N.'] },
       ],
     },
     {
@@ -39,10 +39,10 @@ export const lesson: LessonText = {
     },
   ],
   quiz: [
-    { question: 'Fanga min sira bɛ tɛmɛ munumunuyɔrɔ fɛ, o mɔmɛn ye :', choices: ['0', 'a belebeleba', 'negatifu', 'fanga yɛrɛ'], explanation: 'Levye bolo ye 0 ye.' },
-    { question: 'Fanga mɔmɛn hakɛ ye :', choices: ['N·m', 'N', 'J/s', 'kg·m'], explanation: 'Newton sigiyɔrɔ jatebɔ ni mɛtɛrɛ ye.' },
+    { question: 'Fanga min sira bɛ tɛmɛ munumunuyɔrɔ fɛ, o mɔmani ye :', choices: ['0', 'a belebeleba', 'negatifu', 'fanga yɛrɛ'], explanation: 'Levye bolo ye 0 ye.' },
+    { question: 'Fanga mɔmani hakɛ ye :', choices: ['N·m', 'N', 'J/s', 'kg·m'], explanation: 'Newton sigiyɔrɔ jatebɔ ni mɛtɛrɛ ye.' },
     { question: 'Walasa ka da wuli ni fanga dɔgɔman ye, an b’a digi :', choices: ['a siriyɔrɔw yɔrɔjan na', 'a siriyɔrɔw gɛrɛfɛ', 'a siriyɔrɔw kan', 'yɔrɔ bɛɛ'], explanation: 'Ni levye bolo ka jan, fanga min ka kan, o ka dɔgɔ.' },
-    { question: 'Wotoro bɛ se ka doni girinman kɔrɔta, bawo :', choices: ['bolominɛyɔrɔw ka jan wotoro sen munumunuyɔrɔ la', 'wotoro sen ka nɔgɔn', 'doni bɛ dɔgɔya', 'mɔmɛn ye 0 ye'], explanation: 'Levye bolo jan bolo kama, a surun doni kama.' },
+    { question: 'Wotoro bɛ se ka doni girinman kɔrɔta, bawo :', choices: ['bolominɛyɔrɔw ka jan wotoro sen munumunuyɔrɔ la', 'wotoro sen ka nɔgɔn', 'doni bɛ dɔgɔya', 'mɔmani ye 0 ye'], explanation: 'Levye bolo jan bolo kama, a surun doni kama.' },
   ],
   applications: [
     {
