@@ -31,6 +31,18 @@ import { lesson as biologie10RespirationFermentationBm } from './content-bm/10e-
 import { lesson as biologie10RochesMinerauxBm } from './content-bm/10e-biologie-roches-mineraux';
 import { lesson as biologie10StructureGlobeBm } from './content-bm/10e-biologie-structure-globe';
 import { lesson as biologie10TissusOrganesBm } from './content-bm/10e-biologie-tissus-organes';
+import { lesson as physique10CourantContinuBm } from './content-bm/10e-physique-courant-continu';
+import { lesson as physique10DipolesActifsBm } from './content-bm/10e-physique-dipoles-actifs';
+import { lesson as physique10DipolesPassifsBm } from './content-bm/10e-physique-dipoles-passifs';
+import { lesson as physique10EnergieElectriqueBm } from './content-bm/10e-physique-energie-electrique';
+import { lesson as physique10EquilibreBm } from './content-bm/10e-physique-equilibre';
+import { lesson as physique10ForcesBm } from './content-bm/10e-physique-forces';
+import { lesson as physique10GravitationBm } from './content-bm/10e-physique-gravitation';
+import { lesson as physique10InertieBm } from './content-bm/10e-physique-inertie';
+import { lesson as physique10LentillesBm } from './content-bm/10e-physique-lentilles';
+import { lesson as physique10MomentBm } from './content-bm/10e-physique-moment';
+import { lesson as physique10MouvementBm } from './content-bm/10e-physique-mouvement';
+import { lesson as physique10ReflexionRefractionBm } from './content-bm/10e-physique-reflexion-refraction';
 import { CECP_LESSONS } from './content-cecp';
 import { lesson as maths12AlgebreLineaire } from './content/12e-maths-algebre-lineaire';
 import { lesson as maths12ApplicationsAffines } from './content/12e-maths-applications-affines';
@@ -326,6 +338,18 @@ const LESSONS_BM: Record<string, LessonText> = {
   '10e/biologie/roches-mineraux': biologie10RochesMinerauxBm,
   '10e/biologie/structure-globe': biologie10StructureGlobeBm,
   '10e/biologie/tissus-organes': biologie10TissusOrganesBm,
+  '10e/physique/courant-continu': physique10CourantContinuBm,
+  '10e/physique/dipoles-actifs': physique10DipolesActifsBm,
+  '10e/physique/dipoles-passifs': physique10DipolesPassifsBm,
+  '10e/physique/energie-electrique': physique10EnergieElectriqueBm,
+  '10e/physique/equilibre': physique10EquilibreBm,
+  '10e/physique/forces': physique10ForcesBm,
+  '10e/physique/gravitation': physique10GravitationBm,
+  '10e/physique/inertie': physique10InertieBm,
+  '10e/physique/lentilles': physique10LentillesBm,
+  '10e/physique/moment': physique10MomentBm,
+  '10e/physique/mouvement': physique10MouvementBm,
+  '10e/physique/reflexion-refraction': physique10ReflexionRefractionBm,
 };
 
 export function getLesson(classId: ClassId, subject: SubjectId, chapterId: string, locale: Locale): Lesson | undefined {
