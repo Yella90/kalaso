@@ -26,6 +26,7 @@ export const SIMULATIONS: SimulationInfo[] = [
   { id: 'cellule-3d', subject: 'biologie', path: 'simulations/cellule-3d' },
   { id: 'adn-3d', subject: 'biologie', path: 'simulations/adn-3d' },
   { id: 'caryotype', subject: 'biologie', path: 'simulations/caryotype' },
+  { id: 'coeur', subject: 'biologie', path: 'simulations/coeur' },
 ];
 
 /** Chapitres qui utilisent une simulation. */

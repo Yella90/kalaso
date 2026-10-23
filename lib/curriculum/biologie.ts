@@ -73,7 +73,7 @@ export const BIOLOGIE: SubjectProgram[] = [
     chapters: [
       { id: 'digestion-absorption', title: 'Digestion et absorption', domain: 'Physiologie' },
       { id: 'respiration', title: 'La respiration et les échanges gazeux', domain: 'Physiologie' },
-      { id: 'circulation', title: 'La circulation et le milieu intérieur', domain: 'Physiologie' },
+      { id: 'circulation', title: 'La circulation et le milieu intérieur', domain: 'Physiologie', simulation: 'coeur' },
       { id: 'excretion', title: 'L’excrétion urinaire', domain: 'Physiologie' },
       { id: 'reproduction-plantes', title: 'La reproduction des plantes à fleurs', domain: 'Reproduction' },
       { id: 'reproduction-animaux', title: 'La reproduction des animaux', domain: 'Reproduction' },
@@ -108,7 +108,7 @@ export const BIOLOGIE: SubjectProgram[] = [
       { id: 'motricite', title: 'Les activités cérébrales et la motricité volontaire', domain: 'Le système nerveux' },
       { id: 'hormones-sexuelles', title: 'La régulation des hormones sexuelles', domain: 'Les régulations' },
       { id: 'glycemie', title: 'La régulation de la glycémie', domain: 'Les régulations', notions: ['Insuline', 'Diabète'], simulation: 'glycemie' },
-      { id: 'pression-arterielle', title: 'L’activité cardiaque et la pression artérielle', domain: 'Les régulations' },
+      { id: 'pression-arterielle', title: 'L’activité cardiaque et la pression artérielle', domain: 'Les régulations', simulation: 'coeur' },
     ],
   },
 ];
