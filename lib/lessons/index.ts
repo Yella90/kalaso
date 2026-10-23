@@ -105,6 +105,14 @@ import { lesson as biologie11Tectonique } from './content/11e-biologie-tectoniqu
 import { lesson as chimie10EquationBilan } from './content/10e-chimie-equation-bilan';
 import { lesson as chimie10Gaz } from './content/10e-chimie-gaz';
 import { lesson as chimie10Solutions } from './content/10e-chimie-solutions';
+import { lesson as biologie10Cellule } from './content/10e-biologie-cellule';
+import { lesson as biologie10EchangesCellulaires } from './content/10e-biologie-echanges-cellulaires';
+import { lesson as biologie10Ecosysteme } from './content/10e-biologie-ecosysteme';
+import { lesson as biologie10Photosynthese } from './content/10e-biologie-photosynthese';
+import { lesson as biologie10RespirationFermentation } from './content/10e-biologie-respiration-fermentation';
+import { lesson as biologie10RochesMineraux } from './content/10e-biologie-roches-mineraux';
+import { lesson as biologie10StructureGlobe } from './content/10e-biologie-structure-globe';
+import { lesson as biologie10TissusOrganes } from './content/10e-biologie-tissus-organes';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -214,6 +222,14 @@ const LESSONS_FR: Record<string, Lesson> = {
   '10e/chimie/equation-bilan': chimie10EquationBilan,
   '10e/chimie/gaz': chimie10Gaz,
   '10e/chimie/solutions': chimie10Solutions,
+  '10e/biologie/cellule': biologie10Cellule,
+  '10e/biologie/echanges-cellulaires': biologie10EchangesCellulaires,
+  '10e/biologie/ecosysteme': biologie10Ecosysteme,
+  '10e/biologie/photosynthese': biologie10Photosynthese,
+  '10e/biologie/respiration-fermentation': biologie10RespirationFermentation,
+  '10e/biologie/roches-mineraux': biologie10RochesMineraux,
+  '10e/biologie/structure-globe': biologie10StructureGlobe,
+  '10e/biologie/tissus-organes': biologie10TissusOrganes,
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).
