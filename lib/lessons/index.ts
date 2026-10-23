@@ -56,6 +56,17 @@ import { lesson as maths10VecteursBm } from './content-bm/10e-maths-vecteurs';
 import { lesson as chimie10EquationBilanBm } from './content-bm/10e-chimie-equation-bilan';
 import { lesson as chimie10GazBm } from './content-bm/10e-chimie-gaz';
 import { lesson as chimie10SolutionsBm } from './content-bm/10e-chimie-solutions';
+import { lesson as maths11ApplicationsBm } from './content-bm/11e-maths-applications';
+import { lesson as maths11DenombrementBm } from './content-bm/11e-maths-denombrement';
+import { lesson as maths11EquationsSystemesBm } from './content-bm/11e-maths-equations-systemes';
+import { lesson as maths11FonctionsBm } from './content-bm/11e-maths-fonctions';
+import { lesson as maths11GeometrieEspaceBm } from './content-bm/11e-maths-geometrie-espace';
+import { lesson as maths11GeometriePlaneBm } from './content-bm/11e-maths-geometrie-plane';
+import { lesson as maths11PolynomesBm } from './content-bm/11e-maths-polynomes';
+import { lesson as maths11ProbabiliteBm } from './content-bm/11e-maths-probabilite';
+import { lesson as maths11StatistiqueBm } from './content-bm/11e-maths-statistique';
+import { lesson as maths11SuitesBm } from './content-bm/11e-maths-suites';
+import { lesson as maths11TrigonometrieBm } from './content-bm/11e-maths-trigonometrie';
 import { CECP_LESSONS } from './content-cecp';
 import { lesson as maths12AlgebreLineaire } from './content/12e-maths-algebre-lineaire';
 import { lesson as maths12ApplicationsAffines } from './content/12e-maths-applications-affines';
@@ -376,6 +387,17 @@ const LESSONS_BM: Record<string, LessonText> = {
   '10e/chimie/equation-bilan': chimie10EquationBilanBm,
   '10e/chimie/gaz': chimie10GazBm,
   '10e/chimie/solutions': chimie10SolutionsBm,
+  '11e/maths/applications': maths11ApplicationsBm,
+  '11e/maths/denombrement': maths11DenombrementBm,
+  '11e/maths/equations-systemes': maths11EquationsSystemesBm,
+  '11e/maths/fonctions': maths11FonctionsBm,
+  '11e/maths/geometrie-espace': maths11GeometrieEspaceBm,
+  '11e/maths/geometrie-plane': maths11GeometriePlaneBm,
+  '11e/maths/polynomes': maths11PolynomesBm,
+  '11e/maths/probabilite': maths11ProbabiliteBm,
+  '11e/maths/statistique': maths11StatistiqueBm,
+  '11e/maths/suites': maths11SuitesBm,
+  '11e/maths/trigonometrie': maths11TrigonometrieBm,
 };
 
 export function getLesson(classId: ClassId, subject: SubjectId, chapterId: string, locale: Locale): Lesson | undefined {
