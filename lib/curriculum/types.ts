@@ -34,7 +34,13 @@ export type SimulationId =
   | 'adn-3d'
   | 'caryotype'
   | 'coeur'
-  | 'skate-park';
+  | 'skate-park'
+  | 'cercle-trigo'
+  | 'vecteurs'
+  | 'transformations'
+  | 'statistique'
+  | 'probabilite'
+  | 'solides';
 
 export interface Chapter {
   /** Identifiant unique dans sa classe et sa matière (utilisé dans l'URL). */

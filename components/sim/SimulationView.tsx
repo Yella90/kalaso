@@ -16,6 +16,12 @@ import { AdnSim } from './bio/adn/AdnSim';
 import { CaryotypeSim } from './bio/CaryotypeSim';
 import { CoeurSim } from './bio/CoeurSim';
 import { SkateParkSim } from './SkateParkSim';
+import { CercleTrigoSim } from './maths/CercleTrigoSim';
+import { VecteursSim } from './maths/VecteursSim';
+import { TransformationsSim } from './maths/TransformationsSim';
+import { StatistiqueSim } from './maths/StatistiqueSim';
+import { ProbabiliteSim } from './maths/ProbabiliteSim';
+import { SolidesSim } from './maths/SolidesSim';
 import { CircuitSim } from './CircuitSim';
 import { FunctionSim } from './FunctionSim';
 import { PeriodicTable } from './PeriodicTable';
@@ -71,5 +77,17 @@ export function SimulationView({ id, lang, t }: { id: SimulationId; lang: Locale
       return <CoeurSim t={t.sims['coeur']} />;
     case 'skate-park':
       return <SkateParkSim t={t.sims['skate-park']} />;
+    case 'cercle-trigo':
+      return <CercleTrigoSim t={t.sims['cercle-trigo']} predict={t.lesson.predict} />;
+    case 'vecteurs':
+      return <VecteursSim t={t.sims['vecteurs']} predict={t.lesson.predict} />;
+    case 'transformations':
+      return <TransformationsSim t={t.sims['transformations']} predict={t.lesson.predict} />;
+    case 'statistique':
+      return <StatistiqueSim t={t.sims['statistique']} predict={t.lesson.predict} />;
+    case 'probabilite':
+      return <ProbabiliteSim t={t.sims['probabilite']} predict={t.lesson.predict} />;
+    case 'solides':
+      return <SolidesSim t={t.sims['solides']} predict={t.lesson.predict} />;
   }
 }

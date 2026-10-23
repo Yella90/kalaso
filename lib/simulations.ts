@@ -28,6 +28,12 @@ export const SIMULATIONS: SimulationInfo[] = [
   { id: 'caryotype', subject: 'biologie', path: 'simulations/caryotype' },
   { id: 'coeur', subject: 'biologie', path: 'simulations/coeur' },
   { id: 'skate-park', subject: 'physique', path: 'simulations/skate-park' },
+  { id: 'cercle-trigo', subject: 'maths', path: 'simulations/cercle-trigo' },
+  { id: 'vecteurs', subject: 'maths', path: 'simulations/vecteurs' },
+  { id: 'transformations', subject: 'maths', path: 'simulations/transformations' },
+  { id: 'statistique', subject: 'maths', path: 'simulations/statistique' },
+  { id: 'probabilite', subject: 'maths', path: 'simulations/probabilite' },
+  { id: 'solides', subject: 'maths', path: 'simulations/solides' },
 ];
 
 /** Chapitres qui utilisent une simulation. */
