@@ -91,7 +91,7 @@ export const BIOLOGIE: SubjectProgram[] = [
       { id: 'structure-cellule', title: 'La structure de la cellule', domain: 'La cellule', simulation: 'cellule-3d' },
       { id: 'echanges-cellulaires', title: 'Les échanges cellulaires', domain: 'La cellule', simulation: 'osmose' },
       { id: 'metabolisme', title: 'Le métabolisme énergétique de la cellule', domain: 'La cellule', notions: ['Respiration', 'Fermentation', 'ATP'] },
-      { id: 'support-genetique', title: 'Le support de l’information génétique', domain: 'L’information génétique', notions: ['ADN', 'Chromosomes'] },
+      { id: 'support-genetique', title: 'Le support de l’information génétique', domain: 'L’information génétique', notions: ['ADN', 'Chromosomes'], simulation: 'adn-3d' },
       { id: 'transmission-genetique', title: 'La transmission de l’information génétique', domain: 'L’information génétique', notions: ['Mitose', 'Réplication'], simulation: 'mitose' },
       { id: 'expression-genetique', title: 'L’expression de l’information génétique', domain: 'L’information génétique', notions: ['Transcription', 'Traduction'], simulation: 'traduction' },
       { id: 'reproduction-homme', title: 'La reproduction chez l’homme', domain: 'Unicité et diversité des individus' },
