@@ -40,6 +40,27 @@ import { lesson as maths12LnExp } from './content/12e-maths-ln-exp';
 import { lesson as maths12Probabilites } from './content/12e-maths-probabilites';
 import { lesson as maths12Statistique } from './content/12e-maths-statistique';
 import { lesson as maths12Suites } from './content/12e-maths-suites';
+import { lesson as biologie12AidesImmunitaires } from './content/12e-biologie-aides-immunitaires';
+import { lesson as biologie12BrassageGenetique } from './content/12e-biologie-brassage-genetique';
+import { lesson as biologie12ConstitutionSn } from './content/12e-biologie-constitution-sn';
+import { lesson as biologie12Dysfonctionnements } from './content/12e-biologie-dysfonctionnements';
+import { lesson as biologie12EchangesCellulaires } from './content/12e-biologie-echanges-cellulaires';
+import { lesson as biologie12ExpressionGenetique } from './content/12e-biologie-expression-genetique';
+import { lesson as biologie12FonctionnementSn } from './content/12e-biologie-fonctionnement-sn';
+import { lesson as biologie12GenetiqueHumaine } from './content/12e-biologie-genetique-humaine';
+import { lesson as biologie12GenetiquePopulations } from './content/12e-biologie-genetique-populations';
+import { lesson as biologie12Glycemie } from './content/12e-biologie-glycemie';
+import { lesson as biologie12HormonesSexuelles } from './content/12e-biologie-hormones-sexuelles';
+import { lesson as biologie12Metabolisme } from './content/12e-biologie-metabolisme';
+import { lesson as biologie12Motricite } from './content/12e-biologie-motricite';
+import { lesson as biologie12MuscleStrie } from './content/12e-biologie-muscle-strie';
+import { lesson as biologie12PressionArterielle } from './content/12e-biologie-pression-arterielle';
+import { lesson as biologie12ReponseImmunitaire } from './content/12e-biologie-reponse-immunitaire';
+import { lesson as biologie12ReproductionHomme } from './content/12e-biologie-reproduction-homme';
+import { lesson as biologie12SoiNonSoi } from './content/12e-biologie-soi-non-soi';
+import { lesson as biologie12StructureCellule } from './content/12e-biologie-structure-cellule';
+import { lesson as biologie12SupportGenetique } from './content/12e-biologie-support-genetique';
+import { lesson as biologie12TransmissionGenetique } from './content/12e-biologie-transmission-genetique';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -84,6 +105,27 @@ const LESSONS_FR: Record<string, Lesson> = {
   '12e/maths/probabilites': maths12Probabilites,
   '12e/maths/statistique': maths12Statistique,
   '12e/maths/suites': maths12Suites,
+  '12e/biologie/aides-immunitaires': biologie12AidesImmunitaires,
+  '12e/biologie/brassage-genetique': biologie12BrassageGenetique,
+  '12e/biologie/constitution-sn': biologie12ConstitutionSn,
+  '12e/biologie/dysfonctionnements': biologie12Dysfonctionnements,
+  '12e/biologie/echanges-cellulaires': biologie12EchangesCellulaires,
+  '12e/biologie/expression-genetique': biologie12ExpressionGenetique,
+  '12e/biologie/fonctionnement-sn': biologie12FonctionnementSn,
+  '12e/biologie/genetique-humaine': biologie12GenetiqueHumaine,
+  '12e/biologie/genetique-populations': biologie12GenetiquePopulations,
+  '12e/biologie/glycemie': biologie12Glycemie,
+  '12e/biologie/hormones-sexuelles': biologie12HormonesSexuelles,
+  '12e/biologie/metabolisme': biologie12Metabolisme,
+  '12e/biologie/motricite': biologie12Motricite,
+  '12e/biologie/muscle-strie': biologie12MuscleStrie,
+  '12e/biologie/pression-arterielle': biologie12PressionArterielle,
+  '12e/biologie/reponse-immunitaire': biologie12ReponseImmunitaire,
+  '12e/biologie/reproduction-homme': biologie12ReproductionHomme,
+  '12e/biologie/soi-non-soi': biologie12SoiNonSoi,
+  '12e/biologie/structure-cellule': biologie12StructureCellule,
+  '12e/biologie/support-genetique': biologie12SupportGenetique,
+  '12e/biologie/transmission-genetique': biologie12TransmissionGenetique,
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).
