@@ -97,6 +97,7 @@ export const PHYSIQUE: SubjectProgram[] = [
     chapters: [
       { id: 'centre-inertie', title: 'Mouvement du centre d’inertie', domain: 'Mécanique' },
       { id: 'projectile', title: 'Projectile dans le champ de pesanteur', domain: 'Mécanique', notions: ['Trajectoire parabolique', 'Portée', 'Flèche'], simulation: 'projectile' },
+      { id: 'gravitation', title: 'Gravitation universelle', domain: 'Mécanique', notions: ['Loi de Newton', 'Champ de gravitation', 'Lois de Kepler'] },
       { id: 'satellite', title: 'Satellite terrestre', domain: 'Mécanique', notions: ['Vitesse et période', 'Orbite géostationnaire'] },
       { id: 'particule-champ-electrique', title: 'Particule chargée dans un champ électrique', domain: 'Mécanique' },
       { id: 'particule-champ-magnetique', title: 'Particule chargée dans un champ magnétique', domain: 'Mécanique', notions: ['Spectrographe de masse', 'Cyclotron'] },

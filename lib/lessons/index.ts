@@ -12,6 +12,7 @@ import { lesson as chimie10CovalenteBm } from './content-bm/10e-chimie-covalente
 import { lesson as chimie10IonsBm } from './content-bm/10e-chimie-ions';
 import { lesson as chimie10MoleBm } from './content-bm/10e-chimie-mole';
 import { lesson as chimie9AtomeBm } from './content-bm/9e-chimie-atome';
+import { CECP_LESSONS } from './content-cecp';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -25,6 +26,8 @@ const LESSONS_FR: Record<string, Lesson> = {
   '10e/chimie/ions-liaison-ionique': chimie10Ions,
   '10e/chimie/liaison-covalente': chimie10Covalente,
   '10e/chimie/mole': chimie10Mole,
+  // 12e Physique-Chimie : importée du site cecp (scripts/import-cecp.ts).
+  ...CECP_LESSONS,
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).

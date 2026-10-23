@@ -3,6 +3,13 @@ import type { Block, Lesson } from '@/lib/lessons/types';
 import { LewisDiagram } from './LewisDiagram';
 import { RichText, TexBlock } from './RichText';
 
+const CALLOUT_STYLE = {
+  retenir: 'border-l-4 border-good bg-good-soft',
+  attention: 'border-l-4 border-alert bg-alert-soft',
+  methode: 'border-l-4 border-ink bg-paper',
+  remarque: 'border border-line bg-paper',
+} as const;
+
 function BlockView({ block, t }: { block: Block; t: Dictionary['lesson'] }) {
   switch (block.kind) {
     case 'text':
@@ -35,6 +42,11 @@ function BlockView({ block, t }: { block: Block; t: Dictionary['lesson'] }) {
     case 'formula':
       return (
         <div className="rounded-xl border border-line bg-surface px-4 py-3">
+          {block.label && (
+            <p className="text-sm font-bold text-muted">
+              <RichText text={block.label} />
+            </p>
+          )}
           <TexBlock tex={block.tex} />
           {block.legend && (
             <ul className="mt-1 text-sm text-muted">
@@ -92,6 +104,29 @@ function BlockView({ block, t }: { block: Block; t: Dictionary['lesson'] }) {
           </p>
         </div>
       );
+    case 'list':
+      return (
+        <ul className="list-disc space-y-1 pl-5">
+          {block.items.map((item, i) => (
+            <li key={i}>
+              <RichText text={item} />
+            </li>
+          ))}
+        </ul>
+      );
+    case 'callout':
+      return (
+        <div className={`rounded-xl px-4 py-3 ${CALLOUT_STYLE[block.variant]}`}>
+          <p className="text-sm font-bold">
+            {block.title ? <RichText text={block.title} /> : t.callout[block.variant]}
+          </p>
+          <div className="mt-1 flex flex-col gap-2">
+            {block.blocks.map((b, i) => (
+              <BlockView key={i} block={b} t={t} />
+            ))}
+          </div>
+        </div>
+      );
     case 'lewis':
       return (
         <div className="flex flex-wrap items-end justify-around gap-x-6 gap-y-4 rounded-xl border border-line bg-surface px-4 py-4">
@@ -133,23 +168,27 @@ function BlockView({ block, t }: { block: Block; t: Dictionary['lesson'] }) {
 export function LessonCourse({ lesson, t }: { lesson: Lesson; t: Dictionary['lesson'] }) {
   return (
     <div className="flex flex-col gap-8">
-      <p className="font-serif text-xl leading-relaxed">
-        <RichText text={lesson.hook} />
-      </p>
+      {lesson.hook && (
+        <p className="font-serif text-xl leading-relaxed">
+          <RichText text={lesson.hook} />
+        </p>
+      )}
 
-      <div>
-        <p className="font-bold">{t.objectives}</p>
-        <ul className="mt-2 list-disc space-y-1 pl-5">
-          {lesson.objectives.map((o) => (
-            <li key={o}>
-              <RichText text={o} />
-            </li>
-          ))}
-        </ul>
-      </div>
+      {lesson.objectives.length > 0 && (
+        <div>
+          <p className="font-bold">{t.objectives}</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5">
+            {lesson.objectives.map((o) => (
+              <li key={o}>
+                <RichText text={o} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {lesson.sections.map((section, i) => (
-        <section key={section.title} className="flex flex-col gap-4">
+        <section key={i} className="flex flex-col gap-4">
           <h3 className="text-2xl">
             {i + 1}. <RichText text={section.title} />
           </h3>
@@ -159,16 +198,18 @@ export function LessonCourse({ lesson, t }: { lesson: Lesson; t: Dictionary['les
         </section>
       ))}
 
-      <section className="rounded-2xl border-2 border-ink p-5">
-        <h3 className="text-2xl">{t.essentials}</h3>
-        <ol className="mt-3 list-decimal space-y-2 pl-5">
-          {lesson.essentials.map((e) => (
-            <li key={e}>
-              <RichText text={e} />
-            </li>
-          ))}
-        </ol>
-      </section>
+      {lesson.essentials.length > 0 && (
+        <section className="rounded-2xl border-2 border-ink p-5">
+          <h3 className="text-2xl">{t.essentials}</h3>
+          <ol className="mt-3 list-decimal space-y-2 pl-5">
+            {lesson.essentials.map((e) => (
+              <li key={e}>
+                <RichText text={e} />
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
     </div>
   );
 }

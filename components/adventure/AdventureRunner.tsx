@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, type ReactNode } from 'react';
+import { parseNumber } from '@/lib/answers';
 import { format, type Dictionary } from '@/lib/i18n';
 import { completeMission, resetAdventure, useProgress } from '@/lib/progress/store';
 
@@ -19,13 +20,6 @@ export interface RenderedMission {
   hints: ReactNode[];
   solution: ReactNode[];
   debrief: ReactNode;
-}
-
-/** Lit « 12,5 », « 12.5 » ou « 1 000 ». */
-function parseNumber(value: string): number | null {
-  const cleaned = value.replace(/\s/g, '').replace(',', '.');
-  if (!/^-?\d+(\.\d+)?(e-?\d+)?$/i.test(cleaned)) return null;
-  return Number(cleaned);
 }
 
 export function AdventureRunner({
