@@ -1,6 +1,7 @@
 import type { Dictionary } from './fr';
 import { predictBm, simsBm1 } from './bm-sims-1';
 import { simsBm2 } from './bm-sims-2';
+import { simsBm3 } from './bm-sims-3';
 
 type DeepPartial<T> = T extends readonly unknown[] ? T : T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
 
@@ -387,4 +388,4 @@ function deepMerge<T>(base: T, extra: unknown): T {
   return out as T;
 }
 
-export const bm: DeepPartial<Dictionary> = deepMerge(bmBase, { lesson: { predict: predictBm }, sims: { ...simsBm1, ...simsBm2 } });
+export const bm: DeepPartial<Dictionary> = deepMerge(bmBase, { lesson: { predict: predictBm }, sims: { ...simsBm1, ...simsBm2, ...simsBm3 } });
