@@ -75,6 +75,7 @@ export const lesson: Lesson = {
           why: 'Le manteau est presque entièrement solide ; il se déforme très lentement, comme une pâte.',
           reflex: 'Seules de petites zones fondent, sous les dorsales et les zones de subduction.',
         },
+        { kind: 'photo', id: 'plaques-tectoniques' },
       ],
     },
   ],

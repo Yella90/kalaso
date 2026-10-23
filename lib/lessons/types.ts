@@ -1,3 +1,5 @@
+import type { MediaId } from '@/lib/media';
+
 // Contenu pédagogique d'un chapitre : Cours → Simuler → S'exercer → Appliquer.
 //
 // Les textes acceptent une mise en forme minimale :
@@ -15,7 +17,9 @@ export type Block =
   | { kind: 'table'; head: string[]; rows: string[][] }
   | { kind: 'lewis'; molecules: LewisMolecule[] }
   /** Schéma dessiné pour Kalanso (voir components/figures). */
-  | { kind: 'figure'; id: FigureId; caption?: string };
+  | { kind: 'figure'; id: FigureId; caption?: string }
+  /** Photo ou vidéo libre de Wikimedia Commons (voir lib/media.ts), avec son auteur et sa licence. */
+  | { kind: 'photo'; id: MediaId; caption?: string };
 
 export type FigureId =
   | 'cellule-animale'

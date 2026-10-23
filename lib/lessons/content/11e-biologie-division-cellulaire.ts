@@ -32,6 +32,7 @@ export const lesson: Lesson = {
           kind: 'rule',
           text: 'Une cellule à $2n$ chromosomes donne par mitose **deux cellules identiques** à $2n$ chromosomes. La mitose assure la croissance, la réparation des tissus et la multiplication végétative.',
         },
+        { kind: 'photo', id: 'mitose-racine' },
       ],
     },
     {

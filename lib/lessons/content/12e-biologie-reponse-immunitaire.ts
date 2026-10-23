@@ -22,6 +22,7 @@ export const lesson: Lesson = {
           term: 'Phagocytose',
           text: 'les **phagocytes** (granulocytes, macrophages) englobent les microbes, les digèrent dans des vésicules, puis présentent des fragments (antigènes) aux lymphocytes.',
         },
+        { kind: 'photo', id: 'phagocytose' },
       ],
     },
     {
@@ -63,6 +64,7 @@ export const lesson: Lesson = {
           why: 'Les anticorps agissent dans le sang et les liquides ; ils n’entrent pas dans les cellules.',
           reflex: 'Microbes et toxines libres : anticorps ; cellules infectées : lymphocytes T cytotoxiques.',
         },
+        { kind: 'photo', id: 'lymphocyte-t' },
       ],
     },
   ],

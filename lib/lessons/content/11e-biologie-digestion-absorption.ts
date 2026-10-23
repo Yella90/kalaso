@@ -63,6 +63,7 @@ export const lesson: Lesson = {
             'le gros intestin absorbe l’eau ; les fibres non digérées forment les selles.',
           ],
         },
+        { kind: 'photo', id: 'villosites', caption: 'Les villosités multiplient la surface de l’intestin qui absorbe les nutriments.' },
       ],
     },
   ],

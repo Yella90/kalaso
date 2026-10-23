@@ -40,6 +40,7 @@ export const lesson: Lesson = {
           why: 'Le virus ne se transmet que par le sang, les sécrétions sexuelles et le lait maternel ; il ne survit pas dans le moustique.',
           reflex: 'Vivre avec une personne séropositive ne présente aucun risque au quotidien.',
         },
+        { kind: 'photo', id: 'vih', caption: 'Des virus (en vert) bourgeonnent à la surface d’un lymphocyte T4 infecté.' },
       ],
     },
     {

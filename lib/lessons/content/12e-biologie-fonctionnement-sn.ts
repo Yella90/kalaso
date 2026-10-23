@@ -69,6 +69,7 @@ export const lesson: Lesson = {
           why: 'Dans une synapse chimique, la fente sépare les deux neurones : le message devient chimique (neurotransmetteur).',
           reflex: 'Électrique le long des fibres, chimique dans la synapse ; c’est là qu’agissent drogues et médicaments.',
         },
+        { kind: 'photo', id: 'jonction-neuromusculaire', caption: 'Synapse entre un nerf et un muscle : on voit les vésicules de neurotransmetteur.' },
       ],
     },
   ],

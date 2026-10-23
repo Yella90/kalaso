@@ -46,6 +46,7 @@ export const lesson: Lesson = {
           why: 'C’est l’ovaire qui grossit pour devenir le fruit ; les ovules qu’il contient deviennent les graines.',
           reflex: 'Ovaire → fruit ; ovule → graine.',
         },
+        { kind: 'photo', id: 'pollen', caption: 'Chaque espèce a des grains de pollen de forme différente.' },
       ],
     },
     {

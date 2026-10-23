@@ -74,6 +74,7 @@ export const lesson: Lesson = {
           why: 'La dominance concerne le phénotype d’un individu, pas l’évolution des fréquences.',
           reflex: 'Sans sélection ni dérive, les fréquences restent stables (Hardy-Weinberg).',
         },
+        { kind: 'photo', id: 'plasmodium', caption: 'Le parasite du paludisme vit dans les globules rouges : les porteurs AS sont mieux protégés.' },
       ],
     },
   ],

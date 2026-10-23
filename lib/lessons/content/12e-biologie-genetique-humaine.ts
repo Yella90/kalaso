@@ -52,6 +52,7 @@ export const lesson: Lesson = {
           why: 'Chaque fécondation est indépendante des précédentes.',
           reflex: 'Le risque de 1/4 s’applique à chaque naissance.',
         },
+        { kind: 'photo', id: 'drepanocytes', caption: 'Chez un malade SS, des globules rouges prennent la forme d’une faucille.' },
       ],
     },
     {
@@ -81,6 +82,7 @@ export const lesson: Lesson = {
             },
           ],
         },
+        { kind: 'photo', id: 'caryotype' },
       ],
     },
   ],

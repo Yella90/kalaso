@@ -46,6 +46,7 @@ export const lesson: Lesson = {
           kind: 'rule',
           text: 'La mitose donne deux cellules filles qui ont le **même nombre** de chromosomes ($2n$) et la **même information génétique** que la cellule mère.',
         },
+        { kind: 'photo', id: 'mitose-racine', caption: 'Dans la pointe d’une racine, beaucoup de cellules sont en train de se diviser. Cherche les différentes phases.' },
       ],
     },
     {

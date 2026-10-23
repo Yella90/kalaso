@@ -131,6 +131,7 @@ export const bm: DeepPartial<Dictionary> = {
     applications: 'Ɲɛnamaya kɔnɔ',
     adventures: 'Nin sapitiri in bɛ baara kɛ nin taamaw kɔnɔ',
     noContent: 'Nin sapitiri in kalan bɛ sɛbɛn na. Kalan kunbaba minnu bɛ duguma, olu bɛ a labɛncogo jira i la.',
+    media: { photo: 'Ja', video: 'Widewo', via: 'Wikimedia Commons kɔnɔ' },
     callout: { retenir: 'Hakili to a la', attention: 'I janto', methode: 'Kɛcogo', remarque: 'Kɔlɔsili' },
     given: 'Kunnafoniw',
     answerLabel: 'I ka jaabi',

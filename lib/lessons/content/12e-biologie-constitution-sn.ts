@@ -47,6 +47,7 @@ export const lesson: Lesson = {
             ['section de la racine **ventrale**', 'paralysie, la sensibilité est conservée', 'la racine ventrale est **motrice**'],
           ],
         },
+        { kind: 'photo', id: 'neurone-culture', caption: 'Un neurone et ses nombreux prolongements, rendus visibles par fluorescence.' },
       ],
     },
     {

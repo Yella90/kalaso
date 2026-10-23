@@ -128,6 +128,7 @@ export const fr = {
     applications: 'Dans la vie réelle',
     adventures: 'Ce chapitre sert dans ces aventures',
     noContent: 'Le cours de ce chapitre est en cours de rédaction. Les notions ci-dessous te donnent déjà le plan.',
+    media: { photo: 'Photo', video: 'Vidéo', via: 'via Wikimedia Commons' },
     callout: { retenir: 'À retenir', attention: 'Attention', methode: 'Méthode', remarque: 'Remarque' },
     given: 'Données',
     answerLabel: 'Ta réponse',

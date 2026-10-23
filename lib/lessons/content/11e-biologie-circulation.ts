@@ -27,6 +27,7 @@ export const lesson: Lesson = {
           kind: 'text',
           text: 'Un adulte possède environ 5 litres de sang. L’**anémie** (manque d’hémoglobine) est fréquente au Mali : paludisme, carences en fer, drépanocytose ; elle se traduit par une grande fatigue et une pâleur.',
         },
+        { kind: 'photo', id: 'sang-meb', caption: 'Les globules rouges, en forme de disque creusé, transportent le dioxygène.' },
       ],
     },
     {
@@ -55,6 +56,7 @@ export const lesson: Lesson = {
           why: 'L’artère pulmonaire transporte du sang pauvre en dioxygène vers les poumons.',
           reflex: 'Artère = part du cœur ; veine = revient au cœur, quel que soit le sang.',
         },
+        { kind: 'photo', id: 'coeur-anatomie' },
       ],
     },
     {

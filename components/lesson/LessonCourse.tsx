@@ -2,6 +2,7 @@ import type { Dictionary } from '@/lib/i18n';
 import type { Block, Lesson } from '@/lib/lessons/types';
 import { Figure } from '@/components/figures/Figure';
 import { LewisDiagram } from './LewisDiagram';
+import { MediaFigure } from './MediaFigure';
 import { RichText, TexBlock } from './RichText';
 
 const CALLOUT_STYLE = {
@@ -128,6 +129,8 @@ function BlockView({ block, t }: { block: Block; t: Dictionary['lesson'] }) {
           </div>
         </div>
       );
+    case 'photo':
+      return <MediaFigure id={block.id} caption={block.caption} t={t} />;
     case 'figure':
       return (
         <figure className="rounded-xl border border-line bg-surface px-3 py-4">

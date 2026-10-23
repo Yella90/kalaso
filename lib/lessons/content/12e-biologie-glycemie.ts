@@ -48,6 +48,7 @@ export const lesson: Lesson = {
           kind: 'rule',
           text: 'C’est un système de régulation par **rétrocontrôle négatif** : un écart de la glycémie déclenche la réponse qui le corrige. Capteurs et centre de commande : les îlots de Langerhans ; effecteurs : foie, muscles, tissu adipeux.',
         },
+        { kind: 'photo', id: 'ilot-langerhans', caption: 'Au centre, un îlot de Langerhans (plus clair) entouré des cellules qui fabriquent le suc pancréatique.' },
       ],
     },
     {

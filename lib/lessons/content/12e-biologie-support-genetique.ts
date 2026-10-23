@@ -55,6 +55,7 @@ export const lesson: Lesson = {
           kind: 'text',
           text: 'L’information est dans l’**ordre** des bases (la séquence), comme le sens d’un message est dans l’ordre des lettres.',
         },
+        { kind: 'photo', id: 'adn-nhgri' },
       ],
     },
     {
@@ -81,6 +82,7 @@ export const lesson: Lesson = {
           why: 'Le gène est un morceau d’ADN ; il contient l’information pour **fabriquer** une protéine.',
           reflex: 'ADN (gène) → information ; protéine → réalise le caractère.',
         },
+        { kind: 'photo', id: 'caryotype', caption: 'Le caryotype range les chromosomes par paires, du plus grand au plus petit.' },
       ],
     },
   ],

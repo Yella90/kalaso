@@ -32,6 +32,7 @@ export const lesson: Lesson = {
           tex: 'Q = f_c \\times V_{ES}',
           legend: ['$f_c$ : fréquence cardiaque (battements/min) ; $V_{ES}$ : volume d’éjection systolique (mL)', 'au repos : $70 \\times 70 \\approx 4{,}9$ L/min'],
         },
+        { kind: 'photo', id: 'coeur-anatomie' },
       ],
     },
     {

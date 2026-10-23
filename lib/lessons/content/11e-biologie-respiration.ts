@@ -58,6 +58,7 @@ export const lesson: Lesson = {
           why: 'Il en reste environ 16 % : c’est pourquoi le bouche-à-bouche peut sauver une vie.',
           reflex: 'On n’absorbe qu’une petite partie du dioxygène inspiré.',
         },
+        { kind: 'photo', id: 'alveoles', caption: 'Le dioxygène passe de l’alvéole au sang des capillaires ; le CO₂ fait le chemin inverse.' },
       ],
     },
   ],

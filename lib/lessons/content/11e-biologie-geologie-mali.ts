@@ -26,6 +26,7 @@ export const lesson: Lesson = {
           kind: 'text',
           text: 'Dans les régions tropicales, l’altération des roches donne la **latérite**, sol rouge riche en fer et en aluminium, parfois durcie en cuirasse : on l’utilise pour les pistes et les briques.',
         },
+        { kind: 'photo', id: 'falaise-bandiagara', caption: 'La falaise de Bandiagara est faite de grès, une roche sédimentaire.' },
       ],
     },
     {

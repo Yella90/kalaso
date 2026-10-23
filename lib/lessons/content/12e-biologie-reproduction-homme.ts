@@ -45,6 +45,7 @@ export const lesson: Lesson = {
           kind: 'rule',
           text: 'Le sexe de l’enfant est déterminé par le spermatozoïde : X donne une fille (XX), Y donne un garçon (XY).',
         },
+        { kind: 'photo', id: 'fecondation' },
       ],
     },
     {

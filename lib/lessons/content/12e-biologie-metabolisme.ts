@@ -51,6 +51,7 @@ export const lesson: Lesson = {
             },
           ],
         },
+        { kind: 'photo', id: 'mitochondrie-meb', caption: 'La mitochondrie, lieu de la respiration cellulaire.' },
       ],
     },
     {

@@ -38,6 +38,8 @@ export const lesson: Lesson = {
           why: 'La membrane laisse passer l’eau bien plus facilement que les ions : c’est surtout l’eau qui sort de la cellule.',
           reflex: 'En osmose, raisonner sur le mouvement de l’**eau** : elle va vers le milieu le plus concentré.',
         },
+        { kind: 'photo', id: 'plasmolyse-oignon-rouge', caption: 'Dans l’eau salée, la vacuole colorée perd de l’eau et se détache de la paroi : c’est la plasmolyse.' },
+        { kind: 'photo', id: 'plasmolyse-video', caption: 'La même expérience filmée en accéléré : observe la vacuole rouge se rétracter.' },
       ],
     },
     {
@@ -65,6 +67,7 @@ export const lesson: Lesson = {
           kind: 'text',
           text: 'Les grosses particules passent dans des vésicules. Par **endocytose**, la membrane entoure une particule et l’emporte dans la cellule (la **phagocytose** des bactéries par les globules blancs en est un exemple). Par **exocytose**, une vésicule fusionne avec la membrane et libère son contenu à l’extérieur (sécrétion d’hormones, d’enzymes digestives).',
         },
+        { kind: 'photo', id: 'phagocytose', caption: 'Un granulocyte capture des bactéries par phagocytose, une forme d’endocytose.' },
       ],
     },
   ],

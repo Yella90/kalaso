@@ -35,6 +35,23 @@ self.addEventListener('fetch', (event) => {
   const request = event.request;
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
+  // Photos libres de Wikimedia Commons : gardées pour être revues sans connexion.
+  if (url.hostname === 'upload.wikimedia.org' && request.destination === 'image') {
+    event.respondWith(
+      caches.match(request).then(
+        (cached) =>
+          cached ||
+          fetch(request).then((response) => {
+            if (response.ok || response.type === 'opaque') {
+              const copy = response.clone();
+              caches.open(ASSETS).then((cache) => cache.put(request, copy));
+            }
+            return response;
+          }),
+      ),
+    );
+    return;
+  }
   if (url.origin !== self.location.origin || isPrivate(url)) return;
 
   if (isAsset(url)) {

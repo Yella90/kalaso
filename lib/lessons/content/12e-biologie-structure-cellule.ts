@@ -32,6 +32,8 @@ export const lesson: Lesson = {
             ['ribosome', 'environ 25 nm'],
           ],
         },
+        { kind: 'photo', id: 'oignon-epiderme', caption: 'Au microscope optique, on distingue la paroi et le noyau de chaque cellule d’oignon.' },
+        { kind: 'photo', id: 'chloroplastes-mousse', caption: 'Les grains verts sont des chloroplastes : ces cellules font la photosynthèse.' },
       ],
     },
     {
@@ -64,6 +66,8 @@ export const lesson: Lesson = {
             },
           ],
         },
+        { kind: 'photo', id: 'mitochondrie-meb', caption: 'Au microscope électronique, on voit les crêtes de la membrane interne de la mitochondrie.' },
+        { kind: 'photo', id: 'chloroplaste-met', caption: 'Les empilements de membranes (thylakoïdes) portent la chlorophylle.' },
       ],
     },
     {
