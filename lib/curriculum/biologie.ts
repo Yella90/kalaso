@@ -55,7 +55,7 @@ export const BIOLOGIE: SubjectProgram[] = [
     status: 'anticipe',
     source: ANTICIPE,
     chapters: [
-      { id: 'cellule', title: 'La cellule, unité du vivant', domain: 'Biologie', notions: ['Microscope', 'Cellule animale et végétale'] },
+      { id: 'cellule', title: 'La cellule, unité du vivant', domain: 'Biologie', notions: ['Microscope', 'Cellule animale et végétale'], simulation: 'cellule-3d' },
       { id: 'echanges-cellulaires', title: 'Les échanges cellulaires', domain: 'Biologie', notions: ['Diffusion', 'Osmose'], simulation: 'osmose' },
       { id: 'photosynthese', title: 'La photosynthèse', domain: 'Biologie', notions: ['Chlorophylle', 'Facteurs de la photosynthèse'], simulation: 'photosynthese' },
       { id: 'respiration-fermentation', title: 'Respiration et fermentation', domain: 'Biologie' },
@@ -88,7 +88,7 @@ export const BIOLOGIE: SubjectProgram[] = [
     status: 'officiel',
     source: LIVRE_TSEXP,
     chapters: [
-      { id: 'structure-cellule', title: 'La structure de la cellule', domain: 'La cellule' },
+      { id: 'structure-cellule', title: 'La structure de la cellule', domain: 'La cellule', simulation: 'cellule-3d' },
       { id: 'echanges-cellulaires', title: 'Les échanges cellulaires', domain: 'La cellule', simulation: 'osmose' },
       { id: 'metabolisme', title: 'Le métabolisme énergétique de la cellule', domain: 'La cellule', notions: ['Respiration', 'Fermentation', 'ATP'] },
       { id: 'support-genetique', title: 'Le support de l’information génétique', domain: 'L’information génétique', notions: ['ADN', 'Chromosomes'] },

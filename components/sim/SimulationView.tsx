@@ -11,6 +11,7 @@ import { GlycemieSim } from './bio/GlycemieSim';
 import { ImmuniteSim } from './bio/ImmuniteSim';
 import { TraductionSim } from './bio/TraductionSim';
 import { PhotosyntheseSim } from './bio/PhotosyntheseSim';
+import { CelluleSim } from './bio/cellule/CelluleSim';
 import { CircuitSim } from './CircuitSim';
 import { FunctionSim } from './FunctionSim';
 import { PeriodicTable } from './PeriodicTable';
@@ -56,5 +57,7 @@ export function SimulationView({ id, lang, t }: { id: SimulationId; lang: Locale
       return <TraductionSim t={t.sims['traduction']} />;
     case 'photosynthese':
       return <PhotosyntheseSim t={t.sims['photosynthese']} />;
+    case 'cellule-3d':
+      return <CelluleSim t={t.sims['cellule-3d']} />;
   }
 }
