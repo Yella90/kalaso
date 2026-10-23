@@ -38,6 +38,7 @@ export default async function AdventurePage({ params }: PageProps<'/[lang]/avent
   const missions: RenderedMission[] = adventure.missions.map((m) => ({
     id: m.id,
     title: m.title,
+    plainTitle: m.title,
     story: <RichText text={m.story} />,
     data: (m.data ?? []).map((d) => <RichText key={d} text={d} />),
     notions: m.notions.flatMap((ref) => {

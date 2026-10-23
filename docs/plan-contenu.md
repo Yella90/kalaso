@@ -75,3 +75,33 @@ bloc `{ kind: 'figure', id }`. Les photos et figures du Livre de Biologie de D. 
 reprises : elles appartiennent à l'auteur, à l'éditeur ou à leurs propres sources. Pour un nouveau
 schéma, ajouter un composant dans `components/figures/`, son identifiant dans `FigureId`
 (`lib/lessons/types.ts`) et dans `components/figures/Figure.tsx`.
+
+## Simulations avancées (3D et animées)
+
+| Simulation | Fichiers | Chapitres |
+|---|---|---|
+| Explorer une cellule en 3D (animale, végétale, défis) | `components/sim/bio/cellule/` | 10e cellule, 12e structure de la cellule |
+| L'ADN en 3D : structure, réplication, compactage | `components/sim/bio/adn/` | 12e support de l'information génétique |
+| Établir un caryotype (trisomie 21, Turner, Klinefelter) | `components/sim/bio/CaryotypeSim.tsx` | 12e génétique humaine |
+| Le cœur qui bat : cycle cardiaque, pressions, ECG | `components/sim/bio/CoeurSim.tsx` | 11e circulation, 12e pression artérielle |
+| Le skate-park de l'énergie | `components/sim/SkateParkSim.tsx` | 11e énergie cinétique, énergie mécanique |
+
+Les simulations 3D (react-three-fiber) attendent que l'élève appuie sur le bouton de lancement,
+pour ménager les téléphones modestes.
+
+## Photos libres
+
+`lib/media.ts` liste les photos et vidéos de Wikimedia Commons (domaine public, CC0, CC BY,
+CC BY-SA) avec leur auteur, leur licence et leur page. Un cours les affiche avec le bloc
+`{ kind: 'photo', id }` ; le crédit est toujours affiché. Le service worker garde les photos
+déjà vues pour le hors-ligne. Pour en ajouter : chercher sur commons.wikimedia.org une image
+sous licence libre, puis ajouter son entrée dans `lib/media.ts` (auteur et licence relevés sur
+sa page).
+
+## Aventures animées
+
+Chaque aventure a une scène illustrée (`components/adventure/scenes/`) qui se construit au fil
+des missions réussies : la pompe se monte et arrose le jardin, le champ est mesuré, semé,
+labouré puis récolté, l'eau du puits s'éclaircit, le village de Mopti se protège, la moto
+s'assemble puis part dans la rue. Le personnage annonce la mission en cours et des confettis
+saluent chaque réussite. Animations en CSS, coupées si le téléphone demande moins d'animations.

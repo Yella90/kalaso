@@ -5,10 +5,13 @@ import { useState, type ReactNode } from 'react';
 import { parseNumber } from '@/lib/answers';
 import { format, type Dictionary } from '@/lib/i18n';
 import { completeMission, resetAdventure, useProgress } from '@/lib/progress/store';
+import { AdventureScene } from './scenes/AdventureScene';
 
 export interface RenderedMission {
   id: string;
   title: ReactNode;
+  /** Titre en texte simple, pour la bulle du personnage de la scène. */
+  plainTitle: string;
   story: ReactNode;
   data: ReactNode[];
   notions: { href: string; label: string }[];
@@ -43,9 +46,14 @@ export function AdventureRunner({
   const done = progress.adventures[adventureId] ?? [];
   const firstOpen = missions.findIndex((m) => !done.includes(m.id));
   const finished = firstOpen === -1;
+  const [celebrate, setCelebrate] = useState(0);
+  const say = finished
+    ? t.done
+    : `${format(t.mission, { n: firstOpen + 1 })} : ${missions[firstOpen].plainTitle}`;
 
   return (
     <div className="flex flex-col gap-4">
+      <AdventureScene adventureId={adventureId} step={done.length} total={missions.length} say={say} celebrate={celebrate} />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="font-bold">{format(t.progress, { n: done.length, total: missions.length })}</p>
         {done.length > 0 && (
@@ -72,7 +80,10 @@ export function AdventureRunner({
                 index={i}
                 mission={mission}
                 state={isDone ? 'done' : locked ? 'locked' : 'open'}
-                onSuccess={() => completeMission(adventureId, mission.id)}
+                onSuccess={() => {
+                  completeMission(adventureId, mission.id);
+                  setCelebrate((c) => c + 1);
+                }}
                 t={t}
               />
             </li>
