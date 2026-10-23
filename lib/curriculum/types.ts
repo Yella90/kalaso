@@ -33,7 +33,8 @@ export type SimulationId =
   | 'cellule-3d'
   | 'adn-3d'
   | 'caryotype'
-  | 'coeur';
+  | 'coeur'
+  | 'skate-park';
 
 export interface Chapter {
   /** Identifiant unique dans sa classe et sa matière (utilisé dans l'URL). */

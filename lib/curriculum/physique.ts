@@ -76,8 +76,8 @@ export const PHYSIQUE: SubjectProgram[] = [
     source: ANTICIPE,
     chapters: [
       { id: 'travail', title: 'Travail et puissance d’une force', domain: 'Mécanique et énergie' },
-      { id: 'energie-cinetique', title: 'Énergie cinétique', domain: 'Mécanique et énergie', notions: ['Théorème de l’énergie cinétique'] },
-      { id: 'energie-mecanique', title: 'Énergie potentielle et énergie mécanique', domain: 'Mécanique et énergie', notions: ['Conservation de l’énergie mécanique'] },
+      { id: 'energie-cinetique', title: 'Énergie cinétique', domain: 'Mécanique et énergie', notions: ['Théorème de l’énergie cinétique'], simulation: 'skate-park' },
+      { id: 'energie-mecanique', title: 'Énergie potentielle et énergie mécanique', domain: 'Mécanique et énergie', notions: ['Conservation de l’énergie mécanique'], simulation: 'skate-park' },
       { id: 'coulomb', title: 'Interactions électriques : loi de Coulomb', domain: 'Électrostatique' },
       { id: 'champ-electrique', title: 'Le champ électrique', domain: 'Électrostatique' },
       { id: 'potentiel', title: 'Potentiel et énergie potentielle électriques', domain: 'Électrostatique' },

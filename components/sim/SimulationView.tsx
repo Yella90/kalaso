@@ -15,6 +15,7 @@ import { CelluleSim } from './bio/cellule/CelluleSim';
 import { AdnSim } from './bio/adn/AdnSim';
 import { CaryotypeSim } from './bio/CaryotypeSim';
 import { CoeurSim } from './bio/CoeurSim';
+import { SkateParkSim } from './SkateParkSim';
 import { CircuitSim } from './CircuitSim';
 import { FunctionSim } from './FunctionSim';
 import { PeriodicTable } from './PeriodicTable';
@@ -68,5 +69,7 @@ export function SimulationView({ id, lang, t }: { id: SimulationId; lang: Locale
       return <CaryotypeSim t={t.sims['caryotype']} />;
     case 'coeur':
       return <CoeurSim t={t.sims['coeur']} />;
+    case 'skate-park':
+      return <SkateParkSim t={t.sims['skate-park']} />;
   }
 }
