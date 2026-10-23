@@ -1,11 +1,13 @@
 import type { Dictionary } from './fr';
+import { predictBm, simsBm1 } from './bm-sims-1';
+import { simsBm2 } from './bm-sims-2';
 
 type DeepPartial<T> = T extends readonly unknown[] ? T : T extends object ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
 
 // Bamanankan — interface complète. BROUILLON À FAIRE RELIRE par un enseignant ou un
 // traducteur bambarophone : voir docs/bambara-relecture.md pour les choix de vocabulaire.
 // Le contenu des leçons et les titres des chapitres restent en français pour l'instant.
-export const bm: DeepPartial<Dictionary> = {
+const bmBase: DeepPartial<Dictionary> = {
   meta: {
     title: 'Kalanso — Mali porogaramu ka siyansiw, i bɛ se ka minnu lamaga',
     description: 'Kalanw, simulasiyɔnw, walandaw ani taamaw jatebɔ, fizik, simi ani biyolozi la, kabini 7nan san fo Bak.',
@@ -372,3 +374,17 @@ export const bm: DeepPartial<Dictionary> = {
     version: 'Baara bɛ kɛ a la : kalanw bɛ sɛbɛn na fɔlɔ.',
   },
 };
+
+function isObject(v: unknown): v is Record<string, unknown> {
+  return typeof v === 'object' && v !== null && !Array.isArray(v);
+}
+
+/** Ajoute les traductions des simulations, rangées dans des fichiers à part, au dictionnaire. */
+function deepMerge<T>(base: T, extra: unknown): T {
+  if (!isObject(base) || !isObject(extra)) return (extra ?? base) as T;
+  const out: Record<string, unknown> = { ...base };
+  for (const [k, v] of Object.entries(extra)) out[k] = deepMerge((base as Record<string, unknown>)[k], v);
+  return out as T;
+}
+
+export const bm: DeepPartial<Dictionary> = deepMerge(bmBase, { lesson: { predict: predictBm }, sims: { ...simsBm1, ...simsBm2 } });
