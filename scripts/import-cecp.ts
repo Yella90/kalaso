@@ -318,7 +318,7 @@ interface CecpExercise {
 }
 
 /** Schéma générique de cecp ; l'animation (une fonction) est échantillonnée. */
-function convertDiagram(d: Record<string, unknown> | undefined): Diagram | undefined {
+function convertDiagram(d: Record<string, unknown> | undefined, paper = false): Diagram | undefined {
   if (!d || !Array.isArray(d.elements)) return undefined;
   const anim = d.animation as
     | { duration: number; getPosition: (t: number) => { x: number; y: number }; color?: string; radius?: number; trail?: { x: number; y: number }[] }
@@ -326,6 +326,7 @@ function convertDiagram(d: Record<string, unknown> | undefined): Diagram | undef
   const diagram: Diagram = {
     width: d.width as number,
     height: d.height as number,
+    ...(paper ? { paper: true } : {}),
     ...(d.groundLevel ? { groundLevel: d.groundLevel as number } : {}),
     elements: JSON.parse(JSON.stringify(d.elements), (k, v) =>
       typeof v === 'number' ? round(v) : (k === 'label' || k === 'text') && typeof v === 'string' ? fr(v) : v,
@@ -344,8 +345,8 @@ function convertDiagram(d: Record<string, unknown> | undefined): Diagram | undef
   return diagram;
 }
 
-function convertExercise(e: CecpExercise): Exercise {
-  const diagram = convertDiagram(e.diagram);
+function convertExercise(e: CecpExercise, paper = false): Exercise {
+  const diagram = convertDiagram(e.diagram, paper);
   return {
     id: e.id,
     level: e.level ?? 2,
@@ -421,6 +422,18 @@ async function main() {
   const { PROJECTILE_EXERCISES } = await load('lib/exercises/projectile-exercises.ts');
   const { ALL_SCENARIOS } = await load('lib/real-life/scenarios.ts');
   const exercises: Record<string, CecpExercise[]> = { ...EXERCISES_BY_CHAPTER, projectile: PROJECTILE_EXERCISES };
+  // TD de cinématique de cecp : la partie 1 (cinématique du point) va dans le chapitre complémentaire,
+  // la partie 2 (plans inclinés, pistes circulaires) dans le mouvement du centre d'inertie.
+  const { TD_CINEMATIQUE_1 } = await load('lib/exercises/td-cinematique-1.ts');
+  const { TD_CINEMATIQUE_2 } = await load('lib/exercises/td-cinematique-2.ts');
+  // Les schémas de la partie 2 reproduisent les figures papier du TD.
+  const td = (list: CecpExercise[], paper = false) => {
+    const before = untyped;
+    untyped = false; // textes du TD bien accentués
+    const out = list.map((e) => convertExercise(e, paper));
+    untyped = before;
+    return out;
+  };
 
   mkdirSync(OUT, { recursive: true });
   const index: string[] = [];
@@ -438,7 +451,10 @@ async function main() {
       objectives: [],
       sections,
       essentials: [],
-      exercises: (exercises[slug] ?? []).map(convertExercise),
+      exercises: [
+        ...(exercises[slug] ?? []).map((e) => convertExercise(e)),
+        ...(slug === 'cinematique' ? td(TD_CINEMATIQUE_2, true) : []),
+      ],
       quiz: [],
       applications: (ALL_SCENARIOS as CecpScenario[]).filter((s) => s.chapter === slug).map(convertScenario),
     };
@@ -463,6 +479,13 @@ async function main() {
       `import type { Lesson } from '../types';\n` +
       CHAPTERS.map(({ subject, id }) => `import { lesson as ${camel(`12e-${subject}-${id}`)} } from './12e-${subject}-${id}';\n`).join('') +
       `\nexport const CECP_LESSONS: Record<string, Lesson> = {\n${index.join('\n')}\n};\n`,
+  );
+  writeFileSync(
+    join(OUT, 'td-cinematique-point.ts'),
+    `// TD 01 de cecp, exercices de cinématique du point. Importé par scripts/import-cecp.ts.\n` +
+      `// Une nouvelle importation remplace ce fichier.\n` +
+      `import type { Exercise } from '../types';\n\n` +
+      `export const exercises: Exercise[] = ${literal(td(TD_CINEMATIQUE_1))};\n`,
   );
   for (const w of warnings) console.warn('Attention :', w);
 }

@@ -172,6 +172,8 @@ const PHYSIQUE: Record<string, Entry> = {
   // 12e
   '12e/physique/centre-inertie': { title: 'Inɛrisi cɛmancɛ ka lamagali' },
   '12e/physique/projectile': { title: 'Fɛn filinen pesantɛri sɛnɛ kɔnɔ', notions: ['Parabɔli taamasira', 'A sera yɔrɔ min na (portée)', 'Sanfɛya belebele (flèche)'] },
+  '12e/physique/cinematique-point': { title: 'Pwɛn taamacogo (cinématique du point)', notions: ['Teliya ni teliyali vɛkitɛriw (vecteurs vitesse et accélération)', 'Frenet ka repɛri', 'Taama tilennenw ni taama kurulenw'] },
+  '12e/physique/amplificateur-operationnel': { title: 'Derivatɛri ni ɛntegaratɛri (montages dérivateur et intégrateur)', notions: ['Anpilifikatɛri operasiyɔnɛli', 'Derivatɛri', 'Ɛntegaratɛri'] },
   '12e/physique/gravitation': { title: 'Ɲɔgɔnsama fanga (gravitation universelle)', notions: ['Newton ka sariya', 'Gravitasiyɔn sɛnɛ (champ de gravitation)', 'Kepler ka sariyaw'] },
   '12e/physique/satellite': { title: 'Dugukolo satelitiw', notions: ['Teliya ni a munuli waati', 'Satelit jɔlen (géostationnaire)'] },
   '12e/physique/particule-champ-electrique': { title: 'Partikili kuranma kuran sɛnɛ kɔnɔ' },

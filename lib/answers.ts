@@ -11,16 +11,25 @@ export function parseNumber(value: string): number | null {
   return Number(cleaned);
 }
 
-/** Ignore espaces, casse et accents ; « , » vaut « . » ; ² et ³ deviennent ^2 et ^3. */
+/**
+ * Forme comparable d'une réponse écrite : sans espaces, casse ni accents ; ² et ³ deviennent ^2 et ^3 ;
+ * θ, α, β, π et √ s'écrivent aussi theta, alpha, beta, pi et racine (ou sqrt) ;
+ * les points de multiplication, les virgules et les parenthèses sont ignorés.
+ */
 export function normalizeText(s: string): string {
   return s
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
+    .replace(/\p{M}/gu, '')
     .replace(/\s+/g, '')
     .toLowerCase()
-    .replace(/,/g, '.')
     .replace(/²/g, '^2')
-    .replace(/³/g, '^3');
+    .replace(/³/g, '^3')
+    .replace(/θ/g, 'theta')
+    .replace(/α/g, 'alpha')
+    .replace(/β/g, 'beta')
+    .replace(/π/g, 'pi')
+    .replace(/√|sqrt/g, 'racine')
+    .replace(/[.*·×,()]/g, '');
 }
 
 export type Verdict = 'correct' | 'wrong' | 'invalid';

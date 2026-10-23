@@ -57,6 +57,7 @@ export default async function ChapterPage({ params }: PageProps<'/[lang]/[classe
     chapter.domain,
     chapter.trimester && trimesterLabel(t, chapter.trimester),
     chapter.series && format(t.program.seriesOnly, { series: chapter.series.join(', ') }),
+    chapter.complement && t.program.complement,
   ].filter(Boolean);
 
   // Ce que chaque étape contient pour ce chapitre ; `undefined` = encore en préparation.

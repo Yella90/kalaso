@@ -33,11 +33,13 @@ export interface LewisMolecule {
 
 /**
  * Schéma d'exercice, en unités du problème (mètres…) ; y augmente vers le haut.
- * Les couleurs sont prévues pour un fond sombre, comme un tableau noir.
+ * Les couleurs sont prévues pour un fond sombre, comme un tableau noir ;
+ * `paper` : figure de manuel, trait noir sur fond clair.
  */
 export interface Diagram {
   width: number;
   height: number;
+  paper?: boolean;
   groundLevel?: number;
   elements: DiagramElement[];
   /** Mobile animé : positions régulièrement espacées sur `duration` secondes. */
@@ -54,13 +56,17 @@ export type DiagramElement =
   | { type: 'line'; x1: number; y1: number; x2: number; y2: number; color?: string; dashed?: boolean; width?: number }
   | { type: 'circle'; cx: number; cy: number; r: number; color?: string; fill?: string; dashed?: boolean }
   | { type: 'arc'; cx: number; cy: number; r: number; startAngle: number; endAngle: number; color?: string; width?: number }
-  | { type: 'point'; x: number; y: number; label?: string; color?: string; labelPos?: 'top' | 'bottom' | 'left' | 'right' }
-  | { type: 'arrow'; x1: number; y1: number; x2: number; y2: number; color?: string; label?: string }
-  | { type: 'text'; x: number; y: number; text: string; color?: string; size?: number; anchor?: 'start' | 'middle' | 'end' }
+  | { type: 'point'; x: number; y: number; label?: string; color?: string; labelPos?: LabelPos }
+  | { type: 'dot'; x: number; y: number; label?: string; color?: string; labelPos?: LabelPos; radius?: number }
+  | { type: 'hatch'; x1: number; y1: number; x2: number; y2: number; count?: number }
+  | { type: 'arrow'; x1: number; y1: number; x2: number; y2: number; color?: string; label?: string; width?: number }
+  | { type: 'text'; x: number; y: number; text: string; color?: string; size?: number; anchor?: 'start' | 'middle' | 'end'; italic?: boolean }
   | { type: 'block'; x: number; y: number; w: number; h: number; color?: string; label?: string; angle?: number }
   | { type: 'angle'; cx: number; cy: number; r: number; startAngle: number; endAngle: number; label?: string; color?: string }
   | { type: 'ground'; y: number; color?: string }
   | { type: 'axes'; origin?: { x: number; y: number }; lengthX: number; lengthY: number; labelX?: string; labelY?: string };
+
+export type LabelPos = 'top' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
 export interface LessonSection {
   title: string;

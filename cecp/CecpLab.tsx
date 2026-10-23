@@ -55,6 +55,12 @@ const Peptide = dynamic(() => import('./simulations/Chemistry/PeptideBuilder').t
 
 /** Le montage de chaque chapitre, comme sur la page du chapitre dans cecp. */
 const LABS: Record<string, () => ReactNode> = {
+  '12e/physique/cinematique-point': () => (
+    <>
+      <Frame><Kinematics /></Frame>
+      <KinematicsPanel />
+    </>
+  ),
   '12e/physique/centre-inertie': () => (
     <>
       <Frame><Kinematics /></Frame>

@@ -95,6 +95,7 @@ export const PHYSIQUE: SubjectProgram[] = [
     status: 'officiel',
     source: PREBAC,
     chapters: [
+      { id: 'cinematique-point', title: 'Cinématique du point', domain: 'Mécanique', notions: ['Vecteurs vitesse et accélération', 'Repère de Frenet', 'Mouvements rectilignes et circulaires'], complement: true },
       { id: 'centre-inertie', title: 'Mouvement du centre d’inertie', domain: 'Mécanique' },
       { id: 'projectile', title: 'Projectile dans le champ de pesanteur', domain: 'Mécanique', notions: ['Trajectoire parabolique', 'Portée', 'Flèche'], simulation: 'projectile' },
       { id: 'gravitation', title: 'Gravitation universelle', domain: 'Mécanique', notions: ['Loi de Newton', 'Champ de gravitation', 'Lois de Kepler'] },
@@ -104,6 +105,7 @@ export const PHYSIQUE: SubjectProgram[] = [
       { id: 'calorimetrie', title: 'Calorimétrie', domain: 'Énergie interne' },
       { id: 'auto-induction', title: 'Auto-induction', domain: 'Induction électromagnétique' },
       { id: 'transformateurs-alternateurs', title: 'Transformateurs et alternateurs', domain: 'Induction électromagnétique' },
+      { id: 'amplificateur-operationnel', title: 'Montages dérivateur et intégrateur', domain: 'Électronique', notions: ['Amplificateur opérationnel idéal', 'Dérivateur', 'Intégrateur'], complement: true },
       { id: 'ondes-progressives', title: 'Les ondes progressives', domain: 'Vibrations' },
       { id: 'interferences-mecaniques', title: 'Interférences mécaniques', domain: 'Vibrations' },
       { id: 'interferences-lumineuses', title: 'Interférences lumineuses', domain: 'Vibrations' },

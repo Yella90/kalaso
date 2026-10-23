@@ -92,6 +92,7 @@ export const fr = {
     seriesOnly: 'Série {series}',
     empty: 'Le programme de cette matière n’est pas encore saisi.',
     seeChapters: 'Voir les chapitres',
+    complement: 'Complément du programme ivoirien',
   },
   chapter: {
     notions: 'Notions du chapitre',

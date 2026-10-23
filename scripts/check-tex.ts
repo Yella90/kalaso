@@ -1,9 +1,12 @@
 // Vérifie que toutes les formules des leçons passent dans KaTeX (comme RichText et TexBlock).
 //   npx --yes tsx@4.19.2 scripts/check-tex.ts
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import katex from 'katex';
 import 'katex/contrib/mhchem';
-import { CECP_LESSONS } from '../lib/lessons/content-cecp';
 
+const DIRS = ['content', 'content-bm', 'content-cecp'].map((d) => join(__dirname, '../lib/lessons', d));
 const TEX_KEYS = new Set(['tex', 'result']);
 const errors: string[] = [];
 
@@ -28,6 +31,15 @@ function walk(value: unknown, where: string, key = '') {
   }
 }
 
-for (const [key, lesson] of Object.entries(CECP_LESSONS)) walk(lesson, key);
-console.log(errors.length ? errors.join('\n') : 'Aucune erreur de formule.');
-process.exit(errors.length ? 1 : 0);
+async function main() {
+  for (const dir of DIRS) {
+    for (const file of readdirSync(dir).filter((f) => f.endsWith('.ts') && f !== 'index.ts')) {
+      const mod = await import(pathToFileURL(join(dir, file)).href);
+      walk(mod.lesson ?? mod.exercises, `${dir.split(/[\\/]/).at(-1)}/${file}`);
+    }
+  }
+  console.log(errors.length ? errors.join('\n') : 'Aucune erreur de formule.');
+  process.exit(errors.length ? 1 : 0);
+}
+
+main();

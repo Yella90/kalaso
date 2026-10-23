@@ -30,6 +30,8 @@ export interface Chapter {
   /** Séries concernées quand le chapitre n'est pas commun à toutes. */
   series?: string[];
   simulation?: SimulationId;
+  /** Chapitre ajouté d'après le programme ivoirien (Terminale D), absent du programme malien. */
+  complement?: boolean;
 }
 
 export interface SubjectProgram {

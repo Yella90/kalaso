@@ -1,6 +1,7 @@
 // Chapitres de Kalanso qui ont une simulation du site cecp (copiée dans ce dossier cecp/).
 // `three` : simulation en 3D (three.js), plus lourde ; elle ne se charge qu'à la demande.
 export const CECP_LABS: Record<string, { three?: boolean }> = {
+  '12e/physique/cinematique-point': { three: true },
   '12e/physique/centre-inertie': { three: true },
   '12e/physique/projectile': { three: true },
   '12e/physique/gravitation': { three: true },

@@ -28,7 +28,8 @@ et peut être repris tel quel.
 | 12e Physique-Chimie depuis cecp | 30 | Importés (FR) : cours, 95 exercices à réponse vérifiée, 59 situations réelles |
 | 12e Physique : mouvement du centre d'inertie, projectile, satellite, particule dans un champ électrique | 4 | Cours à réécrire : dans cecp, ils sont marqués « D'après D. Diarra, Prébac » |
 | 12e Chimie restante (glucose, polymères, cinétique, équilibres, acides-bases) | 9 | À rédiger |
-| Compléments Top Chrono | 3 | À rédiger |
+| Compléments Top Chrono : cinématique du point, montages dérivateur et intégrateur | 2 | Rédigés (FR) ; exercices du TD 01 de cecp pour la cinématique |
+| Complément Top Chrono : solutions tampons | — | À rédiger dans « Les réactions acido-basiques » |
 | 12e Biologie | 21 | À rédiger |
 | 12e Maths | 16 | À rédiger |
 | 11e (4 matières) | 41 | À rédiger |

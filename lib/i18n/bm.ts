@@ -82,6 +82,7 @@ export const bm: DeepPartial<Dictionary> = {
     appliquer: { name: 'Waleya', text: 'Kalan in waleya ɲɛnamaya yɛrɛ yɛrɛ cogoya dɔ la.' },
   },
   program: {
+    complement: 'Kodiwari porogaramu fɛ fara',
     chapters: '{n} sapitiri',
     officiel: 'Minisiri ka porogaramu',
     anticipe: 'Porogaramu labɛnnen',

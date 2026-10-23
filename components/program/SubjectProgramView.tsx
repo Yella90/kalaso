@@ -69,6 +69,7 @@ export function SubjectProgramView({ lang, t, program, showHeading = true, showS
                     <span className="flex-1">
                       <span className="block font-bold">{chapter.title}</span>
                       {chapter.notions && <span className="block text-sm text-muted">{chapter.notions.join(', ')}</span>}
+                      {chapter.complement && <span className="mt-1 block text-sm font-bold text-muted">{t.program.complement}</span>}
                     </span>
                     <span className="flex shrink-0 flex-col items-end gap-1 text-xs text-muted">
                       {chapter.series && <span>{format(t.program.seriesOnly, { series: chapter.series.join(', ') })}</span>}
