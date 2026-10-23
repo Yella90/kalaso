@@ -40,7 +40,21 @@ export type SimulationId =
   | 'transformations'
   | 'statistique'
   | 'probabilite'
-  | 'solides';
+  | 'solides'
+  | 'pythagore'
+  | 'thales'
+  | 'identites'
+  | 'fractions'
+  | 'relatifs'
+  | 'angles'
+  | 'systemes'
+  | 'suites'
+  | 'integrales'
+  | 'complexes'
+  | 'exponentielle'
+  | 'coniques'
+  | 'regression'
+  | 'euclide';
 
 export interface Chapter {
   /** Identifiant unique dans sa classe et sa matière (utilisé dans l'URL). */

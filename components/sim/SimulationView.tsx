@@ -22,6 +22,20 @@ import { TransformationsSim } from './maths/TransformationsSim';
 import { StatistiqueSim } from './maths/StatistiqueSim';
 import { ProbabiliteSim } from './maths/ProbabiliteSim';
 import { SolidesSim } from './maths/SolidesSim';
+import { PythagoreSim } from './maths/PythagoreSim';
+import { ThalesSim } from './maths/ThalesSim';
+import { IdentitesSim } from './maths/IdentitesSim';
+import { FractionsSim } from './maths/FractionsSim';
+import { RelatifsSim } from './maths/RelatifsSim';
+import { AnglesSim } from './maths/AnglesSim';
+import { SystemesSim } from './maths/SystemesSim';
+import { SuitesSim } from './maths/SuitesSim';
+import { IntegralesSim } from './maths/IntegralesSim';
+import { ComplexesSim } from './maths/ComplexesSim';
+import { ExponentielleSim } from './maths/ExponentielleSim';
+import { ConiquesSim } from './maths/ConiquesSim';
+import { RegressionSim } from './maths/RegressionSim';
+import { EuclideSim } from './maths/EuclideSim';
 import { CircuitSim } from './CircuitSim';
 import { FunctionSim } from './FunctionSim';
 import { PeriodicTable } from './PeriodicTable';
@@ -89,5 +103,33 @@ export function SimulationView({ id, lang, t }: { id: SimulationId; lang: Locale
       return <ProbabiliteSim t={t.sims['probabilite']} predict={t.lesson.predict} />;
     case 'solides':
       return <SolidesSim t={t.sims['solides']} predict={t.lesson.predict} />;
+    case 'pythagore':
+      return <PythagoreSim t={t.sims['pythagore']} predict={t.lesson.predict} />;
+    case 'thales':
+      return <ThalesSim t={t.sims['thales']} predict={t.lesson.predict} />;
+    case 'identites':
+      return <IdentitesSim t={t.sims['identites']} predict={t.lesson.predict} />;
+    case 'fractions':
+      return <FractionsSim t={t.sims['fractions']} predict={t.lesson.predict} />;
+    case 'relatifs':
+      return <RelatifsSim t={t.sims['relatifs']} predict={t.lesson.predict} />;
+    case 'angles':
+      return <AnglesSim t={t.sims['angles']} predict={t.lesson.predict} />;
+    case 'systemes':
+      return <SystemesSim t={t.sims['systemes']} predict={t.lesson.predict} />;
+    case 'suites':
+      return <SuitesSim t={t.sims['suites']} predict={t.lesson.predict} />;
+    case 'integrales':
+      return <IntegralesSim t={t.sims['integrales']} predict={t.lesson.predict} />;
+    case 'complexes':
+      return <ComplexesSim t={t.sims['complexes']} predict={t.lesson.predict} />;
+    case 'exponentielle':
+      return <ExponentielleSim t={t.sims['exponentielle']} predict={t.lesson.predict} />;
+    case 'coniques':
+      return <ConiquesSim t={t.sims['coniques']} predict={t.lesson.predict} />;
+    case 'regression':
+      return <RegressionSim t={t.sims['regression']} predict={t.lesson.predict} />;
+    case 'euclide':
+      return <EuclideSim t={t.sims['euclide']} predict={t.lesson.predict} />;
   }
 }

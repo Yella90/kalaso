@@ -34,6 +34,20 @@ export const SIMULATIONS: SimulationInfo[] = [
   { id: 'statistique', subject: 'maths', path: 'simulations/statistique' },
   { id: 'probabilite', subject: 'maths', path: 'simulations/probabilite' },
   { id: 'solides', subject: 'maths', path: 'simulations/solides' },
+  { id: 'pythagore', subject: 'maths', path: 'simulations/pythagore' },
+  { id: 'thales', subject: 'maths', path: 'simulations/thales' },
+  { id: 'identites', subject: 'maths', path: 'simulations/identites' },
+  { id: 'fractions', subject: 'maths', path: 'simulations/fractions' },
+  { id: 'relatifs', subject: 'maths', path: 'simulations/relatifs' },
+  { id: 'angles', subject: 'maths', path: 'simulations/angles' },
+  { id: 'systemes', subject: 'maths', path: 'simulations/systemes' },
+  { id: 'suites', subject: 'maths', path: 'simulations/suites' },
+  { id: 'integrales', subject: 'maths', path: 'simulations/integrales' },
+  { id: 'complexes', subject: 'maths', path: 'simulations/complexes' },
+  { id: 'exponentielle', subject: 'maths', path: 'simulations/exponentielle' },
+  { id: 'coniques', subject: 'maths', path: 'simulations/coniques' },
+  { id: 'regression', subject: 'maths', path: 'simulations/regression' },
+  { id: 'euclide', subject: 'maths', path: 'simulations/euclide' },
 ];
 
 /** Chapitres qui utilisent une simulation. */
