@@ -31,7 +31,7 @@ et peut être repris tel quel.
 | Compléments Top Chrono : cinématique du point, montages dérivateur et intégrateur | 2 | Rédigés (FR) ; exercices du TD 01 de cecp pour la cinématique |
 | Complément Top Chrono : solutions tampons | — | Rédigé dans « Les réactions acido-basiques » |
 | 12e Biologie | 21 | À rédiger |
-| 12e Maths | 16 | À rédiger |
+| 12e Maths | 16 | Rédigés (FR) |
 | 11e (4 matières) | 41 | À rédiger |
 | 10e (reste) | 30 | À rédiger |
 | 7e-9e (4 matières) | ~80 | À rédiger, d'après les titres de chapitres |
