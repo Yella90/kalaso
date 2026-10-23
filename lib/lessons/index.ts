@@ -53,6 +53,9 @@ import { lesson as maths10StatistiqueBm } from './content-bm/10e-maths-statistiq
 import { lesson as maths10TransformationsBm } from './content-bm/10e-maths-transformations';
 import { lesson as maths10TrigonometrieBm } from './content-bm/10e-maths-trigonometrie';
 import { lesson as maths10VecteursBm } from './content-bm/10e-maths-vecteurs';
+import { lesson as chimie10EquationBilanBm } from './content-bm/10e-chimie-equation-bilan';
+import { lesson as chimie10GazBm } from './content-bm/10e-chimie-gaz';
+import { lesson as chimie10SolutionsBm } from './content-bm/10e-chimie-solutions';
 import { CECP_LESSONS } from './content-cecp';
 import { lesson as maths12AlgebreLineaire } from './content/12e-maths-algebre-lineaire';
 import { lesson as maths12ApplicationsAffines } from './content/12e-maths-applications-affines';
@@ -370,6 +373,9 @@ const LESSONS_BM: Record<string, LessonText> = {
   '10e/maths/transformations': maths10TransformationsBm,
   '10e/maths/trigonometrie': maths10TrigonometrieBm,
   '10e/maths/vecteurs': maths10VecteursBm,
+  '10e/chimie/equation-bilan': chimie10EquationBilanBm,
+  '10e/chimie/gaz': chimie10GazBm,
+  '10e/chimie/solutions': chimie10SolutionsBm,
 };
 
 export function getLesson(classId: ClassId, subject: SubjectId, chapterId: string, locale: Locale): Lesson | undefined {
