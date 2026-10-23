@@ -4,6 +4,8 @@ import dynamic from 'next/dynamic';
 import { useState, type ReactNode } from 'react';
 import type { Dictionary } from '@/lib/i18n';
 import { SimulationFrame as Frame } from './components/layout/SimulationFrame';
+import { PredictChallenges } from '@/components/sim/PredictChallenges';
+import { CECP_CHALLENGES } from './challenges';
 
 // Simulations du site cecp, telles quelles (fond sombre, textes en français).
 // Chacune est un morceau de code séparé : le téléphone ne télécharge que celle du chapitre ouvert.
@@ -146,6 +148,7 @@ export function CecpLab({ chapterKey, three, t }: { chapterKey: string; three?: 
       {started ? (
         <div className="flex flex-col gap-4">
           <Lab />
+          {CECP_CHALLENGES[chapterKey] && <PredictChallenges challenges={CECP_CHALLENGES[chapterKey]} t={t.predict} />}
         </div>
       ) : (
         <div className="flex flex-col items-center gap-3 px-4 py-10 text-center">
