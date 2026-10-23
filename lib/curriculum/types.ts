@@ -31,7 +31,8 @@ export type SimulationId =
   | 'traduction'
   | 'photosynthese'
   | 'cellule-3d'
-  | 'adn-3d';
+  | 'adn-3d'
+  | 'caryotype';
 
 export interface Chapter {
   /** Identifiant unique dans sa classe et sa matière (utilisé dans l'URL). */

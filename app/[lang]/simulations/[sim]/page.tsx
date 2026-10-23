@@ -5,7 +5,7 @@ import { SimulationView } from '@/components/sim/SimulationView';
 import { SUBJECTS } from '@/lib/curriculum';
 import { getDictionary, hasLocale } from '@/lib/i18n';
 
-const STANDALONE = ['circuit', 'projectile', 'fonction', 'osmose', 'mitose', 'croisement', 'hardy-weinberg', 'potentiel-action', 'glycemie', 'immunite', 'traduction', 'photosynthese', 'cellule-3d', 'adn-3d'] as const;
+const STANDALONE = ['circuit', 'projectile', 'fonction', 'osmose', 'mitose', 'croisement', 'hardy-weinberg', 'potentiel-action', 'glycemie', 'immunite', 'traduction', 'photosynthese', 'cellule-3d', 'adn-3d', 'caryotype'] as const;
 type Standalone = (typeof STANDALONE)[number];
 const SUBJECT: Record<Standalone, string> = {
   circuit: 'physique',
@@ -22,6 +22,7 @@ const SUBJECT: Record<Standalone, string> = {
   'photosynthese': 'biologie',
   'cellule-3d': 'biologie',
   'adn-3d': 'biologie',
+  'caryotype': 'biologie',
 };
 
 function isStandalone(id: string): id is Standalone {

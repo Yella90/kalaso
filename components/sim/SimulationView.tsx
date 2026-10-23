@@ -13,6 +13,7 @@ import { TraductionSim } from './bio/TraductionSim';
 import { PhotosyntheseSim } from './bio/PhotosyntheseSim';
 import { CelluleSim } from './bio/cellule/CelluleSim';
 import { AdnSim } from './bio/adn/AdnSim';
+import { CaryotypeSim } from './bio/CaryotypeSim';
 import { CircuitSim } from './CircuitSim';
 import { FunctionSim } from './FunctionSim';
 import { PeriodicTable } from './PeriodicTable';
@@ -62,5 +63,7 @@ export function SimulationView({ id, lang, t }: { id: SimulationId; lang: Locale
       return <CelluleSim t={t.sims['cellule-3d']} />;
     case 'adn-3d':
       return <AdnSim t={t.sims['adn-3d']} />;
+    case 'caryotype':
+      return <CaryotypeSim t={t.sims['caryotype']} />;
   }
 }

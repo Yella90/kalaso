@@ -97,7 +97,7 @@ export const BIOLOGIE: SubjectProgram[] = [
       { id: 'reproduction-homme', title: 'La reproduction chez l’homme', domain: 'Unicité et diversité des individus' },
       { id: 'brassage-genetique', title: 'Le brassage génétique et la reproduction sexuée', domain: 'Unicité et diversité des individus', notions: ['Méiose', 'Monohybridisme', 'Dihybridisme'], simulation: 'croisement' },
       { id: 'genetique-populations', title: 'La diversité génétique d’une population', domain: 'Unicité et diversité des individus', simulation: 'hardy-weinberg' },
-      { id: 'genetique-humaine', title: 'Quelques aspects de la génétique humaine', domain: 'Unicité et diversité des individus', notions: ['Arbres généalogiques', 'Drépanocytose'], simulation: 'croisement' },
+      { id: 'genetique-humaine', title: 'Quelques aspects de la génétique humaine', domain: 'Unicité et diversité des individus', notions: ['Arbres généalogiques', 'Drépanocytose'], simulation: 'caryotype' },
       { id: 'soi-non-soi', title: 'Le soi et le non-soi', domain: 'L’immunité' },
       { id: 'reponse-immunitaire', title: 'Le déroulement de la réponse immunitaire', domain: 'L’immunité', simulation: 'immunite' },
       { id: 'dysfonctionnements', title: 'Les dysfonctionnements du système immunitaire', domain: 'L’immunité', notions: ['VIH/sida', 'Allergies'] },
