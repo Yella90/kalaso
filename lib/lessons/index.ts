@@ -102,6 +102,9 @@ import { lesson as biologie11ReproductionAnimaux } from './content/11e-biologie-
 import { lesson as biologie11ReproductionPlantes } from './content/11e-biologie-reproduction-plantes';
 import { lesson as biologie11Respiration } from './content/11e-biologie-respiration';
 import { lesson as biologie11Tectonique } from './content/11e-biologie-tectonique';
+import { lesson as chimie10EquationBilan } from './content/10e-chimie-equation-bilan';
+import { lesson as chimie10Gaz } from './content/10e-chimie-gaz';
+import { lesson as chimie10Solutions } from './content/10e-chimie-solutions';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -208,6 +211,9 @@ const LESSONS_FR: Record<string, Lesson> = {
   '11e/biologie/reproduction-plantes': biologie11ReproductionPlantes,
   '11e/biologie/respiration': biologie11Respiration,
   '11e/biologie/tectonique': biologie11Tectonique,
+  '10e/chimie/equation-bilan': chimie10EquationBilan,
+  '10e/chimie/gaz': chimie10Gaz,
+  '10e/chimie/solutions': chimie10Solutions,
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).
