@@ -93,6 +93,15 @@ import { lesson as maths11Probabilite } from './content/11e-maths-probabilite';
 import { lesson as maths11Statistique } from './content/11e-maths-statistique';
 import { lesson as maths11Suites } from './content/11e-maths-suites';
 import { lesson as maths11Trigonometrie } from './content/11e-maths-trigonometrie';
+import { lesson as biologie11Circulation } from './content/11e-biologie-circulation';
+import { lesson as biologie11DigestionAbsorption } from './content/11e-biologie-digestion-absorption';
+import { lesson as biologie11DivisionCellulaire } from './content/11e-biologie-division-cellulaire';
+import { lesson as biologie11Excretion } from './content/11e-biologie-excretion';
+import { lesson as biologie11GeologieMali } from './content/11e-biologie-geologie-mali';
+import { lesson as biologie11ReproductionAnimaux } from './content/11e-biologie-reproduction-animaux';
+import { lesson as biologie11ReproductionPlantes } from './content/11e-biologie-reproduction-plantes';
+import { lesson as biologie11Respiration } from './content/11e-biologie-respiration';
+import { lesson as biologie11Tectonique } from './content/11e-biologie-tectonique';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -190,6 +199,15 @@ const LESSONS_FR: Record<string, Lesson> = {
   '11e/maths/statistique': maths11Statistique,
   '11e/maths/suites': maths11Suites,
   '11e/maths/trigonometrie': maths11Trigonometrie,
+  '11e/biologie/circulation': biologie11Circulation,
+  '11e/biologie/digestion-absorption': biologie11DigestionAbsorption,
+  '11e/biologie/division-cellulaire': biologie11DivisionCellulaire,
+  '11e/biologie/excretion': biologie11Excretion,
+  '11e/biologie/geologie-mali': biologie11GeologieMali,
+  '11e/biologie/reproduction-animaux': biologie11ReproductionAnimaux,
+  '11e/biologie/reproduction-plantes': biologie11ReproductionPlantes,
+  '11e/biologie/respiration': biologie11Respiration,
+  '11e/biologie/tectonique': biologie11Tectonique,
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).

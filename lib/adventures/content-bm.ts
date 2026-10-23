@@ -357,16 +357,16 @@ export const ADVENTURES_BM: Record<string, AdventureText> = {
       moteur: {
         title: 'Kuran motɛri',
         story:
-          'Motɛri kɔnɔ, juru minnu kɔnɔ kuran bɛ tɛmɛ, olu bilalen don magaɲɛtiw ka sɛnɛ kɔnɔ. Juru kelen-kelen bɛɛ bɛ Laplasi ka fanga sɔrɔ, o fangaw bɛɛ bɛ rotɔri munumunu.',
+          'Motɛri kɔnɔ, juru minnu kɔnɔ kuran bɛ tɛmɛ, olu bilalen don magaɲɛtiw ka foro kɔnɔ. Juru kelen-kelen bɛɛ bɛ Laplasi ka fanga sɔrɔ, o fangaw bɛɛ bɛ rotɔri munumunu.',
         data: [
-          'Magaɲɛtiw ka sɛnɛ : $B = 0{,}5$ T',
+          'Magaɲɛtiw ka foro : $B = 0{,}5$ T',
           'Ɛntansite juru kelen-kelen bɛɛ kɔnɔ : $I = 40$ A',
           'Juru kelen ka janya min bɛ baara kɛ : $L = 0{,}20$ m',
           'Juru minnu bɛ baara kɛ : 50',
           'Rotɔri ka rayɔn : $r = 0{,}04$ m',
         ],
         question: 'Motɛri bɛ kupuli (mɔmani) joli di ?',
-        hints: ['Juru kelen min bɛ sɛnɛ kɔrɔ tilennen na, o ka fanga : $F = B \\times I \\times L$.', 'Juru 50 ka fangaw fara ɲɔgɔn kan, o kɔ a sigi rotɔri ka rayɔn na.'],
+        hints: ['Juru kelen min bɛ foro kɔrɔ tilennen na, o ka fanga : $F = B \\times I \\times L$.', 'Juru 50 ka fangaw fara ɲɔgɔn kan, o kɔ a sigi rotɔri ka rayɔn na.'],
         solution: ['Juru kelen : $F_1 = 0{,}5 \\times 40 \\times 0{,}20 = 4$ N.', 'Juru 50 : $F = 50 \\times 4 = 200$ N.', 'Kupuli : $\\mathcal{M} = F \\times r = 200 \\times 0{,}04 = 8$ N·m.'],
         debrief: 'Motɛri bɛ munumunu ni kupuli 8 N·m ye. Nka yala o bɛ se ka moto taa wa ?',
       },

@@ -32,7 +32,7 @@ et peut être repris tel quel.
 | Complément Top Chrono : solutions tampons | — | Rédigé dans « Les réactions acido-basiques » |
 | 12e Biologie | 21 | Rédigés (FR) |
 | 12e Maths | 16 | Rédigés (FR) |
-| 11e (4 matières) | 41 | À rédiger |
+| 11e (4 matières) | 41 | Rédigés (FR) |
 | 10e (reste) | 30 | À rédiger |
 | 7e-9e (4 matières) | ~80 | À rédiger, d'après les titres de chapitres |
 

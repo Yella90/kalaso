@@ -27,6 +27,12 @@ Source : https://dictionary.ankataa.com, recherche du 2026-10-22.
 | lumière | **yeelen** | « light ; lumière » |
 | école | **kàlànso** | « school house, school ; école » : le nom du projet |
 
+## Corrigés par l’utilisateur
+
+| Français | Mot retenu | Remarque |
+|---|---|---|
+| champ (agricole, et champ en physique : électrique, magnétique, de pesanteur) | **foro** | « sɛnɛ » avait été utilisé à tort : il veut dire **cultiver** (sɛnɛbagaw, sɛnɛfɛnw restent justes) |
+
 ## Encore à valider
 
 Ces mots n'ont pas été trouvés dans le dictionnaire, ou la recherche a été bloquée par la limite de requêtes du site. Le lexique de mali-pense.net n'a pas pu être consulté.
