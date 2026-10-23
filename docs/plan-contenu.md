@@ -33,7 +33,7 @@ et peut être repris tel quel.
 | 12e Biologie | 21 | Rédigés (FR), avec 9 simulations et 14 schémas |
 | 12e Maths | 16 | Rédigés (FR) |
 | 11e (4 matières) | 41 | Rédigés (FR) |
-| 10e (reste) | 30 | À rédiger |
+| 10e maths, physique, biologie | 30 | Rédigés (FR) |
 | 7e-9e (4 matières) | ~80 | À rédiger, d'après les titres de chapitres |
 
 ## Réimporter le contenu de cecp

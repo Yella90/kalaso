@@ -125,6 +125,16 @@ import { lesson as physique10Lentilles } from './content/10e-physique-lentilles'
 import { lesson as physique10Moment } from './content/10e-physique-moment';
 import { lesson as physique10Mouvement } from './content/10e-physique-mouvement';
 import { lesson as physique10ReflexionRefraction } from './content/10e-physique-reflexion-refraction';
+import { lesson as maths10CalculsR } from './content/10e-maths-calculs-r';
+import { lesson as maths10EquationsInequations } from './content/10e-maths-equations-inequations';
+import { lesson as maths10Fonctions } from './content/10e-maths-fonctions';
+import { lesson as maths10GeometrieEspace } from './content/10e-maths-geometrie-espace';
+import { lesson as maths10GeometriePlane } from './content/10e-maths-geometrie-plane';
+import { lesson as maths10Polynomes } from './content/10e-maths-polynomes';
+import { lesson as maths10Statistique } from './content/10e-maths-statistique';
+import { lesson as maths10Transformations } from './content/10e-maths-transformations';
+import { lesson as maths10Trigonometrie } from './content/10e-maths-trigonometrie';
+import { lesson as maths10Vecteurs } from './content/10e-maths-vecteurs';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -254,6 +264,16 @@ const LESSONS_FR: Record<string, Lesson> = {
   '10e/physique/moment': physique10Moment,
   '10e/physique/mouvement': physique10Mouvement,
   '10e/physique/reflexion-refraction': physique10ReflexionRefraction,
+  '10e/maths/calculs-r': maths10CalculsR,
+  '10e/maths/equations-inequations': maths10EquationsInequations,
+  '10e/maths/fonctions': maths10Fonctions,
+  '10e/maths/geometrie-espace': maths10GeometrieEspace,
+  '10e/maths/geometrie-plane': maths10GeometriePlane,
+  '10e/maths/polynomes': maths10Polynomes,
+  '10e/maths/statistique': maths10Statistique,
+  '10e/maths/transformations': maths10Transformations,
+  '10e/maths/trigonometrie': maths10Trigonometrie,
+  '10e/maths/vecteurs': maths10Vecteurs,
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).
