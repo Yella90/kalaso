@@ -82,6 +82,17 @@ import { lesson as chimie11Electrolyse } from './content/11e-chimie-electrolyse'
 import { lesson as chimie11Oxydoreduction } from './content/11e-chimie-oxydoreduction';
 import { lesson as chimie11Petrole } from './content/11e-chimie-petrole';
 import { lesson as chimie11Piles } from './content/11e-chimie-piles';
+import { lesson as maths11Applications } from './content/11e-maths-applications';
+import { lesson as maths11Denombrement } from './content/11e-maths-denombrement';
+import { lesson as maths11EquationsSystemes } from './content/11e-maths-equations-systemes';
+import { lesson as maths11Fonctions } from './content/11e-maths-fonctions';
+import { lesson as maths11GeometrieEspace } from './content/11e-maths-geometrie-espace';
+import { lesson as maths11GeometriePlane } from './content/11e-maths-geometrie-plane';
+import { lesson as maths11Polynomes } from './content/11e-maths-polynomes';
+import { lesson as maths11Probabilite } from './content/11e-maths-probabilite';
+import { lesson as maths11Statistique } from './content/11e-maths-statistique';
+import { lesson as maths11Suites } from './content/11e-maths-suites';
+import { lesson as maths11Trigonometrie } from './content/11e-maths-trigonometrie';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -168,6 +179,17 @@ const LESSONS_FR: Record<string, Lesson> = {
   '11e/chimie/oxydoreduction': chimie11Oxydoreduction,
   '11e/chimie/petrole': chimie11Petrole,
   '11e/chimie/piles': chimie11Piles,
+  '11e/maths/applications': maths11Applications,
+  '11e/maths/denombrement': maths11Denombrement,
+  '11e/maths/equations-systemes': maths11EquationsSystemes,
+  '11e/maths/fonctions': maths11Fonctions,
+  '11e/maths/geometrie-espace': maths11GeometrieEspace,
+  '11e/maths/geometrie-plane': maths11GeometriePlane,
+  '11e/maths/polynomes': maths11Polynomes,
+  '11e/maths/probabilite': maths11Probabilite,
+  '11e/maths/statistique': maths11Statistique,
+  '11e/maths/suites': maths11Suites,
+  '11e/maths/trigonometrie': maths11Trigonometrie,
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).
