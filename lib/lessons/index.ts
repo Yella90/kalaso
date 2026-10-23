@@ -73,6 +73,15 @@ import { lesson as physique11Laplace } from './content/11e-physique-laplace';
 import { lesson as physique11MiroirsLentilles } from './content/11e-physique-miroirs-lentilles';
 import { lesson as physique11Potentiel } from './content/11e-physique-potentiel';
 import { lesson as physique11Travail } from './content/11e-physique-travail';
+import { lesson as chimie11Alcanes } from './content/11e-chimie-alcanes';
+import { lesson as chimie11AlcenesAlcynes } from './content/11e-chimie-alcenes-alcynes';
+import { lesson as chimie11Benzene } from './content/11e-chimie-benzene';
+import { lesson as chimie11ClassificationMetaux } from './content/11e-chimie-classification-metaux';
+import { lesson as chimie11DosagesRedox } from './content/11e-chimie-dosages-redox';
+import { lesson as chimie11Electrolyse } from './content/11e-chimie-electrolyse';
+import { lesson as chimie11Oxydoreduction } from './content/11e-chimie-oxydoreduction';
+import { lesson as chimie11Petrole } from './content/11e-chimie-petrole';
+import { lesson as chimie11Piles } from './content/11e-chimie-piles';
 import type { Lesson } from './types';
 
 export type { Lesson } from './types';
@@ -150,6 +159,15 @@ const LESSONS_FR: Record<string, Lesson> = {
   '11e/physique/miroirs-lentilles': physique11MiroirsLentilles,
   '11e/physique/potentiel': physique11Potentiel,
   '11e/physique/travail': physique11Travail,
+  '11e/chimie/alcanes': chimie11Alcanes,
+  '11e/chimie/alcenes-alcynes': chimie11AlcenesAlcynes,
+  '11e/chimie/benzene': chimie11Benzene,
+  '11e/chimie/classification-metaux': chimie11ClassificationMetaux,
+  '11e/chimie/dosages-redox': chimie11DosagesRedox,
+  '11e/chimie/electrolyse': chimie11Electrolyse,
+  '11e/chimie/oxydoreduction': chimie11Oxydoreduction,
+  '11e/chimie/petrole': chimie11Petrole,
+  '11e/chimie/piles': chimie11Piles,
 };
 
 // Brouillons en bamanankan, à faire relire (voir docs/bambara-relecture.md).
